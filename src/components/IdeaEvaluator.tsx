@@ -8,6 +8,7 @@ import { Lightbulb, TrendingUp, Target, CheckCircle, Sparkles, Settings } from "
 import { useToast } from "@/hooks/use-toast";
 import { GrokService } from "@/services/GrokService";
 import { ApiKeySetup } from "@/components/ApiKeySetup";
+import { SlotMachine } from "@/components/SlotMachine";
 
 interface EvaluationResult {
   researchSummary: string;
@@ -33,6 +34,7 @@ export const IdeaEvaluator = () => {
   const [evaluation, setEvaluation] = useState<EvaluationResult | null>(null);
   const [showApiSetup, setShowApiSetup] = useState(false);
   const [hasApiKey, setHasApiKey] = useState(false);
+  const [showSlotMachine, setShowSlotMachine] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -65,7 +67,22 @@ export const IdeaEvaluator = () => {
     
     try {
       const result = await GrokService.evaluateIdea(idea);
-      setEvaluation(result);
+      
+      // Show slot machine effect first
+      setShowSlotMachine(true);
+      setEvaluation({
+        ...result,
+        innovation: { ...result.innovation, score: 0 },
+        scalability: { ...result.scalability, score: 0 },
+        viability: { ...result.viability, score: 0 },
+        overallScore: 0
+      });
+      
+      // After a brief delay, show the real results with slot machine
+      setTimeout(() => {
+        setEvaluation(result);
+      }, 100);
+      
       toast({
         title: "Evaluation Complete! 🔥",
         description: "Your idea has been thoroughly analyzed by Grok AI.",
@@ -79,6 +96,8 @@ export const IdeaEvaluator = () => {
       });
     } finally {
       setIsEvaluating(false);
+      // Reset slot machine after results are shown
+      setTimeout(() => setShowSlotMachine(false), 3000);
     }
   };
 
@@ -98,6 +117,7 @@ export const IdeaEvaluator = () => {
   const handleEvaluateAnother = () => {
     setIdea("");
     setEvaluation(null);
+    setShowSlotMachine(false);
   };
 
   const getScoreColor = (score: number) => {
@@ -220,8 +240,16 @@ Describe your product, app, service, or business idea in detail..."
           {/* Overall Score */}
           <Card className="border-success/50 bg-gradient-success/5 shadow-glow-card">
             <CardContent className="p-8 text-center">
-              <div className="text-6xl font-bold text-success mb-2 animate-glow-text">
-                {evaluation.overallScore}/10
+              <div className="text-6xl font-bold text-success mb-2 h-20 flex items-center justify-center">
+                {showSlotMachine && evaluation ? (
+                  <SlotMachine 
+                    finalValue={evaluation.overallScore} 
+                    duration={2500}
+                    className="animate-glow-text"
+                  />
+                ) : (
+                  <span className="animate-glow-text">{evaluation.overallScore}/10</span>
+                )}
               </div>
               <Badge variant="secondary" className="bg-success/20 text-success text-lg px-4 py-2">
                 {getScoreLabel(evaluation.overallScore)}
@@ -241,7 +269,17 @@ Describe your product, app, service, or business idea in detail..."
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <div className="text-3xl font-bold animate-glow-text">{evaluation.innovation.score}</div>
+                  <div className="text-3xl font-bold h-12 flex items-center">
+                    {showSlotMachine && evaluation ? (
+                      <SlotMachine 
+                        finalValue={evaluation.innovation.score} 
+                        duration={2000}
+                        className="animate-glow-text"
+                      />
+                    ) : (
+                      <span className="animate-glow-text">{evaluation.innovation.score}</span>
+                    )}
+                  </div>
                   <div className="flex-1">
                     <Progress 
                       value={evaluation.innovation.score * 10} 
@@ -262,7 +300,17 @@ Describe your product, app, service, or business idea in detail..."
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <div className="text-3xl font-bold animate-glow-text">{evaluation.scalability.score}</div>
+                  <div className="text-3xl font-bold h-12 flex items-center">
+                    {showSlotMachine && evaluation ? (
+                      <SlotMachine 
+                        finalValue={evaluation.scalability.score} 
+                        duration={2200}
+                        className="animate-glow-text"
+                      />
+                    ) : (
+                      <span className="animate-glow-text">{evaluation.scalability.score}</span>
+                    )}
+                  </div>
                   <div className="flex-1">
                     <Progress 
                       value={evaluation.scalability.score * 10} 
@@ -283,7 +331,17 @@ Describe your product, app, service, or business idea in detail..."
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <div className="text-3xl font-bold animate-glow-text">{evaluation.viability.score}</div>
+                  <div className="text-3xl font-bold h-12 flex items-center">
+                    {showSlotMachine && evaluation ? (
+                      <SlotMachine 
+                        finalValue={evaluation.viability.score} 
+                        duration={2400}
+                        className="animate-glow-text"
+                      />
+                    ) : (
+                      <span className="animate-glow-text">{evaluation.viability.score}</span>
+                    )}
+                  </div>
                   <div className="flex-1">
                     <Progress 
                       value={evaluation.viability.score * 10} 

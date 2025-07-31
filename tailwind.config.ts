@@ -137,6 +137,19 @@ export default {
 					'50%': { 
 						textShadow: '0 0 30px hsl(var(--primary) / 0.8)' 
 					}
+				},
+				'slot-machine': {
+					'0%': { transform: 'translateY(0)' },
+					'10%': { transform: 'translateY(-100%)' },
+					'20%': { transform: 'translateY(-200%)' },
+					'30%': { transform: 'translateY(-300%)' },
+					'40%': { transform: 'translateY(-400%)' },
+					'50%': { transform: 'translateY(-500%)' },
+					'60%': { transform: 'translateY(-600%)' },
+					'70%': { transform: 'translateY(-700%)' },
+					'80%': { transform: 'translateY(-800%)' },
+					'90%': { transform: 'translateY(-900%)' },
+					'100%': { transform: 'translateY(0)' }
 				}
 			},
 			animation: {
@@ -144,7 +157,10 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'slide-up': 'slide-up 0.3s ease-out',
-				'glow-text': 'glow-text 2s ease-in-out infinite'
+				'glow-text': 'glow-text 2s ease-in-out infinite',
+				'slot-machine-fast': 'slot-machine 0.1s linear infinite',
+				'slot-machine-slow': 'slot-machine 0.3s ease-out infinite',
+				'slot-machine-final': 'slot-machine 0.6s ease-out forwards'
 			}
 		}
 	},
