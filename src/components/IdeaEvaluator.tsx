@@ -126,10 +126,12 @@ export const IdeaEvaluator = () => {
     return "bg-destructive";
   };
 
-  const getScoreLabel = (score: number) => {
-    if (score >= 8) return "Excellent";
-    if (score >= 6) return "Good";
-    return "Needs Work";
+  const getScoreLabel = (overallScore: number) => {
+    if (overallScore >= 25) return "Exceptional";
+    if (overallScore >= 20) return "Strong";
+    if (overallScore >= 15) return "Decent";
+    if (overallScore >= 10) return "Poor";
+    return "Very Poor";
   };
 
   // Show API setup if needed
@@ -242,13 +244,16 @@ Describe your product, app, service, or business idea in detail..."
             <CardContent className="p-8 text-center">
               <div className="text-6xl font-bold text-success mb-2 h-20 flex items-center justify-center">
                 {showSlotMachine && evaluation ? (
-                  <SlotMachine 
-                    finalValue={evaluation.overallScore} 
-                    duration={2500}
-                    className="animate-glow-text"
-                  />
+                  <div className="flex items-baseline gap-2">
+                    <SlotMachine 
+                      finalValue={evaluation.overallScore} 
+                      duration={2500}
+                      className="animate-glow-text"
+                    />
+                    <span className="text-3xl">/30</span>
+                  </div>
                 ) : (
-                  <span className="animate-glow-text">{evaluation.overallScore}/10</span>
+                  <span className="animate-glow-text">{evaluation.overallScore}/30</span>
                 )}
               </div>
               <Badge variant="secondary" className="bg-success/20 text-success text-lg px-4 py-2">

@@ -20,7 +20,8 @@ export const SlotMachine = ({ finalValue, duration = 2500, className = "" }: Slo
     // Fast spinning phase - rapid random numbers
     const fastSpin = () => {
       interval = setInterval(() => {
-        setCurrentValue(Math.floor(Math.random() * 10) + 1);
+        const maxValue = finalValue > 10 ? 30 : 10; // Handle both individual scores (1-10) and overall (1-30)
+        setCurrentValue(Math.floor(Math.random() * maxValue) + 1);
       }, 50);
     };
 
@@ -36,7 +37,8 @@ export const SlotMachine = ({ finalValue, duration = 2500, className = "" }: Slo
       // Slower spinning with numbers closer to final value
       interval = setInterval(() => {
         const variance = Math.random() > 0.7 ? (Math.random() - 0.5) * 4 : 0;
-        const newValue = Math.max(1, Math.min(10, Math.round(finalValue + variance)));
+        const maxValue = finalValue > 10 ? 30 : 10;
+        const newValue = Math.max(1, Math.min(maxValue, Math.round(finalValue + variance)));
         setCurrentValue(newValue);
       }, 150);
     }, 1000);
@@ -49,7 +51,8 @@ export const SlotMachine = ({ finalValue, duration = 2500, className = "" }: Slo
       // Very slow spinning with numbers very close to final
       interval = setInterval(() => {
         const variance = Math.random() > 0.8 ? (Math.random() - 0.5) * 2 : 0;
-        const newValue = Math.max(1, Math.min(10, Math.round(finalValue + variance)));
+        const maxValue = finalValue > 10 ? 30 : 10;
+        const newValue = Math.max(1, Math.min(maxValue, Math.round(finalValue + variance)));
         setCurrentValue(newValue);
       }, 300);
     }, 2000);

@@ -94,60 +94,62 @@ Evaluate feasibility - demand, competition, monetisation, hurdles.
 Give 5-10 actionable ideas to improve. Number them.
 
 ### 6. **SCORING RULES - MUST BE CONSISTENT**
-Use these EXACT criteria. Same concept types should score similarly.
+Use these EXACT criteria. Each criterion is INDEPENDENT and focuses on different aspects.
 
-**Innovation (1-10) - Rate based on differentiation and novelty:**
+**Innovation (1-10) - Rate PURELY on novelty and differentiation:**
 - 1-2: Direct copy of existing major solutions (Uber clone, Facebook clone)
 - 3-4: Minor variations of existing solutions (different UI, slight feature changes)
 - 5-6: Meaningful improvements to existing concepts (better UX, efficiency gains)
 - 7-8: Significant innovation with unique approach (new business model, tech integration)
 - 9-10: Revolutionary concepts that don't exist (breakthrough technology, paradigm shift)
 
-**Scalability (1-10) - Rate based on growth potential:**
-- 1-2: Local/personal service, physical constraints, manual processes
+**Scalability (1-10) - Rate PURELY on growth potential (regardless of innovation):**
+- 1-2: Local/personal service, physical constraints, manual processes only
 - 3-4: Regional potential, some automation, moderate tech requirements
 - 5-6: National potential, good tech foundation, standard scaling challenges
 - 7-8: Global potential, strong tech platform, network effects possible
 - 9-10: Massive global scale, viral/exponential growth potential, platform effects
 
-**Viability (1-10) - Rate based on market readiness and execution feasibility:**
-- 1-2: No clear market, unrealistic assumptions, major technical hurdles
-- 3-4: Niche market, unclear monetisation, significant challenges
+**Viability (1-10) - Rate PURELY on market readiness and execution feasibility:**
+- 1-2: No clear market, unrealistic assumptions, major technical/regulatory hurdles
+- 3-4: Niche market, unclear monetisation, significant execution challenges
 - 5-6: Decent market size, clear revenue model, manageable challenges
 - 7-8: Large market, proven demand, realistic execution path
-- 9-10: Huge market, urgent need, clear path to profitability
+- 9-10: Huge market, urgent need, clear path to profitability, low barriers
 
-**CONSISTENCY CHECKERS:**
-- Food delivery app = Innovation: 2-3, Scalability: 6-7, Viability: 5-6
-- AI-powered personal assistant = Innovation: 4-5, Scalability: 7-8, Viability: 6-7
-- Social media platform = Innovation: 2-3, Scalability: 8-9, Viability: 3-4
-- B2B SaaS tool = Innovation: 5-7, Scalability: 6-8, Viability: 6-8
-- Hardware product = Innovation: 5-8, Scalability: 4-6, Viability: 4-6
-- Marketplace = Innovation: 3-5, Scalability: 7-9, Viability: 5-7
+**IMPORTANT: Each score is INDEPENDENT. Examples:**
+- A highly innovative idea (9/10) might have poor scalability (3/10) due to niche market
+- A non-innovative idea (3/10) might have excellent scalability (8/10) if it's a proven model
+- A scalable idea (8/10) might have poor viability (4/10) due to regulatory issues
 
-**Overall Score = (Innovation + Scalability + Viability) / 3 (rounded to 1 decimal)**
+**Overall Score = Innovation + Scalability + Viability (out of 30 total)**
+- 25-30: Exceptional opportunity across all dimensions
+- 20-24: Strong overall opportunity with some weaknesses
+- 15-19: Decent opportunity but significant challenges
+- 10-14: Poor opportunity, major issues in multiple areas
+- 5-9: Very poor opportunity, fundamental problems
 
 **RETURN YOUR RESPONSE AS A JSON OBJECT WITH THIS EXACT STRUCTURE:**
 {
   "researchSummary": "Your research findings here",
   "innovation": {
-    "analysis": "Your innovation analysis with specific reference to scoring criteria",
-    "score": 5.2
+    "analysis": "Focus ONLY on novelty and differentiation vs existing solutions",
+    "score": 5
   },
   "scalability": {
-    "analysis": "Your scalability analysis with specific reference to scoring criteria", 
-    "score": 6.5
+    "analysis": "Focus ONLY on growth potential and scaling mechanisms", 
+    "score": 8
   },
   "viability": {
-    "analysis": "Your viability analysis with specific reference to scoring criteria",
-    "score": 5.8
+    "analysis": "Focus ONLY on market demand, execution feasibility, and monetisation",
+    "score": 6
   },
   "suggestions": [
     "Suggestion 1",
     "Suggestion 2",
     "etc"
   ],
-  "overallScore": 5.8
+  "overallScore": 19
 }
 
 Only return the JSON object, no other text.`;
