@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Lightbulb, TrendingUp, Target, CheckCircle, Sparkles } from "lucide-react";
+import { Lightbulb, TrendingUp, Target, CheckCircle, Sparkles, Settings } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { GrokService } from "@/services/GrokService";
+import { ApiKeySetup } from "@/components/ApiKeySetup";
 
 interface EvaluationResult {
   researchSummary: string;
@@ -25,38 +27,18 @@ interface EvaluationResult {
   overallScore: number;
 }
 
-const mockEvaluation: EvaluationResult = {
-  researchSummary: "Initial research shows several similar concepts in the market including Rover, Wag, and Petco's telehealth services. However, AI-powered matching remains underexplored with significant differentiation opportunities.",
-  innovation: {
-    analysis: "AI matching algorithms for pet-owner-vet relationships represent a novel approach. Current solutions lack personalized matching based on pet behavior, medical history, and owner preferences.",
-    score: 8.2
-  },
-  scalability: {
-    analysis: "Strong scalability potential with cloud infrastructure. Network effects increase value as more vets and pet owners join. Global expansion possible with localized vet networks.",
-    score: 8.7
-  },
-  viability: {
-    analysis: "High market demand with $261B global pet industry. Clear monetization through subscription fees and commission structure. Regulatory hurdles manageable through proper veterinary partnerships.",
-    score: 7.9
-  },
-  suggestions: [
-    "Partner with established veterinary chains for immediate credibility and network access",
-    "Implement blockchain for secure, portable pet medical records",
-    "Add emergency consultation features for urgent pet health issues",
-    "Develop AI-powered symptom checker for preliminary assessments",
-    "Create loyalty rewards program for frequent users",
-    "Integrate with pet insurance providers for seamless claims",
-    "Build mobile-first experience with offline consultation booking",
-    "Add community features for pet owner knowledge sharing"
-  ],
-  overallScore: 8.3
-};
-
 export const IdeaEvaluator = () => {
   const [idea, setIdea] = useState("");
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [evaluation, setEvaluation] = useState<EvaluationResult | null>(null);
+  const [showApiSetup, setShowApiSetup] = useState(false);
+  const [hasApiKey, setHasApiKey] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const apiKey = GrokService.getApiKey();
+    setHasApiKey(!!apiKey);
+  }, []);
 
   const handleEvaluate = async () => {
     if (!idea.trim()) {
@@ -68,17 +50,54 @@ export const IdeaEvaluator = () => {
       return;
     }
 
+    if (!hasApiKey) {
+      setShowApiSetup(true);
+      toast({
+        title: "API key required",
+        description: "Please set up your Grok API key to start evaluating ideas.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsEvaluating(true);
+    setEvaluation(null);
     
-    // Simulate API call delay
-    setTimeout(() => {
-      setEvaluation(mockEvaluation);
-      setIsEvaluating(false);
+    try {
+      const result = await GrokService.evaluateIdea(idea);
+      setEvaluation(result);
       toast({
         title: "Evaluation Complete! 🔥",
-        description: "Your idea has been thoroughly analyzed by Lovable AI.",
+        description: "Your idea has been thoroughly analyzed by Grok AI.",
       });
-    }, 3000);
+    } catch (error) {
+      console.error('Evaluation error:', error);
+      toast({
+        title: "Evaluation Failed",
+        description: error instanceof Error ? error.message : "Failed to evaluate idea. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsEvaluating(false);
+    }
+  };
+
+  const handleApiKeySet = () => {
+    setHasApiKey(true);
+    setShowApiSetup(false);
+    toast({
+      title: "Ready to go! 🚀",
+      description: "You can now start evaluating your ideas.",
+    });
+  };
+
+  const handleShowApiSetup = () => {
+    setShowApiSetup(true);
+  };
+
+  const handleEvaluateAnother = () => {
+    setIdea("");
+    setEvaluation(null);
   };
 
   const getScoreColor = (score: number) => {
@@ -93,6 +112,26 @@ export const IdeaEvaluator = () => {
     return "Needs Work";
   };
 
+  // Show API setup if needed
+  if (showApiSetup || !hasApiKey) {
+    return (
+      <div className="min-h-screen bg-background p-4 space-y-8">
+        <div className="text-center space-y-4 py-8">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Sparkles className="h-8 w-8 text-innovation animate-pulse-glow" />
+            <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              LOVABLE: BUILD THIS?
+            </h1>
+          </div>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            AI checks your idea with research-backed analysis, scoring innovation, scalability, and viability
+          </p>
+        </div>
+        <ApiKeySetup onApiKeySet={handleApiKeySet} />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background p-4 space-y-8">
       {/* Header */}
@@ -106,6 +145,15 @@ export const IdeaEvaluator = () => {
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
           AI checks your idea with research-backed analysis, scoring innovation, scalability, and viability
         </p>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleShowApiSetup}
+          className="text-muted-foreground hover:text-innovation"
+        >
+          <Settings className="h-4 w-4 mr-1" />
+          API Settings
+        </Button>
       </div>
 
       {/* Input Section */}
@@ -274,7 +322,7 @@ export const IdeaEvaluator = () => {
                 <Button variant="innovation" size="lg">
                   Start Building with Lovable
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" onClick={handleEvaluateAnother}>
                   Evaluate Another Idea
                 </Button>
               </div>
