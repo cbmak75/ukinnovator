@@ -26,18 +26,65 @@ interface EvaluationResult {
 
 export class GrokService {
   private static readonly API_URL = 'https://api.x.ai/v1/chat/completions';
-  private static readonly STORAGE_KEY = 'grok_api_key';
 
-  static saveApiKey(apiKey: string): void {
-    localStorage.setItem(this.STORAGE_KEY, apiKey);
+  // Save API key to Supabase user profile
+  static async saveApiKey(apiKey: string): Promise<void> {
+    const { supabase } = await import('@/integrations/supabase/client');
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (!user) {
+      throw new Error('User must be authenticated to save API key');
+    }
+
+    const { error } = await supabase
+      .from('users')
+      .update({ grok_api_key: apiKey })
+      .eq('id', user.id);
+
+    if (error) {
+      throw new Error(`Failed to save API key: ${error.message}`);
+    }
   }
 
-  static getApiKey(): string | null {
-    return localStorage.getItem(this.STORAGE_KEY);
+  // Get API key from Supabase user profile
+  static async getApiKey(): Promise<string | null> {
+    const { supabase } = await import('@/integrations/supabase/client');
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (!user) {
+      return null;
+    }
+
+    const { data, error } = await supabase
+      .from('users')
+      .select('grok_api_key')
+      .eq('id', user.id)
+      .single();
+
+    if (error || !data) {
+      return null;
+    }
+
+    return data.grok_api_key;
   }
 
-  static clearApiKey(): void {
-    localStorage.removeItem(this.STORAGE_KEY);
+  // Clear API key from Supabase user profile
+  static async clearApiKey(): Promise<void> {
+    const { supabase } = await import('@/integrations/supabase/client');
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (!user) {
+      throw new Error('User must be authenticated to clear API key');
+    }
+
+    const { error } = await supabase
+      .from('users')
+      .update({ grok_api_key: null })
+      .eq('id', user.id);
+
+    if (error) {
+      throw new Error(`Failed to clear API key: ${error.message}`);
+    }
   }
 
   static async testApiKey(apiKey: string): Promise<boolean> {
@@ -63,7 +110,7 @@ export class GrokService {
   }
 
   static async evaluateIdea(idea: string): Promise<EvaluationResult> {
-    const apiKey = this.getApiKey();
+    const apiKey = await this.getApiKey();
     if (!apiKey) {
       throw new Error('No API key found. Please set your Grok API key first.');
     }
