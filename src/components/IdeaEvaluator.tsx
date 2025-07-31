@@ -138,12 +138,12 @@ export const IdeaEvaluator = () => {
       <div className="text-center space-y-4 py-8">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Sparkles className="h-8 w-8 text-innovation animate-pulse-glow" />
-          <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-glow-text">
             FF: FOUNDER FEEDBACK
           </h1>
         </div>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          AI checks your idea with research-backed analysis, scoring innovation, scalability, and viability
+          AI checks your idea with research-backed analysis, scoring innovation, scalability, and viability 🚀
         </p>
         <Button
           variant="ghost"
@@ -157,28 +157,45 @@ export const IdeaEvaluator = () => {
       </div>
 
       {/* Input Section */}
-      <Card className="max-w-4xl mx-auto border-border/50 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Lightbulb className="h-5 w-5 text-innovation" />
-            Share Your Idea
+      <Card className="max-w-4xl mx-auto border-innovation/30 backdrop-blur-sm shadow-glow-card bg-card/80">
+        <CardHeader className="pb-4">
+          <CardTitle className="flex items-center gap-2 text-2xl">
+            <Lightbulb className="h-6 w-6 text-innovation animate-pulse-glow" />
+            <span className="bg-gradient-primary bg-clip-text text-transparent animate-glow-text">
+              Share Your Idea
+            </span>
           </CardTitle>
+          <p className="text-muted-foreground">
+            Tell us about your brilliant idea and we'll give you detailed feedback! ✨
+          </p>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <Textarea
-            placeholder="Describe your product, app, service, or business idea in detail..."
-            value={idea}
-            onChange={(e) => setIdea(e.target.value)}
-            className="min-h-32 bg-background/50 border-border/50"
-          />
+        <CardContent className="space-y-6">
+          <div className="relative">
+            <Textarea
+              placeholder="💡 Examples:
+• A mobile app that helps people find local food trucks in real-time
+• A platform connecting freelance graphic designers with small businesses
+• An AI-powered personal finance coach for Gen Z
+• A subscription service for eco-friendly home cleaning products
+• A VR fitness game that makes working out feel like an adventure
+
+Describe your product, app, service, or business idea in detail..."
+              value={idea}
+              onChange={(e) => setIdea(e.target.value)}
+              className="min-h-40 text-lg bg-background/80 border-innovation/20 focus:border-innovation/50 focus:shadow-glow-primary transition-all duration-300 resize-none"
+            />
+            <div className="absolute top-3 right-3">
+              <Sparkles className="h-5 w-5 text-innovation/40" />
+            </div>
+          </div>
           <Button 
             variant="evaluate" 
             size="lg" 
             onClick={handleEvaluate}
             disabled={isEvaluating}
-            className="w-full"
+            className="w-full text-lg py-6 shadow-glow-primary hover:shadow-glow-primary transition-all duration-300"
           >
-            {isEvaluating ? "Analyzing your idea..." : "Evaluate My Idea 🔥"}
+            {isEvaluating ? "🔍 Analyzing your idea..." : "🚀 Evaluate My Idea"}
           </Button>
         </CardContent>
       </Card>
@@ -201,30 +218,30 @@ export const IdeaEvaluator = () => {
       {evaluation && (
         <div className="max-w-6xl mx-auto space-y-6 animate-slide-up">
           {/* Overall Score */}
-          <Card className="border-success/50 bg-gradient-success/5">
+          <Card className="border-success/50 bg-gradient-success/5 shadow-glow-card">
             <CardContent className="p-8 text-center">
-              <div className="text-6xl font-bold text-success mb-2">
+              <div className="text-6xl font-bold text-success mb-2 animate-glow-text">
                 {evaluation.overallScore}/10
               </div>
-              <Badge variant="secondary" className="bg-success/20 text-success">
+              <Badge variant="secondary" className="bg-success/20 text-success text-lg px-4 py-2">
                 {getScoreLabel(evaluation.overallScore)}
               </Badge>
-              <p className="text-muted-foreground mt-2">Overall FF Score</p>
+              <p className="text-muted-foreground mt-2 text-lg">Overall FF Score ⭐</p>
             </CardContent>
           </Card>
 
           {/* Detailed Scores */}
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="border-border/50">
+            <Card className="border-innovation/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-innovation">
-                  <Lightbulb className="h-5 w-5" />
-                  Innovation
+                <CardTitle className="flex items-center gap-2 text-innovation animate-glow-text">
+                  <Lightbulb className="h-5 w-5 animate-pulse-glow" />
+                  Innovation 💡
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <div className="text-3xl font-bold">{evaluation.innovation.score}</div>
+                  <div className="text-3xl font-bold animate-glow-text">{evaluation.innovation.score}</div>
                   <div className="flex-1">
                     <Progress 
                       value={evaluation.innovation.score * 10} 
@@ -236,16 +253,16 @@ export const IdeaEvaluator = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-border/50">
+            <Card className="border-info/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-info">
-                  <TrendingUp className="h-5 w-5" />
-                  Scalability
+                <CardTitle className="flex items-center gap-2 text-info animate-glow-text">
+                  <TrendingUp className="h-5 w-5 animate-pulse-glow" />
+                  Scalability 📈
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <div className="text-3xl font-bold">{evaluation.scalability.score}</div>
+                  <div className="text-3xl font-bold animate-glow-text">{evaluation.scalability.score}</div>
                   <div className="flex-1">
                     <Progress 
                       value={evaluation.scalability.score * 10} 
@@ -257,16 +274,16 @@ export const IdeaEvaluator = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-border/50">
+            <Card className="border-success/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-success">
-                  <Target className="h-5 w-5" />
-                  Viability
+                <CardTitle className="flex items-center gap-2 text-success animate-glow-text">
+                  <Target className="h-5 w-5 animate-pulse-glow" />
+                  Viability 🎯
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <div className="text-3xl font-bold">{evaluation.viability.score}</div>
+                  <div className="text-3xl font-bold animate-glow-text">{evaluation.viability.score}</div>
                   <div className="flex-1">
                     <Progress 
                       value={evaluation.viability.score * 10} 
@@ -314,9 +331,9 @@ export const IdeaEvaluator = () => {
           {/* CTA */}
           <Card className="border-innovation/50 bg-gradient-primary/5">
             <CardContent className="p-8 text-center space-y-4">
-              <h3 className="text-2xl font-bold">Ready to Build? 🚀</h3>
+              <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-glow-text">Ready to Build? 🚀</h3>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Your idea shows strong potential! Consider implementing the suggestions above and start building your MVP.
+                Your idea shows strong potential! Consider implementing the suggestions above and start building your MVP. ✨
               </p>
               <div className="flex justify-center">
                 <Button variant="outline" size="lg" onClick={handleEvaluateAnother}>

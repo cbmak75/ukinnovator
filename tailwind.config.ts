@@ -92,6 +92,8 @@ export default {
 			boxShadow: {
 				'glow-primary': 'var(--glow-primary)',
 				'glow-success': 'var(--glow-success)',
+				'glow-text': 'var(--glow-text)',
+				'glow-card': 'var(--glow-card)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -127,13 +129,22 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0px)'
 					}
+				},
+				'glow-text': {
+					'0%, 100%': { 
+						textShadow: '0 0 10px hsl(var(--primary) / 0.5)' 
+					},
+					'50%': { 
+						textShadow: '0 0 30px hsl(var(--primary) / 0.8)' 
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-				'slide-up': 'slide-up 0.3s ease-out'
+				'slide-up': 'slide-up 0.3s ease-out',
+				'glow-text': 'glow-text 2s ease-in-out infinite'
 			}
 		}
 	},
