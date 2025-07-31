@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { IdeaEvaluator } from "@/components/IdeaEvaluator";
-import ffLogo from "@/assets/ff-character-logo.png";
+import fLogo from "@/assets/f-character-logo.png";
 
 const Index = () => {
   const [showApp, setShowApp] = useState(false);
@@ -17,8 +17,8 @@ const Index = () => {
         <CardContent className="p-8">
           <div className="mb-8">
             <img 
-              src={ffLogo} 
-              alt="FF Character" 
+              src={fLogo} 
+              alt="F Character" 
               className="w-32 h-32 mx-auto mb-6"
             />
             <h1 className="text-4xl font-bold mb-4 text-foreground">
