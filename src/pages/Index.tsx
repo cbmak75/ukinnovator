@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { IdeaEvaluator } from "@/components/IdeaEvaluator";
-import fLogo from "@/assets/f-character-logo.png";
+import fLogo from "@/assets/f-character-3d-logo.png";
 
 const Index = () => {
   const [showApp, setShowApp] = useState(false);
