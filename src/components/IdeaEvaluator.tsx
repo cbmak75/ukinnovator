@@ -120,7 +120,7 @@ export const IdeaEvaluator = () => {
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="h-8 w-8 text-innovation animate-pulse-glow" />
             <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              LOVABLE: BUILD THIS?
+              FF: FOUNDER FEEDBACK
             </h1>
           </div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -139,7 +139,7 @@ export const IdeaEvaluator = () => {
         <div className="flex items-center justify-center gap-2 mb-4">
           <Sparkles className="h-8 w-8 text-innovation animate-pulse-glow" />
           <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            LOVABLE: BUILD THIS?
+            FF: FOUNDER FEEDBACK
           </h1>
         </div>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -190,7 +190,7 @@ export const IdeaEvaluator = () => {
             <div className="w-16 h-16 mx-auto bg-gradient-primary rounded-full flex items-center justify-center animate-pulse-glow">
               <Sparkles className="h-8 w-8 text-white animate-spin" />
             </div>
-            <h3 className="text-xl font-semibold">Lovable AI is researching your idea...</h3>
+            <h3 className="text-xl font-semibold">FF is researching your idea...</h3>
             <p className="text-muted-foreground">Analyzing market data, competition, and innovation potential</p>
             <Progress value={66} className="w-full max-w-md mx-auto" />
           </CardContent>
@@ -209,7 +209,7 @@ export const IdeaEvaluator = () => {
               <Badge variant="secondary" className="bg-success/20 text-success">
                 {getScoreLabel(evaluation.overallScore)}
               </Badge>
-              <p className="text-muted-foreground mt-2">Overall Lovable Score</p>
+              <p className="text-muted-foreground mt-2">Overall FF Score</p>
             </CardContent>
           </Card>
 
@@ -320,7 +320,7 @@ export const IdeaEvaluator = () => {
               </p>
               <div className="flex gap-4 justify-center">
                 <Button variant="innovation" size="lg">
-                  Start Building with Lovable
+                  Start Building with FF
                 </Button>
                 <Button variant="outline" size="lg" onClick={handleEvaluateAnother}>
                   Evaluate Another Idea
