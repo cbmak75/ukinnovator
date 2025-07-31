@@ -318,10 +318,7 @@ export const IdeaEvaluator = () => {
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Your idea shows strong potential! Consider implementing the suggestions above and start building your MVP.
               </p>
-              <div className="flex gap-4 justify-center">
-                <Button variant="innovation" size="lg">
-                  Start Building with FF
-                </Button>
+              <div className="flex justify-center">
                 <Button variant="outline" size="lg" onClick={handleEvaluateAnother}>
                   Evaluate Another Idea
                 </Button>
