@@ -50,7 +50,7 @@ export class GrokService {
         },
         body: JSON.stringify({
           messages: [{ role: 'user', content: 'Hello' }],
-          model: 'grok-beta',
+          model: 'grok-2-1212',
           max_tokens: 10,
         }),
       });
@@ -130,7 +130,7 @@ Only return the JSON object, no other text.`;
             { role: 'system', content: systemPrompt },
             { role: 'user', content: `Evaluate this idea: ${idea}` }
           ],
-          model: 'grok-beta',
+          model: 'grok-2-1212',
           max_tokens: 2000,
           temperature: 0.7,
         }),
