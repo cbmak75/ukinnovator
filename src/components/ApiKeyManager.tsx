@@ -23,9 +23,9 @@ const ApiKeyManager = ({ onApiKeyUpdate }: ApiKeyManagerProps) => {
     checkExistingApiKey();
   }, []);
 
-  const checkExistingApiKey = async () => {
+  const checkExistingApiKey = () => {
     try {
-      const existingKey = await GrokService.getApiKey();
+      const existingKey = GrokService.getApiKey();
       setHasApiKey(!!existingKey);
       if (existingKey) {
         setApiKey('••••••••••••••••••••');
@@ -44,7 +44,7 @@ const ApiKeyManager = ({ onApiKeyUpdate }: ApiKeyManagerProps) => {
       const isValidKey = await GrokService.testApiKey(apiKey);
       
       if (isValidKey) {
-        await GrokService.saveApiKey(apiKey);
+        GrokService.saveApiKey(apiKey);
         setIsValid(true);
         setHasApiKey(true);
         setApiKey('••••••••••••••••••••');
@@ -73,9 +73,9 @@ const ApiKeyManager = ({ onApiKeyUpdate }: ApiKeyManagerProps) => {
     }
   };
 
-  const handleClearKey = async () => {
+  const handleClearKey = () => {
     try {
-      await GrokService.clearApiKey();
+      GrokService.clearApiKey();
       setApiKey('');
       setIsValid(null);
       setHasApiKey(false);

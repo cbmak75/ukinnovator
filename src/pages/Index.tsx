@@ -7,10 +7,9 @@ import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
-import { useAuth } from '@/hooks/useAuth';
 import { GrokService } from '@/services/GrokService';
 import ApiKeyManager from '@/components/ApiKeyManager';
-import { Lightbulb, LogOut, Sparkles, TrendingUp, Target, CheckCircle, Settings } from 'lucide-react';
+import { Lightbulb, Sparkles, TrendingUp, Target, CheckCircle, Settings } from 'lucide-react';
 
 interface EvaluationResult {
   researchSummary: string;
@@ -36,25 +35,15 @@ const Index = () => {
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [hasApiKey, setHasApiKey] = useState(false);
   const [showApiKeyManager, setShowApiKeyManager] = useState(false);
-  const { user, loading, signOut } = useAuth();
-  const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
-    if (!loading && !user) {
-      navigate('/auth');
-    }
-  }, [user, loading, navigate]);
+    checkApiKey();
+  }, []);
 
-  useEffect(() => {
-    if (user) {
-      checkApiKey();
-    }
-  }, [user]);
-
-  const checkApiKey = async () => {
+  const checkApiKey = () => {
     try {
-      const apiKey = await GrokService.getApiKey();
+      const apiKey = GrokService.getApiKey();
       setHasApiKey(!!apiKey);
     } catch (error) {
       console.error('Error checking API key:', error);
@@ -112,18 +101,6 @@ const Index = () => {
     return "Needs Work";
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return null;
-  }
-
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -144,14 +121,6 @@ const Index = () => {
               >
                 <Settings className="w-4 h-4 mr-2" />
                 Settings
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={signOut}
-              >
-                <LogOut className="w-4 h-4 mr-2" />
-                Sign Out
               </Button>
             </div>
           </div>
