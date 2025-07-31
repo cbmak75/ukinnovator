@@ -38,7 +38,7 @@ export class GrokService {
 
     const { error } = await supabase
       .from('users')
-      .update({ grok_api_key: apiKey })
+      .update({ grok_api_key: apiKey } as any)
       .eq('id', user.id);
 
     if (error) {
@@ -65,7 +65,7 @@ export class GrokService {
       return null;
     }
 
-    return data.grok_api_key;
+    return (data as any).grok_api_key;
   }
 
   // Clear API key from Supabase user profile
@@ -79,7 +79,7 @@ export class GrokService {
 
     const { error } = await supabase
       .from('users')
-      .update({ grok_api_key: null })
+      .update({ grok_api_key: null } as any)
       .eq('id', user.id);
 
     if (error) {

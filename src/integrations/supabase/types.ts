@@ -301,6 +301,7 @@ export type Database = {
         Row: {
           created_at: string
           email: string
+          grok_api_key: string | null
           id: string
           name: string
           organization_id: string | null
@@ -310,6 +311,7 @@ export type Database = {
         Insert: {
           created_at?: string
           email: string
+          grok_api_key?: string | null
           id: string
           name: string
           organization_id?: string | null
@@ -319,6 +321,7 @@ export type Database = {
         Update: {
           created_at?: string
           email?: string
+          grok_api_key?: string | null
           id?: string
           name?: string
           organization_id?: string | null
