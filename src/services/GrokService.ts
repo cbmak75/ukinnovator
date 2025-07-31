@@ -76,6 +76,8 @@ export class GrokService {
 
 Follow these steps exactly. Base everything on research. Be honest, objective, detailed, and use the FULL scoring range. Use UK English.
 
+CRITICAL: FOR CONSISTENCY, follow the EXACT scoring criteria below. Same ideas should get similar scores.
+
 ### 1. **RESEARCH EXISTENCE**
 Search if the exact idea or similar ones exist, are in development, or launched. Look for products, startups, patents, apps, or discussions.
 
@@ -91,48 +93,61 @@ Evaluate feasibility - demand, competition, monetisation, hurdles.
 ### 5. **PROVIDE SUGGESTIONS**
 Give 5-10 actionable ideas to improve. Number them.
 
-### 6. **SCORING - USE FULL RANGE 1-10**
-Be realistic and critical. Use the entire scale from 1-10. Most ideas should score in the 4-7 range.
+### 6. **SCORING RULES - MUST BE CONSISTENT**
+Use these EXACT criteria. Same concept types should score similarly.
 
-**Innovation (1-10):**
-- 1-3: Copycat/existing solutions with no differentiation
-- 4-6: Some differentiation but not highly innovative
-- 7-8: Good innovation with clear unique value
-- 9-10: Truly groundbreaking and revolutionary
+**Innovation (1-10) - Rate based on differentiation and novelty:**
+- 1-2: Direct copy of existing major solutions (Uber clone, Facebook clone)
+- 3-4: Minor variations of existing solutions (different UI, slight feature changes)
+- 5-6: Meaningful improvements to existing concepts (better UX, efficiency gains)
+- 7-8: Significant innovation with unique approach (new business model, tech integration)
+- 9-10: Revolutionary concepts that don't exist (breakthrough technology, paradigm shift)
 
-**Scalability (1-10):**
-- 1-3: Severe limitations, local only, hard to scale
-- 4-6: Moderate scaling potential with significant barriers
-- 7-8: Good scaling potential with manageable challenges
-- 9-10: Massive global scaling potential
+**Scalability (1-10) - Rate based on growth potential:**
+- 1-2: Local/personal service, physical constraints, manual processes
+- 3-4: Regional potential, some automation, moderate tech requirements
+- 5-6: National potential, good tech foundation, standard scaling challenges
+- 7-8: Global potential, strong tech platform, network effects possible
+- 9-10: Massive global scale, viral/exponential growth potential, platform effects
 
-**Viability (1-10):**
-- 1-3: Unrealistic, no clear market demand or path to profitability
-- 4-6: Challenging but possible with significant hurdles
-- 7-8: Realistic with clear market and revenue model
-- 9-10: Highly viable with proven demand and clear monetisation
+**Viability (1-10) - Rate based on market readiness and execution feasibility:**
+- 1-2: No clear market, unrealistic assumptions, major technical hurdles
+- 3-4: Niche market, unclear monetisation, significant challenges
+- 5-6: Decent market size, clear revenue model, manageable challenges
+- 7-8: Large market, proven demand, realistic execution path
+- 9-10: Huge market, urgent need, clear path to profitability
+
+**CONSISTENCY CHECKERS:**
+- Food delivery app = Innovation: 2-3, Scalability: 6-7, Viability: 5-6
+- AI-powered personal assistant = Innovation: 4-5, Scalability: 7-8, Viability: 6-7
+- Social media platform = Innovation: 2-3, Scalability: 8-9, Viability: 3-4
+- B2B SaaS tool = Innovation: 5-7, Scalability: 6-8, Viability: 6-8
+- Hardware product = Innovation: 5-8, Scalability: 4-6, Viability: 4-6
+- Marketplace = Innovation: 3-5, Scalability: 7-9, Viability: 5-7
+
+**Overall Score = (Innovation + Scalability + Viability) / 3 (rounded to 1 decimal)**
 
 **RETURN YOUR RESPONSE AS A JSON OBJECT WITH THIS EXACT STRUCTURE:**
 {
   "researchSummary": "Your research findings here",
   "innovation": {
-    "analysis": "Your innovation analysis here",
-    "score": 8.2
+    "analysis": "Your innovation analysis with specific reference to scoring criteria",
+    "score": 5.2
   },
   "scalability": {
-    "analysis": "Your scalability analysis here", 
-    "score": 7.5
+    "analysis": "Your scalability analysis with specific reference to scoring criteria", 
+    "score": 6.5
   },
   "viability": {
-    "analysis": "Your viability analysis here",
-    "score": 8.0
+    "analysis": "Your viability analysis with specific reference to scoring criteria",
+    "score": 5.8
   },
   "suggestions": [
     "Suggestion 1",
     "Suggestion 2",
     "etc"
   ],
-  "overallScore": 7.9
+  "overallScore": 5.8
 }
 
 Only return the JSON object, no other text.`;
@@ -151,7 +166,7 @@ Only return the JSON object, no other text.`;
           ],
           model: 'grok-2-1212',
           max_tokens: 2000,
-          temperature: 0.7,
+          temperature: 0.3,
         }),
       });
 
