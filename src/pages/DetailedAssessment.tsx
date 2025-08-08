@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { GrokService } from "@/services/GrokService";
+import { useNavigate } from "react-router-dom";
 
 interface FormState {
   coreIdea: string;
@@ -64,6 +65,7 @@ const DetailedAssessment = () => {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<null | any>(null);
   const LS_FORM_KEY = "detailedAssessment.form";
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Detailed Assessment – UK Innovator Evaluator";
@@ -290,7 +292,7 @@ const DetailedAssessment = () => {
           <Button variant="outline" onClick={handleReset} className="sm:w-auto w-full">
             Reset
           </Button>
-          <Button variant="outline" onClick={() => window.history.back()} className="sm:w-auto w-full">
+          <Button variant="outline" onClick={() => navigate('/')} className="sm:w-auto w-full">
             Back
           </Button>
         </div>
