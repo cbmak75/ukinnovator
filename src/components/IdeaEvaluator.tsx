@@ -10,7 +10,7 @@ import { GrokService } from "@/services/GrokService";
 
 import { SlotMachine } from "@/components/SlotMachine";
 import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+
 
 interface EvaluationResult {
   researchSummary: string;
@@ -366,7 +366,6 @@ Describe your product, app, service, or business idea in detail..."
           </Card>
         </div>
       )}
-      <SiteFooter />
     </div>
   );
 };
