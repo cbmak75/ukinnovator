@@ -176,7 +176,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             <Button 
-              variant="neutral" 
+              variant="default" 
               size="lg" 
               onClick={handleEvaluate}
               disabled={isEvaluating}
@@ -197,7 +197,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
             <div className="w-16 h-16 mx-auto bg-gradient-primary rounded-full flex items-center justify-center animate-pulse-glow">
               <Sparkles className="h-8 w-8 text-white animate-spin" />
             </div>
-            <h3 className="text-xl font-semibold">FF is researching your idea...</h3>
+            <h3 className="text-xl font-semibold">Researching your idea...</h3>
             <p className="text-muted-foreground">Analyzing market data, competition, and innovation potential</p>
             <Progress value={66} className="w-full max-w-md mx-auto" />
           </CardContent>
@@ -208,7 +208,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
       {evaluation && (
         <div className="max-w-6xl mx-auto space-y-6 animate-slide-up">
           {/* Overall Score */}
-          <Card className="border-success/50 bg-gradient-success/5 shadow-glow-card">
+          <Card className="border-success/50 bg-gradient-success/5">
             <CardContent className="p-8 text-center">
               <div className="text-6xl font-bold text-success mb-2 h-20 flex items-center justify-center">
                 {showSlotMachine && evaluation ? (
@@ -216,27 +216,26 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
                     <SlotMachine 
                       finalValue={evaluation.overallScore} 
                       duration={2500}
-                      className="animate-glow-text"
                     />
                     <span className="text-3xl">/30</span>
                   </div>
                 ) : (
-                  <span className="animate-glow-text">{evaluation.overallScore}/30</span>
+                  <span>{evaluation.overallScore}/30</span>
                 )}
               </div>
               <Badge variant="secondary" className="bg-success/20 text-success text-lg px-4 py-2">
                 {getScoreLabel(evaluation.overallScore)}
               </Badge>
-              <p className="text-muted-foreground mt-2 text-lg">Overall FF Score ⭐</p>
+              <p className="text-muted-foreground mt-2 text-lg">Overall Score ⭐</p>
             </CardContent>
           </Card>
 
           {/* Detailed Scores */}
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="border-innovation/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
+            <Card className="border-innovation/30 transition-all duration-300">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-innovation animate-glow-text">
-                  <Lightbulb className="h-5 w-5 animate-pulse-glow" />
+                <CardTitle className="flex items-center gap-2 text-innovation">
+                  <Lightbulb className="h-5 w-5" />
                   Innovation 💡
                 </CardTitle>
               </CardHeader>
@@ -245,12 +244,11 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
                   <div className="text-3xl font-bold h-12 flex items-center">
                     {showSlotMachine && evaluation ? (
                       <SlotMachine 
-                        finalValue={evaluation.innovation.score} 
-                        duration={2000}
-                        className="animate-glow-text"
-                      />
+                      finalValue={evaluation.innovation.score} 
+                      duration={2000}
+                    />
                     ) : (
-                      <span className="animate-glow-text">{evaluation.innovation.score}</span>
+                      <span>{evaluation.innovation.score}</span>
                     )}
                   </div>
                   <div className="flex-1">
@@ -264,10 +262,10 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
               </CardContent>
             </Card>
 
-            <Card className="border-scalability/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
+            <Card className="border-scalability/30 transition-all duration-300">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-scalability animate-glow-text">
-                  <TrendingUp className="h-5 w-5 animate-pulse-glow" />
+                <CardTitle className="flex items-center gap-2 text-scalability">
+                  <TrendingUp className="h-5 w-5" />
                   Scalability 📈
                 </CardTitle>
               </CardHeader>
@@ -276,12 +274,11 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
                   <div className="text-3xl font-bold h-12 flex items-center">
                     {showSlotMachine && evaluation ? (
                       <SlotMachine 
-                        finalValue={evaluation.scalability.score} 
-                        duration={2200}
-                        className="animate-glow-text"
-                      />
+                      finalValue={evaluation.scalability.score} 
+                      duration={2200}
+                    />
                     ) : (
-                      <span className="animate-glow-text">{evaluation.scalability.score}</span>
+                      <span>{evaluation.scalability.score}</span>
                     )}
                   </div>
                   <div className="flex-1">
@@ -295,10 +292,10 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
               </CardContent>
             </Card>
 
-            <Card className="border-viability/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
+            <Card className="border-viability/30 transition-all duration-300">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-viability animate-glow-text">
-                  <Target className="h-5 w-5 animate-pulse-glow" />
+                <CardTitle className="flex items-center gap-2 text-viability">
+                  <Target className="h-5 w-5" />
                   Viability 🎯
                 </CardTitle>
               </CardHeader>
@@ -307,12 +304,11 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
                   <div className="text-3xl font-bold h-12 flex items-center">
                     {showSlotMachine && evaluation ? (
                       <SlotMachine 
-                        finalValue={evaluation.viability.score} 
-                        duration={2400}
-                        className="animate-glow-text"
-                      />
+                      finalValue={evaluation.viability.score} 
+                      duration={2400}
+                    />
                     ) : (
-                      <span className="animate-glow-text">{evaluation.viability.score}</span>
+                      <span>{evaluation.viability.score}</span>
                     )}
                   </div>
                   <div className="flex-1">
@@ -333,7 +329,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
               <CardTitle>Research Summary</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed">{evaluation.researchSummary}</p>
+              <p className="text-foreground leading-relaxed">{evaluation.researchSummary}</p>
             </CardContent>
           </Card>
 
@@ -362,7 +358,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
           {/* CTA */}
           <Card className="border-innovation/50 bg-gradient-primary/5">
             <CardContent className="p-8 text-center space-y-4">
-              <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-glow-text">Ready to Build? 🚀</h3>
+              <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">Ready to Build? 🚀</h3>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Your idea shows strong potential! Consider implementing the suggestions above and start building your MVP. ✨
               </p>
