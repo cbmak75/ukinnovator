@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { GrokService } from "@/services/GrokService";
 
 import { SlotMachine } from "@/components/SlotMachine";
+import SiteHeader from "@/components/SiteHeader";
 
 interface EvaluationResult {
   researchSummary: string;
@@ -112,15 +113,7 @@ export const IdeaEvaluator = () => {
   return (
     <div className="min-h-screen bg-background p-4 space-y-8">
       {/* Header */}
-      <header className="text-center space-y-4 py-8 bg-header">
-        <img
-          src="/lovable-uploads/7c3ada4e-ea41-46c3-9af2-c6bcb785a131.png"
-          alt="ukinnovator.online – pre-assessment tool for Innovator Founders: innovation, scalability, viability"
-          className="w-full max-w-4xl mx-auto h-auto"
-          loading="lazy"
-        />
-        <h1 className="sr-only">ukinnovator.online</h1>
-      </header>
+      <SiteHeader />
 
       {/* Input Section */}
       <Card className="max-w-4xl mx-auto border-innovation/30 backdrop-blur-sm shadow-glow-card bg-card/80">

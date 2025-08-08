@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { IdeaEvaluator } from "@/components/IdeaEvaluator";
-
+import SiteHeader from "@/components/SiteHeader";
 
 const Index = () => {
   const [showApp, setShowApp] = useState(false);
@@ -15,15 +15,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 flex items-center justify-center p-4">
       <Card className="w-full max-w-2xl mx-auto text-center">
         <CardContent className="p-8">
-          <header className="mb-8">
-            <img
-              src="/lovable-uploads/7c3ada4e-ea41-46c3-9af2-c6bcb785a131.png"
-              alt="ukinnovator.online – pre-assessment tool for Innovator Founders: innovation, scalability, viability"
-              className="w-full max-w-3xl mx-auto h-auto"
-              loading="lazy"
-            />
-          </header>
-          <h1 className="sr-only">ukinnovator.online</h1>
+          <SiteHeader />
           <p className="text-xl text-muted-foreground mb-6">
             Get instant AI‑powered feedback on your innovation, scalability, and viability.
           </p>
