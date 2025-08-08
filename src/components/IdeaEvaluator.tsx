@@ -4,10 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Lightbulb, TrendingUp, Target, CheckCircle, Sparkles, Settings } from "lucide-react";
+import { Lightbulb, TrendingUp, Target, CheckCircle, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { GrokService } from "@/services/GrokService";
-import { ApiKeySetup } from "@/components/ApiKeySetup";
+
 import { SlotMachine } from "@/components/SlotMachine";
 
 interface EvaluationResult {
@@ -32,14 +32,9 @@ export const IdeaEvaluator = () => {
   const [idea, setIdea] = useState("");
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [evaluation, setEvaluation] = useState<EvaluationResult | null>(null);
-  const [showApiSetup, setShowApiSetup] = useState(false);
-  const [hasApiKey, setHasApiKey] = useState(false);
   const [showSlotMachine, setShowSlotMachine] = useState(false);
   const { toast } = useToast();
 
-  useEffect(() => {
-    setHasApiKey(true);
-  }, []);
 
   const handleEvaluate = async () => {
     if (!idea.trim()) {
@@ -91,18 +86,7 @@ export const IdeaEvaluator = () => {
     }
   };
 
-  const handleApiKeySet = () => {
-    setHasApiKey(true);
-    setShowApiSetup(false);
-    toast({
-      title: "Ready to go! 🚀",
-      description: "You can now start evaluating your ideas.",
-    });
-  };
 
-  const handleShowApiSetup = () => {
-    setShowApiSetup(true);
-  };
 
   const handleEvaluateAnother = () => {
     setIdea("");
@@ -124,25 +108,6 @@ export const IdeaEvaluator = () => {
     return "Very Poor";
   };
 
-  // Show API setup if needed
-  if (showApiSetup || !hasApiKey) {
-    return (
-      <div className="min-h-screen bg-background p-4 space-y-8">
-        <div className="text-center space-y-4 py-8">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="h-8 w-8 text-innovation animate-pulse-glow" />
-            <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              FF: FOUNDER FEEDBACK
-            </h1>
-          </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            AI checks your idea with research-backed analysis, scoring innovation, scalability, and viability
-          </p>
-        </div>
-        <ApiKeySetup onApiKeySet={handleApiKeySet} />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background p-4 space-y-8">
@@ -157,15 +122,6 @@ export const IdeaEvaluator = () => {
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
           AI checks your idea with research-backed analysis, scoring innovation, scalability, and viability 🚀
         </p>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={handleShowApiSetup}
-          className="text-muted-foreground hover:text-innovation"
-        >
-          <Settings className="h-4 w-4 mr-1" />
-          API Settings
-        </Button>
       </div>
 
       {/* Input Section */}

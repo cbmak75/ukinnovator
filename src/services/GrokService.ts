@@ -29,22 +29,6 @@ interface EvaluationResult {
 export class GrokService {
   private static readonly API_URL = 'https://api.x.ai/v1/chat/completions';
 
-  private static readonly STORAGE_KEY = 'grok_api_key';
-
-  // Save API key to localStorage
-  static saveApiKey(apiKey: string): void {
-    localStorage.setItem(this.STORAGE_KEY, apiKey);
-  }
-
-  // Get API key from localStorage
-  static getApiKey(): string | null {
-    return localStorage.getItem(this.STORAGE_KEY);
-  }
-
-  // Clear API key from localStorage
-  static clearApiKey(): void {
-    localStorage.removeItem(this.STORAGE_KEY);
-  }
 
   static async testApiKey(_apiKey: string): Promise<boolean> {
     try {
