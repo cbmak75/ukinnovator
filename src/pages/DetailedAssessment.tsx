@@ -62,10 +62,19 @@ const DetailedAssessment = () => {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<null | any>(null);
+  const LS_FORM_KEY = "detailedAssessment.form";
 
   useEffect(() => {
     document.title = "Detailed Assessment – UK Innovator Evaluator";
+    const saved = localStorage.getItem(LS_FORM_KEY);
+    if (saved) {
+      try { setForm(JSON.parse(saved)); } catch {}
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LS_FORM_KEY, JSON.stringify(form));
+  }, [form]);
 
   const compiledPrompt = useMemo(() => {
     const lines = [
@@ -121,6 +130,13 @@ const DetailedAssessment = () => {
 
   const handleChange = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [key]: e.target.value }));
+  };
+
+  const handleReset = () => {
+    setForm(defaultValues);
+    setResult(null);
+    setError(null);
+    localStorage.removeItem(LS_FORM_KEY);
   };
 
   return (
@@ -269,6 +285,9 @@ const DetailedAssessment = () => {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button onClick={onSubmit} disabled={submitting} className="sm:w-auto w-full">
             {submitting ? "Generating assessment…" : "Generate Detailed Assessment"}
+          </Button>
+          <Button variant="outline" onClick={handleReset} className="sm:w-auto w-full">
+            Reset
           </Button>
           <Button variant="outline" onClick={() => window.history.back()} className="sm:w-auto w-full">
             Back

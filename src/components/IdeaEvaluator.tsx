@@ -29,12 +29,13 @@ interface EvaluationResult {
   overallScore: number;
 }
 
-export const IdeaEvaluator = () => {
+export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
   const [idea, setIdea] = useState("");
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [evaluation, setEvaluation] = useState<EvaluationResult | null>(null);
   const [showSlotMachine, setShowSlotMachine] = useState(false);
   const { toast } = useToast();
+  const LS_IDEA_KEY = "ideaEvaluator.idea";
 
 
   const handleEvaluate = async () => {
@@ -87,12 +88,28 @@ export const IdeaEvaluator = () => {
     }
   };
 
+  useEffect(() => {
+    const saved = localStorage.getItem(LS_IDEA_KEY);
+    if (saved) setIdea(saved);
+  }, []);
 
+  useEffect(() => {
+    localStorage.setItem(LS_IDEA_KEY, idea);
+  }, [idea]);
 
-  const handleEvaluateAnother = () => {
+  const handleReset = () => {
     setIdea("");
     setEvaluation(null);
     setShowSlotMachine(false);
+    localStorage.removeItem(LS_IDEA_KEY);
+  };
+
+  const handleBack = () => {
+    if (onBack) onBack();
+    else window.history.back();
+  };
+  const handleEvaluateAnother = () => {
+    handleReset();
   };
 
   const getScoreColor = (score: number) => {
@@ -147,15 +164,19 @@ Describe your product, app, service, or business idea in detail..."
               <Sparkles className="h-5 w-5 text-innovation/40" />
             </div>
           </div>
-          <Button 
-            variant="evaluate" 
-            size="lg" 
-            onClick={handleEvaluate}
-            disabled={isEvaluating}
-            className="w-full text-lg py-6 shadow-glow-primary hover:shadow-glow-primary transition-all duration-300"
-          >
-            {isEvaluating ? "🔍 Analyzing your idea..." : "🚀 Evaluate My Idea"}
-          </Button>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <Button 
+              variant="evaluate" 
+              size="lg" 
+              onClick={handleEvaluate}
+              disabled={isEvaluating}
+              className="w-full text-lg py-6 shadow-glow-primary hover:shadow-glow-primary transition-all duration-300"
+            >
+              {isEvaluating ? "🔍 Analyzing your idea..." : "🚀 Evaluate My Idea"}
+            </Button>
+            <Button variant="outline" size="lg" onClick={handleReset} className="w-full">Reset</Button>
+            <Button variant="outline" size="lg" onClick={handleBack} className="w-full">Back</Button>
+          </div>
         </CardContent>
       </Card>
 

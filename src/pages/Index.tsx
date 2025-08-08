@@ -10,7 +10,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   if (showApp) {
-    return <IdeaEvaluator />;
+    return <IdeaEvaluator onBack={() => setShowApp(false)} />;
   }
 
   return (
