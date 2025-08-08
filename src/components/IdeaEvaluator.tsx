@@ -130,11 +130,16 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
 
 
   return (
-    <div className="min-h-screen p-4 space-y-8">
+    <div className="min-h-screen flex flex-col">
       {/* Header */}
       <SiteHeader />
+      <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
+        <header className="mb-6">
+          <h1 className="text-3xl font-semibold text-foreground">Quick Assessment</h1>
+          <p className="text-muted-foreground mt-2">Get rapid AI feedback on your idea’s innovation, scalability, and viability.</p>
+        </header>
 
-      {/* Input Section */}
+        {/* Input Section */}
       <Card className="max-w-4xl mx-auto border-innovation/30 backdrop-blur-sm shadow-glow-card bg-card/80">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-2xl">
@@ -367,6 +372,7 @@ Describe your product, app, service, or business idea in detail..."
           </Card>
         </div>
       )}
+    </main>
     </div>
   );
 };
