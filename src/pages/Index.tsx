@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,6 +10,27 @@ const Index = () => {
   const [showApp, setShowApp] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "UK Innovator Founder Visa Assessment | Free Quick & Detailed";
+
+    const desc = "Evaluate your business idea's eligibility for the UK Innovator Founder Visa with our free assessment tool offering quick and detailed options. Developed by Legal Artificial Intelligence Development (Legalaid) Ltd.";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'description');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', desc);
+
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', window.location.origin + '/');
+  }, []);
+
   if (showApp) {
     return <IdeaEvaluator onBack={() => setShowApp(false)} />;
   }
@@ -20,8 +41,9 @@ const Index = () => {
       <main className="flex-1 flex items-center justify-center p-4">
         <Card className="w-full max-w-2xl mx-auto text-center">
           <CardContent className="p-8">
+            <h1 className="text-3xl font-semibold text-foreground mb-2">UK Innovator Founder Visa Assessment</h1>
             <p className="text-xl text-muted-foreground mb-6">
-              Get instant AI‑powered feedback on your innovation, scalability, and viability.
+              Evaluate your business idea's eligibility for the UK Innovator Founder Visa with our free UK Innovator Founder Visa assessment tool, offering both quick assessment and detailed assessment options. This UK Innovator Founder Visa assessment tool is developed and maintained by Legal Artificial Intelligence Development (Legalaid) Ltd. This assessment tool does not constitute legal advice
             </p>
 
             <div className="space-y-4 mb-8 text-left">
