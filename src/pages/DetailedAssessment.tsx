@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
+import ImportantNotice from "@/components/ImportantNotice";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -362,6 +363,7 @@ const DetailedAssessment = () => {
                 <p className="text-2xl font-semibold">{result.overallScore} / 30</p>
               </CardContent>
             </Card>
+            <ImportantNotice />
           </section>
         )}
       </main>

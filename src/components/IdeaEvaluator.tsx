@@ -12,6 +12,7 @@ import { GrokService } from "@/services/GrokService";
 import { SlotMachine } from "@/components/SlotMachine";
 import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
+import ImportantNotice from "@/components/ImportantNotice";
 
 
 interface EvaluationResult {
@@ -354,6 +355,8 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
               </div>
             </CardContent>
           </Card>
+
+          <ImportantNotice />
 
           {/* CTA */}
           <Card className="border-innovation/50 bg-gradient-primary/5">
