@@ -112,7 +112,7 @@ export const IdeaEvaluator = () => {
   return (
     <div className="min-h-screen bg-background p-4 space-y-8">
       {/* Header */}
-      <header className="text-center space-y-4 py-8">
+      <header className="text-center space-y-4 py-8 bg-header">
         <img
           src="/lovable-uploads/7c3ada4e-ea41-46c3-9af2-c6bcb785a131.png"
           alt="ukinnovator.online – pre-assessment tool for Innovator Founders: innovation, scalability, viability"
