@@ -54,25 +54,25 @@ const Index = () => {
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-innovation rounded-full mt-2"></div>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">Innovation Analysis:</strong> Discover how unique and groundbreaking your idea really is
+                  <strong className="text-foreground">Innovation Analysis:</strong> Discover how unique and groundbreaking your idea really is. Benchmarks novelty vs. existing solutions, highlights your differentiators, and flags potential IP opportunities or red flags.
                 </p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-scalability rounded-full mt-2"></div>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">Scalability Assessment:</strong> Understand your idea's potential for growth and expansion
+                  <strong className="text-foreground">Scalability Assessment:</strong> Understand your idea's potential for growth and expansion. Estimates addressable market dynamics, growth levers, and operational bottlenecks that could limit scale.
                 </p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-viability rounded-full mt-2"></div>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">Viability Check:</strong> Get insights on market demand and business feasibility
+                  <strong className="text-foreground">Viability Check:</strong> Get insights on market demand and business feasibility. Evaluates revenue realism, pricing approach, routes to first customers, and early traction signals investors look for.
                 </p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">Actionable Suggestions:</strong> Receive concrete next steps to improve your concept
+                  <strong className="text-foreground">Actionable Suggestions:</strong> Receive concrete next steps to improve your concept. Generates prioritized experiments, validation checklists, KPIs to track, and funding‑readiness tips tailored to your inputs.
                 </p>
               </div>
             </div>
