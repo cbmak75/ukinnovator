@@ -112,17 +112,15 @@ export const IdeaEvaluator = () => {
   return (
     <div className="min-h-screen bg-background p-4 space-y-8">
       {/* Header */}
-      <div className="text-center space-y-4 py-8">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Sparkles className="h-8 w-8 text-innovation animate-pulse-glow" />
-          <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-glow-text">
-            FF: FOUNDER FEEDBACK
-          </h1>
-        </div>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          AI checks your idea with research-backed analysis, scoring innovation, scalability, and viability 🚀
-        </p>
-      </div>
+      <header className="text-center space-y-4 py-8">
+        <img
+          src="/lovable-uploads/7c3ada4e-ea41-46c3-9af2-c6bcb785a131.png"
+          alt="ukinnovator.online – pre-assessment tool for Innovator Founders: innovation, scalability, viability"
+          className="w-full max-w-4xl mx-auto h-auto"
+          loading="lazy"
+        />
+        <h1 className="sr-only">ukinnovator.online</h1>
+      </header>
 
       {/* Input Section */}
       <Card className="max-w-4xl mx-auto border-innovation/30 backdrop-blur-sm shadow-glow-card bg-card/80">
