@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import SiteHeader from "@/components/SiteHeader";
-
+import BackHomeButton from "@/components/BackHomeButton";
 const Terms = () => {
   useEffect(() => {
     document.title = "Terms and Conditions | UK Innovator Founder Visa Assessment";
@@ -30,6 +30,7 @@ const Terms = () => {
           <h1 className="text-3xl font-semibold text-foreground">Terms and Conditions for UKInnovator.online</h1>
           <p className="text-muted-foreground mt-2">Effective Date: 7 August 2025</p>
         </header>
+        <div className="mb-6"><BackHomeButton /></div>
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">
           <p>These Terms and Conditions ("Terms") govern your access to and use of the website ukinnovator.online (the "Website" or "Service"), owned and operated by LEGAL ARTIFICIAL INTELLIGENCE DEVELOPMENT (LEGALAID) LIMITED, a company registered in England and Wales with company number 16633371, whose registered office is at 14 Lillymonte Drive, Rochester, Kent, United Kingdom, ME1 3EX ("we", "us", or "our"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, you must not use the Service.</p>
@@ -116,10 +117,11 @@ const Terms = () => {
           </ul>
 
           <h2>13. Contact Us</h2>
-          <p>For questions or concerns, contact us at [insert email address] or at LEGAL ARTIFICIAL INTELLIGENCE DEVELOPMENT (LEGALAID) LIMITED, 14 Lillymonte Drive, Rochester, Kent, United Kingdom, ME1 3EX.</p>
+          <p>For questions or concerns, contact us at <a href="mailto:info@lawyery.co" className="underline">info@lawyery.co</a> or at LEGAL ARTIFICIAL INTELLIGENCE DEVELOPMENT (LEGALAID) LIMITED, c/o Lawyery Limited, 3 Waterhouse Square, 138-142 Holborn, London, EC1N 2SW.</p>
 
           <p>By using the Service, you acknowledge that you have read and agree to these Terms.</p>
         </article>
+        <div className="mt-6"><BackHomeButton /></div>
       </main>
     </div>
   );

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Lightbulb, TrendingUp, Target, CheckCircle, Sparkles } from "lucide-react";
@@ -152,23 +153,27 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
             Tell us about your brilliant idea and we'll give you detailed feedback! ✨
           </p>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="relative">
-            <Textarea
-              placeholder="💡 Examples:
-• A mobile app that helps people find local food trucks in real-time
-• A platform connecting freelance graphic designers with small businesses
-• An AI-powered personal finance coach for Gen Z
-• A subscription service for eco-friendly home cleaning products
-• A VR fitness game that makes working out feel like an adventure
-
-Describe your product, app, service, or business idea in detail..."
-              value={idea}
-              onChange={(e) => setIdea(e.target.value)}
-              className="min-h-40 text-lg bg-background/80 border-innovation/20 focus:border-innovation/50 focus:shadow-glow-primary transition-all duration-300 resize-none"
-            />
-            <div className="absolute top-3 right-3">
-              <Sparkles className="h-5 w-5 text-innovation/40" />
+          <CardContent className="space-y-6">
+          <div>
+            <Label htmlFor="quick-idea">Describe your idea</Label>
+            <div className="relative">
+              <Textarea
+                id="quick-idea"
+                placeholder="💡 Examples:
+ • A mobile app that helps people find local food trucks in real-time
+ • A platform connecting freelance graphic designers with small businesses
+ • An AI-powered personal finance coach for Gen Z
+ • A subscription service for eco-friendly home cleaning products
+ • A VR fitness game that makes working out feel like an adventure
+ 
+ Describe your product, app, service, or business idea in detail..."
+                value={idea}
+                onChange={(e) => setIdea(e.target.value)}
+                className="min-h-[160px]"
+              />
+              <div className="absolute top-3 right-3">
+                <Sparkles className="h-5 w-5 text-innovation/40" />
+              </div>
             </div>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
