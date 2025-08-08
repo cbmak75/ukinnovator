@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import DetailedAssessment from "./pages/DetailedAssessment";
 import Terms from "./pages/Terms";
 import SiteFooter from "./components/SiteFooter";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
