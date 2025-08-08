@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
+import BackHomeButton from "@/components/BackHomeButton";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -292,9 +293,7 @@ const DetailedAssessment = () => {
           <Button variant="outline" onClick={handleReset} className="sm:w-auto w-full">
             Reset
           </Button>
-          <Button variant="outline" onClick={() => navigate('/')} className="sm:w-auto w-full">
-            Back
-          </Button>
+          <BackHomeButton className="sm:w-auto w-full" />
         </div>
 
         {error && (

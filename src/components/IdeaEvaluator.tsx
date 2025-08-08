@@ -10,6 +10,7 @@ import { GrokService } from "@/services/GrokService";
 
 import { SlotMachine } from "@/components/SlotMachine";
 import SiteHeader from "@/components/SiteHeader";
+import BackHomeButton from "@/components/BackHomeButton";
 
 
 interface EvaluationResult {
@@ -176,7 +177,7 @@ Describe your product, app, service, or business idea in detail..."
               {isEvaluating ? "🔍 Analyzing your idea..." : "🚀 Evaluate My Idea"}
             </Button>
             <Button variant="outline" size="lg" onClick={handleReset} className="w-full">Reset</Button>
-            <Button variant="outline" size="lg" onClick={handleBack} className="w-full">Back</Button>
+            <BackHomeButton className="w-full" onClick={onBack} />
           </div>
         </CardContent>
       </Card>
