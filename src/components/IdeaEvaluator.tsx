@@ -143,11 +143,9 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
         {/* Input Section */}
       <Card className="max-w-4xl mx-auto border-innovation/30 backdrop-blur-sm shadow-glow-card bg-card/80">
         <CardHeader className="pb-4">
-          <CardTitle className="flex items-center gap-2 text-2xl">
-            <Lightbulb className="h-6 w-6 text-innovation animate-pulse-glow" />
-            <span className="bg-gradient-primary bg-clip-text text-transparent animate-glow-text">
-              Share Your Idea
-            </span>
+          <CardTitle className="flex items-center gap-2 text-2xl text-foreground">
+            <Lightbulb className="h-6 w-6 text-foreground" />
+            <span>Share Your Idea</span>
           </CardTitle>
           <p className="text-muted-foreground">
             Tell us about your brilliant idea and we'll give you detailed feedback! ✨
@@ -178,13 +176,13 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             <Button 
-              variant="evaluate" 
+              variant="neutral" 
               size="lg" 
               onClick={handleEvaluate}
               disabled={isEvaluating}
-              className="w-full text-lg py-6 shadow-glow-primary hover:shadow-glow-primary transition-all duration-300"
+              className="w-full text-lg py-6"
             >
-              {isEvaluating ? "🔍 Analyzing your idea..." : "🚀 Evaluate My Idea"}
+              {isEvaluating ? "Analyzing your idea..." : "Evaluate My Idea"}
             </Button>
             <Button variant="outline" size="lg" onClick={handleReset} className="w-full">Reset</Button>
             <BackHomeButton className="w-full" onClick={onBack} />
