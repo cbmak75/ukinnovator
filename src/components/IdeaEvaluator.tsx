@@ -38,8 +38,7 @@ export const IdeaEvaluator = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    const apiKey = GrokService.getApiKey();
-    setHasApiKey(!!apiKey);
+    setHasApiKey(true);
   }, []);
 
   const handleEvaluate = async () => {
@@ -52,15 +51,6 @@ export const IdeaEvaluator = () => {
       return;
     }
 
-    if (!hasApiKey) {
-      setShowApiSetup(true);
-      toast({
-        title: "API key required",
-        description: "Please set up your Grok API key to start evaluating ideas.",
-        variant: "destructive",
-      });
-      return;
-    }
 
     setIsEvaluating(true);
     setEvaluation(null);

@@ -1,1 +1,4 @@
 project_id = "nqyxhcmmicxyghkxzepy"
+
+[functions.grok-evaluator]
+verify_jwt = false
