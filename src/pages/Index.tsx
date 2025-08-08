@@ -72,7 +72,7 @@ const Index = () => {
               <div className="flex items-start space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">Actionable Suggestions:</strong> Receive concrete next steps to improve your concept. Generates prioritized experiments, validation checklists, KPIs to track, and funding‑readiness tips tailored to your inputs.
+                  <strong className="text-foreground">Actionable Suggestions:</strong> Receive concrete next steps to improve your concept. Generates prioritised experiments, validation checklists, KPIs to track, and funding‑readiness tips tailored to your inputs.
                 </p>
               </div>
             </div>
@@ -104,7 +104,7 @@ const Index = () => {
             </div>
             
             <p className="text-sm text-muted-foreground mt-4">
-              Powered by advanced AI • No signup required
+              Powered by advanced AI • No sign-up required
             </p>
           </CardContent>
         </Card>
