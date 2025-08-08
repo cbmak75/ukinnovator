@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { IdeaEvaluator } from "@/components/IdeaEvaluator";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const Index = () => {
   const [showApp, setShowApp] = useState(false);
@@ -65,6 +66,7 @@ const Index = () => {
           </CardContent>
         </Card>
       </main>
+      <SiteFooter />
     </div>
   );
 };
