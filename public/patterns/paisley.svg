@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="white"/>
+  <g fill="none" stroke="hsl(240 10% 3.9%)" stroke-opacity="0.06" stroke-width="1.2">
+    <path d="M20 12c8-12 24 0 12 12-8 8-20 4-12-12z"/>
+    <circle cx="44" cy="20" r="3"/>
+    <g transform="rotate(180 44 44)">
+      <path d="M44 44c8-12 24 0 12 12-8 8-20 4-12-12z"/>
+    </g>
+    <circle cx="20" cy="44" r="3"/>
+  </g>
+</svg>

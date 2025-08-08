@@ -137,3 +137,16 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Additional base overrides for patterned background */
+@layer base {
+  body {
+    background-image: url('/patterns/paisley.svg');
+    background-size: 64px 64px;
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image: none;
+  }
+}

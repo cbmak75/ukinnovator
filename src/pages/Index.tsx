@@ -15,9 +15,9 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 bg-background flex items-center justify-center p-4">
+      <main className="flex-1 flex items-center justify-center p-4">
         <Card className="w-full max-w-2xl mx-auto text-center">
           <CardContent className="p-8">
             <p className="text-xl text-muted-foreground mb-6">

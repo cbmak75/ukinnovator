@@ -130,7 +130,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
 
 
   return (
-    <div className="min-h-screen bg-background p-4 space-y-8">
+    <div className="min-h-screen p-4 space-y-8">
       {/* Header */}
       <SiteHeader />
 
