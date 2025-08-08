@@ -10,7 +10,7 @@ const SiteFooter = () => {
             alt="LegalAid logo — Legal Artificial Intelligence Development"
             loading="lazy"
             decoding="async"
-            className="h-10 sm:h-12 w-auto"
+            className="h-20 sm:h-24 w-auto"
           />
           <p className="text-sm font-medium">© 2025 Legal Artificial Intelligence Development Ltd. All rights reserved.</p>
           <p className="mt-2 text-xs sm:text-sm">
