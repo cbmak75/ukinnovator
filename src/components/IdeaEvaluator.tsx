@@ -233,9 +233,9 @@ Describe your product, app, service, or business idea in detail..."
               </CardContent>
             </Card>
 
-            <Card className="border-info/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
+            <Card className="border-scalability/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-info animate-glow-text">
+                <CardTitle className="flex items-center gap-2 text-scalability animate-glow-text">
                   <TrendingUp className="h-5 w-5 animate-pulse-glow" />
                   Scalability 📈
                 </CardTitle>
@@ -264,9 +264,9 @@ Describe your product, app, service, or business idea in detail..."
               </CardContent>
             </Card>
 
-            <Card className="border-success/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
+            <Card className="border-viability/30 shadow-glow-card hover:shadow-glow-primary transition-all duration-300">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-success animate-glow-text">
+                <CardTitle className="flex items-center gap-2 text-viability animate-glow-text">
                   <Target className="h-5 w-5 animate-pulse-glow" />
                   Viability 🎯
                 </CardTitle>

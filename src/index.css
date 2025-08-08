@@ -8,16 +8,16 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 259 94% 51%;
+    --primary: 0 0% 32%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 3.7% 15.9%;
@@ -37,8 +37,15 @@ All colors MUST be HSL.
     --ring: 259 94% 51%;
 
     /* Innovation theme colors */
-    --innovation: 259 94% 51%;
-    --innovation-foreground: 0 0% 98%;
+    --innovation: 36 100% 67%;
+    --innovation-foreground: 240 10% 3.9%;
+    /* Category accents */
+    --scalability: 260 100% 66%;
+    --scalability-foreground: 0 0% 98%;
+    --viability: 345 80% 59%;
+    --viability-foreground: 0 0% 98%;
+
+    /* Legacy/status colors */
     --success: 142 76% 36%;
     --success-foreground: 0 0% 98%;
     --warning: 48 96% 53%;

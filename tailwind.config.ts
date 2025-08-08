@@ -56,6 +56,14 @@ export default {
 					DEFAULT: 'hsl(var(--innovation))',
 					foreground: 'hsl(var(--innovation-foreground))'
 				},
+				scalability: {
+					DEFAULT: 'hsl(var(--scalability))',
+					foreground: 'hsl(var(--scalability-foreground))'
+				},
+				viability: {
+					DEFAULT: 'hsl(var(--viability))',
+					foreground: 'hsl(var(--viability-foreground))'
+				},
 				success: {
 					DEFAULT: 'hsl(var(--success))',
 					foreground: 'hsl(var(--success-foreground))'
