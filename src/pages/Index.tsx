@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { IdeaEvaluator } from "@/components/IdeaEvaluator";
 import SiteHeader from "@/components/SiteHeader";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 
 const Index = () => {
   const [showApp, setShowApp] = useState(false);
   const navigate = useNavigate();
+  const [isOver18, setIsOver18] = useState(false);
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
   useEffect(() => {
     document.title = "UK Innovator Founder Visa Assessment | Free Quick & Detailed";
@@ -73,11 +77,28 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Consent Section */}
+            <section className="mb-6 space-y-4 text-left">
+              <div className="flex items-start gap-3">
+                <Checkbox id="over18" checked={isOver18} onCheckedChange={(v) => setIsOver18(!!v)} />
+                <Label htmlFor="over18" className="leading-snug cursor-pointer">I confirm I am 18 years of age or older.</Label>
+              </div>
+              <div className="flex items-start gap-3">
+                <Checkbox id="agree" checked={agreeToTerms} onCheckedChange={(v) => setAgreeToTerms(!!v)} />
+                <Label htmlFor="agree" className="leading-snug cursor-pointer">
+                  I agree to the <Link to="/terms" className="underline underline-offset-2">Terms and Conditions</Link> of use.
+                </Label>
+              </div>
+              {!isOver18 || !agreeToTerms ? (
+                <p className="text-sm text-warning-foreground/80">Please confirm you are over 18 and agree to the Terms to continue.</p>
+              ) : null}
+            </section>
+
             <div className="grid gap-3 sm:grid-cols-2">
-              <Button onClick={() => setShowApp(true)} size="lg" className="w-full">
+              <Button onClick={() => setShowApp(true)} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms}>
                 Quick assessment
               </Button>
-              <Button variant="outline" onClick={() => navigate('/detailed')} size="lg" className="w-full">
+              <Button variant="outline" onClick={() => navigate('/detailed')} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms}>
                 Detailed assessment
               </Button>
             </div>
