@@ -76,7 +76,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
       
       toast({
         title: "Evaluation Complete! 🔥",
-        description: "Your idea has been thoroughly analyzed by Grok AI.",
+        description: "Your idea has been thoroughly analysed by Grok AI.",
       });
     } catch (error) {
       console.error('Evaluation error:', error);
@@ -183,7 +183,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
               disabled={isEvaluating}
               className="w-full text-lg py-6"
             >
-              {isEvaluating ? "Analyzing your idea..." : "Evaluate My Idea"}
+              {isEvaluating ? "Analysing your idea..." : "Evaluate My Idea"}
             </Button>
             <Button variant="outline" size="lg" onClick={handleReset} className="w-full">Reset</Button>
             <BackHomeButton className="w-full" onClick={onBack} />
@@ -199,7 +199,7 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
               <Sparkles className="h-8 w-8 text-white animate-spin" />
             </div>
             <h3 className="text-xl font-semibold">Researching your idea...</h3>
-            <p className="text-muted-foreground">Analyzing market data, competition, and innovation potential</p>
+            <p className="text-muted-foreground">Analysing market data, competition, and innovation potential</p>
             <Progress value={66} className="w-full max-w-md mx-auto" />
           </CardContent>
         </Card>

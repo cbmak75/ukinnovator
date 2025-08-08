@@ -45,8 +45,9 @@ export class GrokService {
 
   static async evaluateIdea(idea: string): Promise<EvaluationResult> {
     try {
+      const prompt = `${idea}\n\nPlease respond using UK English spelling and grammar throughout the assessment.`;
       const { data, error } = await supabase.functions.invoke('grok-evaluator', {
-        body: { idea },
+        body: { idea: prompt },
       });
 
       if (error) {
