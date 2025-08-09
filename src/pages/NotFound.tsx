@@ -17,14 +17,16 @@ const NotFound = () => {
   return (
     <div className="min-h-screen text-foreground">
       <SiteHeader />
-      <main className="flex items-center justify-center p-8">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">404</h1>
-          <p className="text-xl text-muted-foreground mb-4">Oops! Page not found</p>
-          <div className="flex justify-center">
-            <BackHomeButton />
-          </div>
+      <main className="container mx-auto px-4 py-8 max-w-5xl">
+        <div className="mb-6">
+          <BackHomeButton variant="outline" size="sm" />
         </div>
+        <section className="flex items-center justify-center py-16">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4">404</h1>
+            <p className="text-xl text-muted-foreground mb-4">Oops! Page not found</p>
+          </div>
+        </section>
       </main>
     </div>
   );

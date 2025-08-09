@@ -148,11 +148,13 @@ const DetailedAssessment = () => {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
+        <div className="mb-6">
+          <BackHomeButton variant="outline" size="sm" />
+        </div>
         <header className="mb-6">
           <h1 className="text-3xl font-semibold text-foreground">Detailed Assessment</h1>
           <p className="text-muted-foreground mt-2">Provide a richer brief for a deeper evaluation, tailored to the Innovator Founder UK visa scheme.</p>
         </header>
-
         <div className="grid gap-6 md:grid-cols-2">
           <Card className="md:col-span-2">
             <CardHeader>

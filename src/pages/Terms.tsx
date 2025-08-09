@@ -26,11 +26,11 @@ const Terms = () => {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
+        <div className="mb-6"><BackHomeButton variant="outline" size="sm" /></div>
         <header className="mb-6">
           <h1 className="text-3xl font-semibold text-foreground">Terms and Conditions for UKInnovator.online</h1>
           <p className="text-muted-foreground mt-2">Effective Date: 7 August 2025</p>
         </header>
-        <div className="mb-6"><BackHomeButton /></div>
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">
           <p>These Terms and Conditions ("Terms") govern your access to and use of the website ukinnovator.online (the "Website" or "Service"), owned and operated by LEGAL ARTIFICIAL INTELLIGENCE DEVELOPMENT (LEGALAID) LIMITED, a company registered in England and Wales with company number 16633371, whose registered office is at 14 Lillymonte Drive, Rochester, Kent, United Kingdom, ME1 3EX ("we", "us", or "our"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, you must not use the Service.</p>
