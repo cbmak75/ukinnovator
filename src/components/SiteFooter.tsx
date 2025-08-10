@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const SiteFooter = () => {
   return (
     <footer role="contentinfo" aria-label="Site footer" className="bg-primary text-primary-foreground">
@@ -21,6 +21,16 @@ const SiteFooter = () => {
           <p className="mt-1 text-xs sm:text-sm">
             For official guidance, consult with qualified immigration professionals and refer to UK Government official sources.
           </p>
+          <nav aria-label="Footer navigation" className="mt-4">
+            <ul className="flex flex-wrap items-center gap-4 justify-center text-sm">
+              <li>
+                <Link to="/resources" className="underline-offset-4 hover:underline">Resources</Link>
+              </li>
+              <li>
+                <Link to="/terms" className="underline-offset-4 hover:underline">Terms</Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>
