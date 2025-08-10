@@ -132,18 +132,18 @@ const Resources: React.FC = () => {
           <ul className="space-y-4">
             <li>
               <article>
-                <a className="text-primary underline-offset-4 hover:underline" href="https://www.ukesapp.co.uk/" target="_blank" rel="noopener noreferrer">
-                  UK Endorsing Services
-                </a>
-                <p className="text-muted-foreground">Authorised to endorse applicants establishing innovative businesses in the UK.</p>
-              </article>
-            </li>
-            <li>
-              <article>
                 <a className="text-primary underline-offset-4 hover:underline" href="https://www.innovatorinternational.com/" target="_blank" rel="noopener noreferrer">
                   Innovator International
                 </a>
                 <p className="text-muted-foreground">Supports international entrepreneurs with scalable, viable business ideas for the UK market.</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <a className="text-primary underline-offset-4 hover:underline" href="https://www.ukesapp.co.uk/" target="_blank" rel="noopener noreferrer">
+                  UK Endorsing Services
+                </a>
+                <p className="text-muted-foreground">Authorised to endorse applicants establishing innovative businesses in the UK.</p>
               </article>
             </li>
             <li>
