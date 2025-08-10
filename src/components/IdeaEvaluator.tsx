@@ -13,7 +13,7 @@ import { SlotMachine } from "@/components/SlotMachine";
 import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
 import ImportantNotice from "@/components/ImportantNotice";
-
+import { Link } from "react-router-dom";
 
 interface EvaluationResult {
   researchSummary: string;
@@ -365,9 +365,12 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Your idea shows strong potential! Consider implementing the suggestions above and start building your MVP. ✨
               </p>
-              <div className="flex justify-center">
+              <div className="flex justify-center gap-3 flex-wrap">
                 <Button variant="outline" size="lg" onClick={handleEvaluateAnother}>
                   Evaluate Another Idea
+                </Button>
+                <Button asChild variant="secondary" size="lg">
+                  <Link to="/resources" aria-label="View Innovator Founder resources">View Resources</Link>
                 </Button>
               </div>
             </CardContent>

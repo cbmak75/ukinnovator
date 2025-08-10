@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { GrokService } from "@/services/GrokService";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface FormState {
   coreIdea: string;
@@ -366,6 +366,11 @@ const DetailedAssessment = () => {
               </CardContent>
             </Card>
             <ImportantNotice />
+            <div className="flex justify-center gap-3 mt-4 flex-wrap">
+              <Button asChild variant="secondary" size="lg">
+                <Link to="/resources" aria-label="View Innovator Founder resources">View Resources</Link>
+              </Button>
+            </div>
           </section>
         )}
       </main>
