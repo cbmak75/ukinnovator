@@ -43,72 +43,74 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 flex items-center justify-center p-4">
-        <Card className="w-full max-w-2xl mx-auto text-center">
-          <CardContent className="p-8">
-            <h1 className="text-3xl font-semibold text-foreground mb-2">UK Innovator Founder Visa Assessment</h1>
-            <p className="text-xl text-muted-foreground mb-6">
-              Evaluate your business idea's eligibility for the UK Innovator Founder Visa with our free UK Innovator Founder Visa assessment tool, offering both quick assessment and detailed assessment options. This UK Innovator Founder Visa assessment tool is developed and maintained by Legal Artificial Intelligence Development (Legalaid) Ltd. This assessment tool does not constitute legal advice
-            </p>
+      <main className="flex-1 p-4">
+        <div className="max-w-2xl mx-auto">
+          <Card className="w-full text-center">
+            <CardContent className="p-8">
+              <h1 className="text-3xl font-semibold text-foreground mb-2">UK Innovator Founder Visa Assessment</h1>
+              <p className="text-xl text-muted-foreground mb-6">
+                Evaluate your business idea's eligibility for the UK Innovator Founder Visa with our free UK Innovator Founder Visa assessment tool, offering both quick assessment and detailed assessment options. This UK Innovator Founder Visa assessment tool is developed and maintained by Legal Artificial Intelligence Development (Legalaid) Ltd. This assessment tool does not constitute legal advice
+              </p>
 
-            <div className="space-y-4 mb-8 text-left">
-              <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-innovation rounded-full mt-2"></div>
-                <p className="text-muted-foreground">
-                  <strong className="text-foreground">Innovation Analysis:</strong> Discover how unique and groundbreaking your idea really is. Benchmarks novelty vs. existing solutions, highlights your differentiators, and flags potential IP opportunities or red flags.
-                </p>
+              <div className="space-y-4 mb-8 text-left">
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-innovation rounded-full mt-2"></div>
+                  <p className="text-muted-foreground">
+                    <strong className="text-foreground">Innovation Analysis:</strong> Discover how unique and groundbreaking your idea really is. Benchmarks novelty vs. existing solutions, highlights your differentiators, and flags potential IP opportunities or red flags.
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-scalability rounded-full mt-2"></div>
+                  <p className="text-muted-foreground">
+                    <strong className="text-foreground">Scalability Assessment:</strong> Understand your idea's potential for growth and expansion. Estimates addressable market dynamics, growth levers, and operational bottlenecks that could limit scale.
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-viability rounded-full mt-2"></div>
+                  <p className="text-muted-foreground">
+                    <strong className="text-foreground">Viability Check:</strong> Get insights on market demand and business feasibility. Evaluates revenue realism, pricing approach, routes to first customers, and early traction signals investors look for.
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                  <p className="text-muted-foreground">
+                    <strong className="text-foreground">Actionable Suggestions:</strong> Receive concrete next steps to improve your concept. Generates prioritised experiments, validation checklists, KPIs to track, and funding‑readiness tips tailored to your inputs.
+                  </p>
+                </div>
               </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-scalability rounded-full mt-2"></div>
-                <p className="text-muted-foreground">
-                  <strong className="text-foreground">Scalability Assessment:</strong> Understand your idea's potential for growth and expansion. Estimates addressable market dynamics, growth levers, and operational bottlenecks that could limit scale.
-                </p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-viability rounded-full mt-2"></div>
-                <p className="text-muted-foreground">
-                  <strong className="text-foreground">Viability Check:</strong> Get insights on market demand and business feasibility. Evaluates revenue realism, pricing approach, routes to first customers, and early traction signals investors look for.
-                </p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                <p className="text-muted-foreground">
-                  <strong className="text-foreground">Actionable Suggestions:</strong> Receive concrete next steps to improve your concept. Generates prioritised experiments, validation checklists, KPIs to track, and funding‑readiness tips tailored to your inputs.
-                </p>
-              </div>
-            </div>
 
-            {/* Consent Section */}
-            <section className="mb-6 space-y-4 text-left">
-              <div className="flex items-start gap-3">
-                <Checkbox id="over18" checked={isOver18} onCheckedChange={(v) => setIsOver18(!!v)} />
-                <Label htmlFor="over18" className="leading-snug cursor-pointer">I confirm I am 18 years of age or older.</Label>
-              </div>
-              <div className="flex items-start gap-3">
-                <Checkbox id="agree" checked={agreeToTerms} onCheckedChange={(v) => setAgreeToTerms(!!v)} />
-                <Label htmlFor="agree" className="leading-snug cursor-pointer">
-                  I agree to the <Link to="/terms" className="underline underline-offset-2">Terms and Conditions</Link> of use.
-                </Label>
-              </div>
-              {!isOver18 || !agreeToTerms ? (
-                <p className="text-sm text-warning-foreground/80">Please confirm you are over 18 and agree to the Terms to continue.</p>
-              ) : null}
-            </section>
+              {/* Consent Section */}
+              <section className="mb-6 space-y-4 text-left">
+                <div className="flex items-start gap-3">
+                  <Checkbox id="over18" checked={isOver18} onCheckedChange={(v) => setIsOver18(!!v)} />
+                  <Label htmlFor="over18" className="leading-snug cursor-pointer">I confirm I am 18 years of age or older.</Label>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Checkbox id="agree" checked={agreeToTerms} onCheckedChange={(v) => setAgreeToTerms(!!v)} />
+                  <Label htmlFor="agree" className="leading-snug cursor-pointer">
+                    I agree to the <Link to="/terms" className="underline underline-offset-2">Terms and Conditions</Link> of use.
+                  </Label>
+                </div>
+                {!isOver18 || !agreeToTerms ? (
+                  <p className="text-sm text-warning-foreground/80">Please confirm you are over 18 and agree to the Terms to continue.</p>
+                ) : null}
+              </section>
 
-            <div className="grid gap-3 sm:grid-cols-2">
-              <Button onClick={() => setShowApp(true)} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms}>
-                Quick assessment
-              </Button>
-              <Button variant="outline" onClick={() => navigate('/detailed')} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms}>
-                Detailed assessment
-              </Button>
-            </div>
-            
-            <p className="text-sm text-muted-foreground mt-4">
-              Powered by advanced AI • No sign-up required
-            </p>
-          </CardContent>
-        </Card>
+              <div className="flex flex-col gap-3">
+                <Button onClick={() => setShowApp(true)} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms}>
+                  Quick assessment
+                </Button>
+                <Button variant="outline" onClick={() => navigate('/detailed')} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms}>
+                  Detailed assessment
+                </Button>
+              </div>
+              
+              <p className="text-sm text-muted-foreground mt-4">
+                Powered by advanced AI • No sign-up required
+              </p>
+            </CardContent>
+          </Card>
+        </div>
         
         {/* FAQ Section */}
         <section id="faq" className="w-full max-w-4xl mx-auto px-4 py-16">
