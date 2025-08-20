@@ -7,8 +7,10 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Instant jump to top for consistency
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      // Use requestAnimationFrame to ensure DOM is fully rendered
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      });
     }
   }, [pathname]);
 
