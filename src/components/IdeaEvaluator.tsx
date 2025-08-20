@@ -93,19 +93,31 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem(LS_IDEA_KEY);
-    if (saved) setIdea(saved);
+    try {
+      const saved = localStorage.getItem(LS_IDEA_KEY);
+      if (saved) setIdea(saved);
+    } catch (error) {
+      console.warn('Failed to load saved idea:', error);
+    }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(LS_IDEA_KEY, idea);
+    try {
+      localStorage.setItem(LS_IDEA_KEY, idea);
+    } catch (error) {
+      console.warn('Failed to save idea to localStorage:', error);
+    }
   }, [idea]);
 
   const handleReset = () => {
     setIdea("");
     setEvaluation(null);
     setShowSlotMachine(false);
-    localStorage.removeItem(LS_IDEA_KEY);
+    try {
+      localStorage.removeItem(LS_IDEA_KEY);
+    } catch (error) {
+      console.warn('Failed to remove saved idea:', error);
+    }
   };
 
   const handleBack = () => {

@@ -11,6 +11,24 @@ import { Label } from "@/components/ui/label";
 import { GrokService } from "@/services/GrokService";
 import { Link, useNavigate } from "react-router-dom";
 
+interface EvaluationResult {
+  researchSummary: string;
+  innovation: {
+    analysis: string;
+    score: number;
+  };
+  scalability: {
+    analysis: string;
+    score: number;
+  };
+  viability: {
+    analysis: string;
+    score: number;
+  };
+  suggestions: string[];
+  overallScore: number;
+}
+
 interface FormState {
   coreIdea: string;
   problem: string;
@@ -65,7 +83,7 @@ const DetailedAssessment = () => {
   const [form, setForm] = useState<FormState>(defaultValues);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<null | any>(null);
+  const [result, setResult] = useState<EvaluationResult | null>(null);
   const LS_FORM_KEY = "detailedAssessment.form";
   const navigate = useNavigate();
 
@@ -73,12 +91,24 @@ const DetailedAssessment = () => {
     document.title = "Detailed Assessment – UK Innovator Evaluator";
     const saved = localStorage.getItem(LS_FORM_KEY);
     if (saved) {
-      try { setForm(JSON.parse(saved)); } catch {}
+      try { 
+        const parsed = JSON.parse(saved);
+        if (parsed && typeof parsed === 'object') {
+          setForm({ ...defaultValues, ...parsed });
+        }
+      } catch (error) {
+        console.warn('Failed to parse saved form data:', error);
+        localStorage.removeItem(LS_FORM_KEY);
+      }
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(LS_FORM_KEY, JSON.stringify(form));
+    try {
+      localStorage.setItem(LS_FORM_KEY, JSON.stringify(form));
+    } catch (error) {
+      console.warn('Failed to save form data to localStorage:', error);
+    }
   }, [form]);
 
   const compiledPrompt = useMemo(() => {
@@ -141,7 +171,11 @@ const DetailedAssessment = () => {
     setForm(defaultValues);
     setResult(null);
     setError(null);
-    localStorage.removeItem(LS_FORM_KEY);
+    try {
+      localStorage.removeItem(LS_FORM_KEY);
+    } catch (error) {
+      console.warn('Failed to remove saved form data:', error);
+    }
   };
 
   return (
