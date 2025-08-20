@@ -47,7 +47,8 @@ const Index = () => {
         <div className="max-w-2xl mx-auto">
           <Card className="w-full text-center">
             <CardContent className="p-8">
-              <h1 className="text-3xl font-semibold text-foreground mb-2">UK Innovator Founder Visa Assessment</h1>
+              <h1 className="text-3xl font-bold text-foreground mb-6">ukinnovator.online – Innovator Founder pre‑assessment</h1>
+              <h2 className="text-2xl font-semibold text-foreground mb-2">UK Innovator Founder Visa Assessment</h2>
               <p className="text-xl text-muted-foreground mb-6">
                 Evaluate your business idea's eligibility for the UK Innovator Founder Visa with our free UK Innovator Founder Visa assessment tool, offering both quick assessment and detailed assessment options. This UK Innovator Founder Visa assessment tool is developed and maintained by Legal Artificial Intelligence Development (Legalaid) Ltd. This assessment tool does not constitute legal advice
               </p>
@@ -114,7 +115,7 @@ const Index = () => {
         
         {/* FAQ Section */}
         <section id="faq" className="w-full max-w-4xl mx-auto px-4 py-16">
-          <h1 className="text-3xl font-bold text-foreground mb-8 text-center">Test Your Business Idea with the UK Innovator Founder Visa Assessment Tool</h1>
+          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Test Your Business Idea with the UK Innovator Founder Visa Assessment Tool</h2>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
             <AccordionItem value="item-1" className="border rounded-lg px-6">

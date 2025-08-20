@@ -9,7 +9,7 @@ export const SiteHeader: React.FC = () => {
         className="w-full max-w-4xl mx-auto h-auto"
         loading="lazy"
       />
-      <h1 className="sr-only">ukinnovator.online</h1>
+      
     </header>
   );
 };
