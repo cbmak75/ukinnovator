@@ -6,6 +6,7 @@ import { IdeaEvaluator } from "@/components/IdeaEvaluator";
 import SiteHeader from "@/components/SiteHeader";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 
 const Index = () => {
@@ -110,73 +111,91 @@ const Index = () => {
         </Card>
         
         {/* FAQ Section */}
-        <section id="faq" className="container mx-auto px-4 py-16 max-w-4xl">
+        <section id="faq" className="w-full max-w-4xl mx-auto px-4 py-16">
           <h1 className="text-3xl font-bold text-foreground mb-8 text-center">Test Your Business Idea with the UK Innovator Founder Visa Assessment Tool</h1>
 
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">What is the UK Innovator Founder Visa assessment tool?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            <AccordionItem value="item-1" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                What is the UK Innovator Founder Visa assessment tool?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Embark on your entrepreneurial journey with <a href="https://ukinnovator.online" className="text-primary hover:underline">ukinnovator.online</a>, where our free, AI-powered assessment tool serves as a litmus test for your business idea, tailored to the UK Innovator Founder Visa criteria. Developed by Legal Artificial Intelligence Development (Legalaid) Ltd, under the guidance of Chris Dias, an experienced immigration solicitor and founder of Legalaid Ltd, this platform evaluates your concept's innovation, scalability, and viability. Whether you're a global entrepreneur dreaming of launching a startup in the UK or refining an existing idea, our tool provides instant feedback to help you align with the <a href="https://ukinnovator.online/eligibility" className="text-primary hover:underline">UK Innovator Founder Visa eligibility requirements</a>.
-              </p>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">How does the assessment tool work?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <AccordionItem value="item-2" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                How does the assessment tool work?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Input details of your business idea, such as its core concept, market potential, and unique features, into our user-friendly platform. The tool rigorously analyses your submission against the UK Innovator Founder Visa requirements, assessing innovation, scalability, and viability. Choose a quick assessment for a rapid overview or a detailed evaluation that includes competitor research and personalised suggestions to strengthen your concept. For example, if your idea is a tech startup, the tool might suggest refining your scalability plan to meet visa endorsement standards. It's your diagnostic test to see if your vision is ready for the <a href="https://ukinnovator.online/application-guide" className="text-primary hover:underline">UK startup visa application process</a>.
-              </p>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">Is the assessment free?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <AccordionItem value="item-3" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                Is the assessment free?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Yes, absolutely! The tool at <a href="https://ukinnovator.online" className="text-primary hover:underline">ukinnovator.online</a> is completely free, offering both quick and detailed assessments at no cost. We're committed to empowering global entrepreneurs to explore their eligibility for the UK Innovator Founder Visa without financial barriers, making your journey to launching a UK business more accessible.
-              </p>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">What makes this tool unique compared to other UK visa resources?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <AccordionItem value="item-4" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                What makes this tool unique compared to other UK visa resources?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Unlike traditional visa guides or costly consultancy services, our AI-powered tool delivers a bespoke "litmus test" tailored to the UK Innovator Founder Visa's core criteria: innovation, scalability, and viability. Backed by Chris Dias's immigration expertise and Legalaid Ltd, it provides competitor insights and actionable recommendations to refine your idea, such as enhancing your business plan's innovation narrative. No other platform offers a free, AI-driven <a href="https://ukinnovator.online/assessment" className="text-primary hover:underline">Innovator Founder Visa eligibility test</a> that combines ease of use with in-depth analysis, giving you a head start on your UK entrepreneurial path.
-              </p>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">Does the tool provide legal advice?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <AccordionItem value="item-5" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                Does the tool provide legal advice?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 No, the assessment tool is not legal advice. It's a preliminary evaluation designed to gauge your business idea's alignment with the UK Innovator Founder Visa criteria. For professional legal guidance, consult a qualified immigration solicitor. Our tool offers clarity and direction to start your journey, helping you understand your idea's potential before seeking formal advice. Learn more about preparing for your visa application at our <Link to="/resources" className="text-primary hover:underline">resource hub</Link>.
-              </p>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">Who is Chris Dias?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <AccordionItem value="item-6" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                Who is Chris Dias?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Chris Dias, qualified as a solicitor in 2001, is a UK immigration law expert, specialising in the Innovator Founder Visa. As founder of Legal Artificial Intelligence Development (Legalaid) Ltd, he drives <a href="https://ukinnovator.online" className="text-primary hover:underline">ukinnovator.online</a>. Chris trains practitioners in Level 2 Advanced Immigration Law at Free Movement, equipping them with advanced knowledge, and supervises students at the Queen Mary Legal Advice Centre, guiding future lawyers in pro bono legal support. His expertise ensures our tool is grounded in authoritative insight, making it a trusted starting point for your <a href="https://ukinnovator.online/about" className="text-primary hover:underline">UK Innovator Founder Visa journey</a>.
-              </p>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">How does ukinnovator.online ensure my privacy?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <AccordionItem value="item-7" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                How does ukinnovator.online ensure my privacy?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Your privacy is paramount at <a href="https://ukinnovator.online" className="text-primary hover:underline">ukinnovator.online</a>. We don't ask personal questions that could identify you, such as your name, contact details, or other sensitive information, and we don't harvest or store your data. Our tool is powered by the enterprise version of the Grok API from xAI, which is designed not to use your data for training purposes, ensuring your business idea remains confidential. Explore our <a href="https://ukinnovator.online/privacy" className="text-primary hover:underline">privacy policy</a> for more details on our commitment to your security.
-              </p>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">What are the key requirements for the UK Innovator Founder Visa?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <AccordionItem value="item-8" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                What are the key requirements for the UK Innovator Founder Visa?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 The UK Innovator Founder Visa requires your business idea to be innovative, scalable, and viable, as assessed by an approved endorsing body. Our tool evaluates these criteria, providing insights into whether your idea meets visa standards. For instance, a viable business might demonstrate a clear revenue model, while scalability could involve plans for global expansion. Use our <a href="https://ukinnovator.online/assessment" className="text-primary hover:underline">assessment tool</a> to test your idea and receive tips on crafting a compelling business plan for endorsement.
-              </p>
-            </div>
+              </AccordionContent>
+            </AccordionItem>
 
-            <div>
-              <h2 className="text-xl font-semibold text-foreground mb-3">How do I start?</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <AccordionItem value="item-9" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                How do I start?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Begin today at <a href="https://ukinnovator.online" className="text-primary hover:underline">ukinnovator.online</a>! Select a quick or detailed assessment, enter your business idea details, and receive instant AI-driven feedback to make your concept shine. Whether you're exploring the UK Innovator Founder Visa for the first time or refining your startup pitch, our tool guides you towards success. Take the first step towards your UK business dream now with our <a href="https://ukinnovator.online/start" className="text-primary hover:underline">free assessment</a>!
-              </p>
-            </div>
-          </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </section>
       </main>
     </div>
