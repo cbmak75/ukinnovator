@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ukinnovator.online/</loc>
+    <loc>https://www.ukinnovator.online/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2025-08-10</lastmod>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
-    <loc>https://ukinnovator.online/detailed</loc>
+    <loc>https://www.ukinnovator.online/detailed</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-08-10</lastmod>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
-    <loc>https://ukinnovator.online/resources</loc>
+    <loc>https://www.ukinnovator.online/resources</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2025-08-10</lastmod>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
-    <loc>https://ukinnovator.online/terms</loc>
+    <loc>https://www.ukinnovator.online/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-    <lastmod>2025-08-10</lastmod>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ukinnovator.online/#faq</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-08-20</lastmod>
   </url>
 </urlset>
