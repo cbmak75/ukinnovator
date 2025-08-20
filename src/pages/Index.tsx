@@ -95,7 +95,7 @@ const Index = () => {
               ) : null}
             </section>
 
-            <div className="flex flex-col gap-3">
+            <div className="grid gap-3 sm:grid-cols-2">
               <Button onClick={() => setShowApp(true)} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms}>
                 Quick assessment
               </Button>
