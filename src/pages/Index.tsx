@@ -192,6 +192,15 @@ const Index = () => {
 
             <AccordionItem value="item-9" className="border rounded-lg px-6">
               <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                Are you regulated to give immigration advice and guidance?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
+                Although this website does not claim to give immigration advice, Chris Dias is a solicitor regulated by the Solicitors Regulation Authority (SRA), authorised to provide immigration advice and services under the Immigration and Asylum Act 1999, and complies with the SRA's professional standards and competence requirements.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-10" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline">
                 How do I start?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
