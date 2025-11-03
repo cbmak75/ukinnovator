@@ -43,6 +43,14 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
+      <div className="w-full">
+        <img
+          src="/lovable-uploads/hero-banner.png"
+          alt="UK Innovator Founder Visa Assessment - Legal AI Development"
+          className="w-full h-auto"
+          loading="eager"
+        />
+      </div>
       <main className="flex-1 p-4">
         <div className="max-w-2xl mx-auto">
           <Card className="w-full text-center">
