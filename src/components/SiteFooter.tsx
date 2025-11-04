@@ -5,15 +5,24 @@ const SiteFooter = () => {
     <footer role="contentinfo" aria-label="Site footer" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col items-center gap-4 text-center">
-          <a href="https://legalaid.dev/" target="_blank" rel="noopener noreferrer" aria-label="Visit LegalAid (opens in a new tab)">
+          <div className="flex items-center gap-6 flex-wrap justify-center">
             <img
-              src="/lovable-uploads/10eb0b13-ad91-4951-bb02-f0382be897fa.png"
-              alt="LegalAid logo — Legal Artificial Intelligence Development"
+              src="/lovable-uploads/ai-logo.png"
+              alt="AI logo"
               loading="lazy"
               decoding="async"
-              className="h-20 sm:h-24 w-auto"
+              className="h-16 sm:h-20 w-auto"
             />
-          </a>
+            <a href="https://legalaid.dev/" target="_blank" rel="noopener noreferrer" aria-label="Visit LegalAid (opens in a new tab)">
+              <img
+                src="/lovable-uploads/10eb0b13-ad91-4951-bb02-f0382be897fa.png"
+                alt="LegalAid logo — Legal Artificial Intelligence Development"
+                loading="lazy"
+                decoding="async"
+                className="h-20 sm:h-24 w-auto"
+              />
+            </a>
+          </div>
           <p className="text-sm font-medium">© 2025 Legal Artificial Intelligence Development Ltd. All rights reserved.</p>
           <p className="mt-2 text-xs sm:text-sm">
             This tool provides a preliminary assessment for informational purposes only. It does not constitute legal advice or guarantee visa approval.
