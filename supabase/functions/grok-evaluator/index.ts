@@ -32,39 +32,32 @@ serve(async (req: Request): Promise<Response> => {
   }
 
   try {
-    // Verify authentication
+    // Optional authentication - support both authenticated and anonymous users
     const authHeader = req.headers.get('Authorization');
-    if (!authHeader) {
-      return new Response(JSON.stringify({ error: "Missing authorization header" }), {
-        status: 401,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+    let userId: string | null = null;
+    
+    if (authHeader) {
+      const supabase = createClient(
+        Deno.env.get('SUPABASE_URL') ?? '',
+        Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+        { global: { headers: { Authorization: authHeader } } }
+      );
+
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      if (!authError && user) {
+        userId = user.id;
+      }
     }
-
-    const supabase = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
-      { global: { headers: { Authorization: authHeader } } }
-    );
-
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) {
-      console.error("[grok-evaluator] Auth error:", authError);
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    // Rate limiting per user
-    const userId = user.id;
+    
+    // For anonymous users, use IP-based rate limiting
+    const rateLimitKey = userId || req.headers.get('x-forwarded-for') || 'anonymous';
     const now = Date.now();
-    const userLimit = rateLimitMap.get(userId);
+    const userLimit = rateLimitMap.get(rateLimitKey);
 
     if (userLimit) {
       if (now < userLimit.resetTime) {
         if (userLimit.count >= MAX_REQUESTS_PER_HOUR) {
-          console.warn(`[grok-evaluator] Rate limit exceeded for user ${userId}`);
+          console.warn(`[grok-evaluator] Rate limit exceeded for key ${rateLimitKey}`);
           return new Response(JSON.stringify({ 
             error: `Rate limit exceeded. Maximum ${MAX_REQUESTS_PER_HOUR} requests per hour.` 
           }), {
@@ -75,10 +68,10 @@ serve(async (req: Request): Promise<Response> => {
         userLimit.count++;
       } else {
         // Reset window
-        rateLimitMap.set(userId, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+        rateLimitMap.set(rateLimitKey, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
       }
     } else {
-      rateLimitMap.set(userId, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+      rateLimitMap.set(rateLimitKey, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
     }
 
     const { idea } = await req.json();
@@ -191,7 +184,7 @@ Use these EXACT criteria. Each criterion is INDEPENDENT and focuses on different
 
 Only return the JSON object, no other text.`;
 
-    console.log("[grok-evaluator] Request from user:", userId, "| Idea length:", idea.length);
+    console.log("[grok-evaluator] Request from:", userId || "anonymous", "| Idea length:", idea.length);
 
     const resp = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
