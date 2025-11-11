@@ -45,7 +45,7 @@ const Index = () => {
       <SiteHeader />
       <div className="w-full">
         <img
-          src="/lovable-uploads/hero-banner.png"
+          src="/lovable-uploads/hero-banner-new.png"
           alt="UK Innovator Founder Visa Assessment - Legal AI Development"
           className="w-full h-auto"
           loading="eager"
