@@ -15,7 +15,7 @@ const SiteFooter = () => {
             />
             <a href="https://legalaid.dev/" target="_blank" rel="noopener noreferrer" aria-label="Visit LegalAid (opens in a new tab)">
               <img
-                src="/lovable-uploads/10eb0b13-ad91-4951-bb02-f0382be897fa.png"
+                src="/lovable-uploads/legalaid-logo-new.png"
                 alt="LegalAid logo — Legal Artificial Intelligence Development"
                 loading="lazy"
                 decoding="async"
