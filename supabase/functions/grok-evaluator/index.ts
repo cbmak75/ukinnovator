@@ -1,9 +1,16 @@
 import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
+
+// Simple in-memory rate limiting (resets on function cold start)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const MAX_REQUESTS_PER_HOUR = 10;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const MAX_IDEA_LENGTH = 5000;
 
 interface GrokResponse {
   choices: Array<{
@@ -25,9 +32,69 @@ serve(async (req: Request): Promise<Response> => {
   }
 
   try {
+    // Verify authentication
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader) {
+      return new Response(JSON.stringify({ error: "Missing authorization header" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+      { global: { headers: { Authorization: authHeader } } }
+    );
+
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      console.error("[grok-evaluator] Auth error:", authError);
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // Rate limiting per user
+    const userId = user.id;
+    const now = Date.now();
+    const userLimit = rateLimitMap.get(userId);
+
+    if (userLimit) {
+      if (now < userLimit.resetTime) {
+        if (userLimit.count >= MAX_REQUESTS_PER_HOUR) {
+          console.warn(`[grok-evaluator] Rate limit exceeded for user ${userId}`);
+          return new Response(JSON.stringify({ 
+            error: `Rate limit exceeded. Maximum ${MAX_REQUESTS_PER_HOUR} requests per hour.` 
+          }), {
+            status: 429,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          });
+        }
+        userLimit.count++;
+      } else {
+        // Reset window
+        rateLimitMap.set(userId, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+      }
+    } else {
+      rateLimitMap.set(userId, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    }
+
     const { idea } = await req.json();
+    
+    // Input validation
     if (!idea || typeof idea !== "string" || idea.trim().length === 0) {
       return new Response(JSON.stringify({ error: "Missing or invalid 'idea'" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    if (idea.length > MAX_IDEA_LENGTH) {
+      return new Response(JSON.stringify({ 
+        error: `Idea too long. Maximum ${MAX_IDEA_LENGTH} characters allowed.` 
+      }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -124,7 +191,7 @@ Use these EXACT criteria. Each criterion is INDEPENDENT and focuses on different
 
 Only return the JSON object, no other text.`;
 
-    console.log("[grok-evaluator] Incoming idea length:", idea.length);
+    console.log("[grok-evaluator] Request from user:", userId, "| Idea length:", idea.length);
 
     const resp = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
