@@ -5,14 +5,7 @@ const SiteFooter = () => {
     <footer role="contentinfo" aria-label="Site footer" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col items-center gap-4 text-center">
-          <div className="flex items-center gap-6 flex-wrap justify-center">
-            <img
-              src="/lovable-uploads/ai-logo.png"
-              alt="AI logo"
-              loading="lazy"
-              decoding="async"
-              className="h-16 sm:h-20 w-auto"
-            />
+          <div className="flex items-center justify-center">
             <a href="https://legalaid.dev/" target="_blank" rel="noopener noreferrer" aria-label="Visit LegalAid (opens in a new tab)">
               <img
                 src="/lovable-uploads/legalaid-logo-new.png"
