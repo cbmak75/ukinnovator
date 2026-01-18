@@ -3,16 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Coffee, UtensilsCrossed, Gem } from "lucide-react";
 
 const DonationSection = () => {
-  // Using Ko-fi links - user can create a free Ko-fi account and update these URLs
-  const kofiUsername = "chrisdias"; // Replace with actual Ko-fi username
-  
   const donationOptions = [
     {
       icon: Coffee,
       title: "Buy me a coffee",
       amount: "£5",
       description: "A small thank you",
-      url: `https://ko-fi.com/${kofiUsername}?amount=5`,
+      url: "https://ko-fi.com/chrisdias?amount=5",
       color: "bg-amber-50 border-amber-200 hover:border-amber-300",
       iconColor: "text-amber-600",
     },
@@ -21,7 +18,7 @@ const DonationSection = () => {
       title: "Buy me lunch",
       amount: "£20",
       description: "Much appreciated",
-      url: `https://ko-fi.com/${kofiUsername}?amount=20`,
+      url: "https://ko-fi.com/chrisdias?amount=20",
       color: "bg-emerald-50 border-emerald-200 hover:border-emerald-300",
       iconColor: "text-emerald-600",
     },
@@ -30,7 +27,7 @@ const DonationSection = () => {
       title: "I'm feeling generous",
       amount: "£250",
       description: "Acknowledge the hundreds of hours of work",
-      url: `https://ko-fi.com/${kofiUsername}?amount=250`,
+      url: "https://ko-fi.com/chrisdias?amount=250",
       color: "bg-violet-50 border-violet-200 hover:border-violet-300",
       iconColor: "text-violet-600",
     },
