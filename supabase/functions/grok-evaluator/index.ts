@@ -6,8 +6,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// Simple in-memory rate limiting (resets on function cold start)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+// Rate limiting configuration
 const MAX_REQUESTS_PER_HOUR = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 const MAX_IDEA_LENGTH = 5000;
@@ -16,6 +15,90 @@ interface GrokResponse {
   choices: Array<{
     message: { content: string };
   }>;
+}
+
+// Create a Supabase client with service role for rate limiting
+function getServiceClient() {
+  return createClient(
+    Deno.env.get('SUPABASE_URL') ?? '',
+    Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+  );
+}
+
+// Persistent rate limiting using database
+async function checkRateLimit(ipAddress: string): Promise<{ allowed: boolean; remaining: number }> {
+  const supabase = getServiceClient();
+  const now = new Date();
+  const windowStart = new Date(now.getTime() - RATE_LIMIT_WINDOW_MS);
+  
+  try {
+    // Get current request count for this IP within the window
+    const { data: existing, error: selectError } = await supabase
+      .from('rate_limits')
+      .select('id, request_count, window_start')
+      .eq('ip_address', ipAddress)
+      .gte('window_start', windowStart.toISOString())
+      .order('window_start', { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    if (selectError) {
+      console.error('[rate-limit] Select error:', selectError);
+      // On error, allow the request but log it
+      return { allowed: true, remaining: MAX_REQUESTS_PER_HOUR };
+    }
+
+    if (existing) {
+      // Check if limit exceeded
+      if (existing.request_count >= MAX_REQUESTS_PER_HOUR) {
+        return { allowed: false, remaining: 0 };
+      }
+      
+      // Increment the counter
+      const { error: updateError } = await supabase
+        .from('rate_limits')
+        .update({ request_count: existing.request_count + 1 })
+        .eq('id', existing.id);
+      
+      if (updateError) {
+        console.error('[rate-limit] Update error:', updateError);
+      }
+      
+      return { allowed: true, remaining: MAX_REQUESTS_PER_HOUR - existing.request_count - 1 };
+    } else {
+      // Create new rate limit entry
+      const { error: insertError } = await supabase
+        .from('rate_limits')
+        .insert({
+          ip_address: ipAddress,
+          request_count: 1,
+          window_start: now.toISOString()
+        });
+      
+      if (insertError) {
+        console.error('[rate-limit] Insert error:', insertError);
+      }
+      
+      return { allowed: true, remaining: MAX_REQUESTS_PER_HOUR - 1 };
+    }
+  } catch (e) {
+    console.error('[rate-limit] Unexpected error:', e);
+    // On error, allow the request
+    return { allowed: true, remaining: MAX_REQUESTS_PER_HOUR };
+  }
+}
+
+// Cleanup old rate limit entries (called occasionally)
+async function cleanupOldEntries(): Promise<void> {
+  // Only cleanup 10% of the time to reduce DB load
+  if (Math.random() > 0.1) return;
+  
+  try {
+    const supabase = getServiceClient();
+    await supabase.rpc('cleanup_old_rate_limits');
+  } catch (e) {
+    console.error('[rate-limit] Cleanup error:', e);
+  }
 }
 
 serve(async (req: Request): Promise<Response> => {
@@ -32,46 +115,28 @@ serve(async (req: Request): Promise<Response> => {
   }
 
   try {
-    // Optional authentication - support both authenticated and anonymous users
-    const authHeader = req.headers.get('Authorization');
-    let userId: string | null = null;
+    // Get IP address for rate limiting
+    const ipAddress = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
+                      req.headers.get('x-real-ip') || 
+                      'unknown';
     
-    if (authHeader) {
-      const supabase = createClient(
-        Deno.env.get('SUPABASE_URL') ?? '',
-        Deno.env.get('SUPABASE_ANON_KEY') ?? '',
-        { global: { headers: { Authorization: authHeader } } }
-      );
-
-      const { data: { user }, error: authError } = await supabase.auth.getUser();
-      if (!authError && user) {
-        userId = user.id;
-      }
-    }
+    // Check persistent rate limit
+    const { allowed, remaining } = await checkRateLimit(ipAddress);
     
-    // For anonymous users, use IP-based rate limiting
-    const rateLimitKey = userId || req.headers.get('x-forwarded-for') || 'anonymous';
-    const now = Date.now();
-    const userLimit = rateLimitMap.get(rateLimitKey);
-
-    if (userLimit) {
-      if (now < userLimit.resetTime) {
-        if (userLimit.count >= MAX_REQUESTS_PER_HOUR) {
-          console.warn(`[grok-evaluator] Rate limit exceeded for key ${rateLimitKey}`);
-          return new Response(JSON.stringify({ 
-            error: `Rate limit exceeded. Maximum ${MAX_REQUESTS_PER_HOUR} requests per hour.` 
-          }), {
-            status: 429,
-            headers: { ...corsHeaders, "Content-Type": "application/json" },
-          });
-        }
-        userLimit.count++;
-      } else {
-        // Reset window
-        rateLimitMap.set(rateLimitKey, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
-      }
-    } else {
-      rateLimitMap.set(rateLimitKey, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    if (!allowed) {
+      console.warn(`[grok-evaluator] Rate limit exceeded for IP ${ipAddress}`);
+      return new Response(JSON.stringify({ 
+        error: `Rate limit exceeded. Maximum ${MAX_REQUESTS_PER_HOUR} requests per hour.` 
+      }), {
+        status: 429,
+        headers: { 
+          ...corsHeaders, 
+          "Content-Type": "application/json",
+          "X-RateLimit-Limit": String(MAX_REQUESTS_PER_HOUR),
+          "X-RateLimit-Remaining": "0",
+          "Retry-After": "3600"
+        },
+      });
     }
 
     const { idea } = await req.json();
@@ -184,7 +249,7 @@ Use these EXACT criteria. Each criterion is INDEPENDENT and focuses on different
 
 Only return the JSON object, no other text.`;
 
-    console.log("[grok-evaluator] Request from:", userId || "anonymous", "| Idea length:", idea.length);
+    console.log("[grok-evaluator] Request from IP:", ipAddress, "| Idea length:", idea.length, "| Remaining requests:", remaining);
 
     const resp = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
@@ -246,10 +311,18 @@ Only return the JSON object, no other text.`;
       });
     }
 
+    // Trigger occasional cleanup
+    cleanupOldEntries();
+
     console.log("[grok-evaluator] Success");
     return new Response(JSON.stringify(evaluation), {
       status: 200,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      headers: { 
+        ...corsHeaders, 
+        "Content-Type": "application/json",
+        "X-RateLimit-Limit": String(MAX_REQUESTS_PER_HOUR),
+        "X-RateLimit-Remaining": String(remaining)
+      },
     });
   } catch (e) {
     console.error("[grok-evaluator] Unexpected error:", e);
