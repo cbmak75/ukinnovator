@@ -14,78 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
-      messages: {
-        Row: {
-          content: string
-          created_at: string
-          id: string
-          read: boolean
-          receiver_id: string
-          sender_id: string
-        }
-        Insert: {
-          content: string
-          created_at?: string
-          id?: string
-          read?: boolean
-          receiver_id: string
-          sender_id: string
-        }
-        Update: {
-          content?: string
-          created_at?: string
-          id?: string
-          read?: boolean
-          receiver_id?: string
-          sender_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "messages_receiver_id_fkey"
-            columns: ["receiver_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "messages_sender_id_fkey"
-            columns: ["sender_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      users: {
+      rate_limits: {
         Row: {
           created_at: string
-          email: string
-          grok_api_key: string | null
           id: string
-          name: string
-          organization_id: string | null
-          role: string
-          updated_at: string
+          ip_address: string
+          request_count: number
+          window_start: string
         }
         Insert: {
           created_at?: string
-          email: string
-          grok_api_key?: string | null
-          id: string
-          name: string
-          organization_id?: string | null
-          role: string
-          updated_at?: string
+          id?: string
+          ip_address: string
+          request_count?: number
+          window_start?: string
         }
         Update: {
           created_at?: string
-          email?: string
-          grok_api_key?: string | null
           id?: string
-          name?: string
-          organization_id?: string | null
-          role?: string
-          updated_at?: string
+          ip_address?: string
+          request_count?: number
+          window_start?: string
         }
         Relationships: []
       }
@@ -94,7 +43,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      cleanup_old_rate_limits: { Args: never; Returns: undefined }
     }
     Enums: {
       [_ in never]: never
