@@ -54,8 +54,9 @@ const SiteFooter = () => {
           <aside className="mt-6 text-xs text-primary-foreground/70 max-w-2xl">
             <p>
               ukinnovator.online is a free AI-powered UK Innovator Founder Visa assessment tool developed by 
-              <strong> Chris Dias</strong>, an immigration solicitor regulated by the SRA. Evaluate your business idea's 
-              innovation, scalability, and viability before applying for endorsement.
+              <strong> Chris Dias</strong>, founder of Legalaid Ltd and specialist immigration solicitor at{" "}
+              <a href="https://lawyery.co.uk" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">Lawyery</a>.
+              Evaluate your business idea's innovation, scalability, and viability before applying for endorsement.
             </p>
           </aside>
           
