@@ -8,15 +8,29 @@ const Resources: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "UK Innovator Founder Visa Resources",
-    "description": "Curated official guidance, endorsing bodies, and legal advisors for UK Innovator Founder visa applicants.",
+    "description": "Essential resources for UK Innovator Founder Visa applicants. Official requirements, endorsement body information, business plan guidance and application tips.",
     "url": "https://www.ukinnovator.online/resources",
+    "datePublished": "2024-01-01",
+    "dateModified": "2026-01-18",
+    "author": {
+      "@type": "Person",
+      "name": "Chris Dias"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
+    },
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "UKVI Innovator Founder Visa Overview", "url": "https://www.gov.uk/innovator-founder-visa" },
         { "@type": "ListItem", "position": 2, "name": "Immigration Rules Appendix", "url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-innovator-founder" },
         { "@type": "ListItem", "position": 3, "name": "Caseworker Guidance", "url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible" },
-        { "@type": "ListItem", "position": 4, "name": "Official Endorsing Bodies List", "url": "https://www.gov.uk/government/publications/endorsing-bodies-innovator-founder-and-scale-up-visas/innovator-founder-and-scale-up-visas-endorsing-bodies" }
+        { "@type": "ListItem", "position": 4, "name": "Official Endorsing Bodies List", "url": "https://www.gov.uk/government/publications/endorsing-bodies-innovator-founder-and-scale-up-visas/innovator-founder-and-scale-up-visas-endorsing-bodies" },
+        { "@type": "ListItem", "position": 5, "name": "UK Endorsing Services", "url": "https://www.ukesapp.co.uk/" },
+        { "@type": "ListItem", "position": 6, "name": "Innovator International", "url": "https://www.innovatorinternational.com/" },
+        { "@type": "ListItem", "position": 7, "name": "Envestors Limited", "url": "https://envestors-visa-endorsement.co.uk" },
+        { "@type": "ListItem", "position": 8, "name": "Global Entrepreneurs Programme", "url": "https://www.great.gov.uk/international/content/invest/how-to-setup-in-the-uk/global-entrepreneur-program/" }
       ]
     }
   };
@@ -24,19 +38,25 @@ const Resources: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="UK Innovator Founder Visa Resources | Official Guidance"
-        description="Curated official guidance, endorsing bodies, and legal advisors for UK Innovator Founder visa applicants. Essential links and expert resources."
+        title="UK Innovator Founder Visa Resources | Guides, Requirements & Tips"
+        description="Essential resources for UK Innovator Founder Visa applicants. Official requirements, endorsement body information, business plan guidance and application tips."
         canonicalPath="/resources"
         structuredData={structuredData}
       />
       <div className="min-h-screen flex flex-col">
         <SiteHeader />
-        <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
+        <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl" role="main">
           <nav aria-label="Breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-sm text-muted-foreground">
-              <li><a href="/" className="hover:underline">Home</a></li>
+            <ol className="flex items-center gap-2 text-sm text-muted-foreground" itemScope itemType="https://schema.org/BreadcrumbList">
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a href="/" className="hover:underline" itemProp="item"><span itemProp="name">Home</span></a>
+                <meta itemProp="position" content="1" />
+              </li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-foreground">Resources</li>
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <span aria-current="page" className="text-foreground" itemProp="name">Resources</span>
+                <meta itemProp="position" content="2" />
+              </li>
             </ol>
           </nav>
           <div className="mb-6">
@@ -50,6 +70,7 @@ const Resources: React.FC = () => {
               and a brief description of its relevance, focusing on official guidance, endorsing bodies, and specified legal and advisory
               services. All information is accurate as of the latest available data and presented in UK English.
             </p>
+            <p className="text-sm text-muted-foreground mt-2">Last updated: January 2026 • Curated by Chris Dias, Legalaid Ltd</p>
           </header>
 
         <section aria-labelledby="official-guidance" className="mb-10">
