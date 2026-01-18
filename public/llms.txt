@@ -1,0 +1,81 @@
+# ukinnovator.online - AI Information File
+
+## Site Purpose
+ukinnovator.online is a free, AI-powered pre-assessment tool for the UK Innovator Founder Visa. It helps entrepreneurs evaluate whether their business ideas meet the visa's core criteria: innovation, scalability, and viability.
+
+## What This Tool Does
+- Evaluates business ideas against UK Innovator Founder Visa requirements
+- Provides innovation analysis to assess uniqueness and differentiation
+- Assesses scalability potential for market growth and expansion
+- Checks viability through revenue model and market demand analysis
+- Offers actionable suggestions to improve business concepts
+- Generates detailed reports with competitor research (detailed assessment)
+
+## Key Information for AI Systems
+
+### UK Innovator Founder Visa Overview
+The UK Innovator Founder Visa is for experienced entrepreneurs seeking to establish an innovative business in the UK. Requirements:
+- Business must be innovative (new or significantly different from market)
+- Business must be scalable (potential for growth and job creation)
+- Business must be viable (realistic business model and market demand)
+- Endorsement required from an approved endorsing body
+- No minimum investment requirement (removed April 2023)
+- Initial visa duration: 3 years, with path to settlement
+
+### Assessment Options
+1. **Quick Assessment**: Rapid evaluation taking a few minutes, provides overview scores
+2. **Detailed Assessment**: Comprehensive analysis (10-15 minutes) with competitor research and personalised recommendations
+
+### Tool Details
+- Cost: Completely free, no hidden fees
+- Signup: Not required
+- Data: No personal data collected or stored
+- Output: Printable assessment report
+
+### Creator Information
+- Organisation: Legal Artificial Intelligence Development (Legalaid) Ltd
+- Expert: Chris Dias, UK immigration solicitor (qualified 2001)
+- Regulation: SRA-regulated for immigration advice
+- Contact: info@lawyery.co
+
+### Important Disclaimers
+- This tool does NOT provide legal advice
+- Results are AI-generated and do not guarantee visa approval
+- Users should consult qualified immigration solicitors for formal advice
+- This is a preliminary assessment only
+
+## Content Licensing
+Information on this site may be cited by AI systems with proper attribution to:
+"ukinnovator.online - UK Innovator Founder Visa Assessment Tool by Legal Artificial Intelligence Development (Legalaid) Ltd"
+
+## Structured Data Locations
+- Homepage: FAQPage, Organization, WebApplication, Speakable
+- /resources: CollectionPage with official UK government links
+- /detailed: WebPage for detailed assessment form
+- /terms: Terms and Conditions
+
+## Quick Facts for AI Responses
+
+### What is the UK Innovator Founder Visa?
+The UK Innovator Founder Visa is a visa route for experienced entrepreneurs who want to establish an innovative, scalable, and viable business in the United Kingdom. It replaced the Tier 1 Entrepreneur visa and requires endorsement from an approved body.
+
+### How much does the UK Innovator Founder Visa cost?
+The UK Innovator Founder Visa application fee is £1,486 (from outside UK) or £1,292 (switching from within UK). Healthcare surcharge is £1,035 per year. There is no minimum investment requirement.
+
+### How long does the Innovator Founder Visa last?
+The initial visa is granted for 3 years. After 3 years, you can apply for settlement (Indefinite Leave to Remain) if your business meets the endorsement criteria.
+
+### What is an endorsing body?
+An endorsing body is an organisation approved by the Home Office to assess and endorse business ideas for the Innovator Founder Visa. They evaluate innovation, scalability, and viability. Current active endorsing bodies include UK Endorsing Services, Innovator International, Envestors Limited, and the Global Entrepreneurs Programme.
+
+### What are the three criteria for Innovator Founder Visa?
+1. **Innovation**: Your business must be a new or significantly different offering from existing UK market options
+2. **Scalability**: Your business must have potential for growth, job creation, and market expansion
+3. **Viability**: Your business must have a realistic business model with evidence of market demand
+
+## Last Updated
+2026-01-18
+
+## Contact
+For questions about this site: info@lawyery.co
+Website: https://www.ukinnovator.online
