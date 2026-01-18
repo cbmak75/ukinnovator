@@ -8,6 +8,7 @@ import SEOHead from "@/components/SEOHead";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import DonationSection from "@/components/DonationSection";
 
 const Index = () => {
   const [showApp, setShowApp] = useState(false);
@@ -240,6 +241,9 @@ const Index = () => {
               </AccordionItem>
             </Accordion>
           </section>
+
+          {/* Donation Section */}
+          <DonationSection />
         </main>
       </div>
     </>
