@@ -146,7 +146,7 @@ const Index = () => {
           {/* FAQ Section */}
           <section id="faq" className="w-full max-w-4xl mx-auto px-4 py-16" aria-labelledby="faq-heading">
             <h2 id="faq-heading" className="text-3xl font-bold text-foreground mb-8 text-center">Test Your Business Idea with the UK Innovator Founder Visa Assessment Tool</h2>
-            <p className="text-center text-muted-foreground mb-8">Last updated: January 2026 • Content by Chris Dias, Legalaid Ltd</p>
+            <p className="text-center text-muted-foreground mb-8">Last updated: January 2026 • Content by Chris Dias, Founder of Legalaid Ltd & Specialist Immigration Solicitor at <a href="https://lawyery.co.uk" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">Lawyery</a></p>
 
             <Accordion type="single" collapsible className="w-full space-y-4">
               <AccordionItem value="item-1" className="border rounded-lg px-6">
@@ -154,7 +154,7 @@ const Index = () => {
                   What is the UK Innovator Founder Visa assessment tool?
                 </AccordionTrigger>
                 <AccordionContent className="faq-answer text-muted-foreground leading-relaxed pt-2">
-                  Embark on your entrepreneurial journey with ukinnovator.online, where our free, AI-powered assessment tool serves as a litmus test for your business idea, tailored to the UK Innovator Founder Visa criteria. Developed by Legal Artificial Intelligence Development (Legalaid) Ltd, under the guidance of Chris Dias, an experienced immigration solicitor and founder of Legalaid Ltd, this platform evaluates your concept's innovation, scalability, and viability. Whether you're a global entrepreneur dreaming of launching a startup in the UK or refining an existing idea, our tool provides instant feedback to help you align with the UK Innovator Founder Visa eligibility requirements.
+                  Embark on your entrepreneurial journey with ukinnovator.online, where our free, AI-powered assessment tool serves as a litmus test for your business idea, tailored to the UK Innovator Founder Visa criteria. Developed by Legal Artificial Intelligence Development (Legalaid) Ltd, under the guidance of Chris Dias—founder of Legalaid Ltd and specialist immigration solicitor at <a href="https://lawyery.co.uk" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Lawyery</a>—this platform evaluates your concept's innovation, scalability, and viability. Whether you're a global entrepreneur dreaming of launching a startup in the UK or refining an existing idea, our tool provides instant feedback to help you align with the UK Innovator Founder Visa eligibility requirements.
                 </AccordionContent>
               </AccordionItem>
 
@@ -181,7 +181,7 @@ const Index = () => {
                   What makes this tool unique compared to other UK visa resources?
                 </AccordionTrigger>
                 <AccordionContent className="faq-answer text-muted-foreground leading-relaxed pt-2">
-                  Unlike traditional visa guides or costly consultancy services, our AI-powered tool delivers a bespoke "litmus test" tailored to the UK Innovator Founder Visa's core criteria: innovation, scalability, and viability. Backed by Chris Dias's immigration expertise and Legalaid Ltd, it provides competitor insights and actionable recommendations to refine your idea, such as enhancing your business plan's innovation narrative. No other platform offers a free, AI-driven Innovator Founder Visa eligibility test that combines ease of use with in-depth analysis, giving you a head start on your UK entrepreneurial path.
+                  Unlike traditional visa guides or costly consultancy services, our AI-powered tool delivers a bespoke "litmus test" tailored to the UK Innovator Founder Visa's core criteria: innovation, scalability, and viability. Backed by Chris Dias's immigration expertise at <a href="https://lawyery.co.uk" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Lawyery</a> and Legalaid Ltd, it provides competitor insights and actionable recommendations to refine your idea, such as enhancing your business plan's innovation narrative. No other platform offers a free, AI-driven Innovator Founder Visa eligibility test that combines ease of use with in-depth analysis, giving you a head start on your UK entrepreneurial path.
                 </AccordionContent>
               </AccordionItem>
 
@@ -199,7 +199,7 @@ const Index = () => {
                   Who is Chris Dias?
                 </AccordionTrigger>
                 <AccordionContent className="faq-answer text-muted-foreground leading-relaxed pt-2">
-                  Chris Dias, qualified as a solicitor in 2001, is a UK immigration law expert, specialising in the Innovator Founder Visa. As founder of Legal Artificial Intelligence Development (Legalaid) Ltd, he drives ukinnovator.online. Chris trains practitioners in Level 2 Advanced Immigration Law at Free Movement, equipping them with advanced knowledge, and supervises students at the Queen Mary Legal Advice Centre, guiding future lawyers in pro bono legal support. His expertise ensures our tool is grounded in authoritative insight, making it a trusted starting point for your UK Innovator Founder Visa journey.
+                  Chris Dias, qualified as a solicitor in 2001, is a UK immigration law expert specialising in the Innovator Founder Visa. He is the founder of Legal Artificial Intelligence Development (Legalaid) Ltd and a specialist immigration solicitor at <a href="https://lawyery.co.uk" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Lawyery</a>. Chris trains practitioners in Level 2 Advanced Immigration Law at Free Movement, equipping them with advanced knowledge, and supervises students at the Queen Mary Legal Advice Centre, guiding future lawyers in pro bono legal support. His expertise ensures our tool is grounded in authoritative insight, making it a trusted starting point for your UK Innovator Founder Visa journey.
                 </AccordionContent>
               </AccordionItem>
 
