@@ -1,8 +1,14 @@
+# UK Innovator Founder Visa Assessment Tool
+# https://www.ukinnovator.online
+
+# Search engine crawlers
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,7 +16,17 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
+# All other crawlers
+User-agent: *
+Allow: /
+Disallow: /auth
+Crawl-delay: 2
+
+# Sitemap location
 Sitemap: https://www.ukinnovator.online/sitemap.xml
+
+# Host directive
+Host: https://www.ukinnovator.online

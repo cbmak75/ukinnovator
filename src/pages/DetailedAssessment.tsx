@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
 import ImportantNotice from "@/components/ImportantNotice";
+import SEOHead from "@/components/SEOHead";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -88,7 +89,6 @@ const DetailedAssessment = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Detailed Assessment – UK Innovator Evaluator";
     const saved = localStorage.getItem(LS_FORM_KEY);
     if (saved) {
       try { 
@@ -179,16 +179,29 @@ const DetailedAssessment = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader />
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
-        <div className="mb-6">
-          <BackHomeButton variant="outline" size="sm" />
-        </div>
-        <header className="mb-6">
-          <h1 className="text-3xl font-semibold text-foreground">Detailed Assessment</h1>
-          <p className="text-muted-foreground mt-2">Provide a richer brief for a deeper evaluation, tailored to the Innovator Founder UK visa scheme.</p>
-        </header>
+    <>
+      <SEOHead
+        title="Detailed Assessment | UK Innovator Founder Visa Tool"
+        description="Complete a detailed business assessment for UK Innovator Founder Visa. Evaluate innovation, scalability, viability with competitor research and personalised suggestions."
+        canonicalPath="/detailed"
+      />
+      <div className="min-h-screen flex flex-col">
+        <SiteHeader />
+        <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
+          <nav aria-label="Breadcrumb" className="mb-4">
+            <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+              <li><a href="/" className="hover:underline">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-foreground">Detailed Assessment</li>
+            </ol>
+          </nav>
+          <div className="mb-6">
+            <BackHomeButton variant="outline" size="sm" />
+          </div>
+          <header className="mb-6">
+            <h1 className="text-3xl font-semibold text-foreground">Detailed Assessment</h1>
+            <p className="text-muted-foreground mt-2">Provide a richer brief for a deeper evaluation, tailored to the Innovator Founder UK visa scheme.</p>
+          </header>
         <div className="grid gap-6 md:grid-cols-2">
           <Card className="md:col-span-2">
             <CardHeader>
@@ -409,6 +422,7 @@ const DetailedAssessment = () => {
         )}
       </main>
     </div>
+    </>
   );
 };
 

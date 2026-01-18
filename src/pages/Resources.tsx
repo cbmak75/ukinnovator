@@ -1,87 +1,56 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
+import SEOHead from "@/components/SEOHead";
 
 const Resources: React.FC = () => {
-  useEffect(() => {
-    // SEO: title and meta description
-    document.title = "Innovator Founder Visa Resources";
-
-    const metaDescription =
-      "Curated official guidance, endorsing bodies, and legal advisors for UK Innovator Founder visa applicants.";
-    let descEl = document.querySelector('meta[name="description"]');
-    if (!descEl) {
-      descEl = document.createElement("meta");
-      descEl.setAttribute("name", "description");
-      document.head.appendChild(descEl);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "UK Innovator Founder Visa Resources",
+    "description": "Curated official guidance, endorsing bodies, and legal advisors for UK Innovator Founder visa applicants.",
+    "url": "https://www.ukinnovator.online/resources",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "UKVI Innovator Founder Visa Overview", "url": "https://www.gov.uk/innovator-founder-visa" },
+        { "@type": "ListItem", "position": 2, "name": "Immigration Rules Appendix", "url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-innovator-founder" },
+        { "@type": "ListItem", "position": 3, "name": "Caseworker Guidance", "url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible" },
+        { "@type": "ListItem", "position": 4, "name": "Official Endorsing Bodies List", "url": "https://www.gov.uk/government/publications/endorsing-bodies-innovator-founder-and-scale-up-visas/innovator-founder-and-scale-up-visas-endorsing-bodies" }
+      ]
     }
-    descEl.setAttribute("content", metaDescription);
-
-    // Canonical
-    const canonicalHref = `${window.location.origin}/resources`;
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute("href", canonicalHref);
-
-    // Structured data (ItemList)
-    const resources = [
-      { name: "UKVI Innovator Founder Visa Overview and Eligibility", url: "https://www.gov.uk/innovator-founder-visa" },
-      { name: "Immigration Rules Appendix Innovator Founder", url: "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-innovator-founder" },
-      { name: "Innovator Founder Visa Caseworker Guidance", url: "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible" },
-      { name: "Official List of Endorsing Bodies", url: "https://www.gov.uk/government/publications/endorsing-bodies-innovator-founder-and-scale-up-visas/innovator-founder-and-scale-up-visas-endorsing-bodies" },
-      { name: "UK Endorsing Services", url: "https://www.ukesapp.co.uk/" },
-      { name: "Innovator International", url: "https://www.innovatorinternational.com/" },
-      { name: "Envestors Limited", url: "https://envestors-visa-endorsement.co.uk" },
-      { name: "The Global Entrepreneurs Programme (GEP)", url: "https://www.great.gov.uk/international/content/invest/how-to-setup-in-the-uk/global-entrepreneur-program/" },
-      { name: "Lawyery", url: "https://www.lawyery.co/innovator-founder-visa" },
-      { name: "Horsfield Menzies", url: "https://www.horsfieldmenzies.com/employment-law" },
-      { name: "Impact Lawyers", url: "https://www.impactlawyers.co.uk/" },
-      { name: "ALT Legal", url: "https://alt-legal.co.uk/" },
-    ];
-
-    const ldJson = {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: 'Innovator Founder Visa Resources',
-      description: metaDescription,
-      url: canonicalHref,
-      hasPart: resources.map((r) => ({ '@type': 'WebPage', name: r.name, url: r.url })),
-    };
-
-    let ldEl = document.getElementById("ld-resources") as HTMLScriptElement | null;
-    if (!ldEl) {
-      ldEl = document.createElement("script") as HTMLScriptElement;
-      ldEl.setAttribute("type", "application/ld+json");
-      ldEl.id = "ld-resources";
-      document.head.appendChild(ldEl);
-    }
-    ldEl.textContent = JSON.stringify(ldJson);
-
-    return () => {
-      // keep canonical and meta; structured data can remain or be cleared if needed
-    };
-  }, []);
+  };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader />
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
-        <div className="mb-6">
-          <BackHomeButton variant="outline" size="sm" />
-        </div>
+    <>
+      <SEOHead
+        title="UK Innovator Founder Visa Resources | Official Guidance"
+        description="Curated official guidance, endorsing bodies, and legal advisors for UK Innovator Founder visa applicants. Essential links and expert resources."
+        canonicalPath="/resources"
+        structuredData={structuredData}
+      />
+      <div className="min-h-screen flex flex-col">
+        <SiteHeader />
+        <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
+          <nav aria-label="Breadcrumb" className="mb-4">
+            <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+              <li><a href="/" className="hover:underline">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-foreground">Resources</li>
+            </ol>
+          </nav>
+          <div className="mb-6">
+            <BackHomeButton variant="outline" size="sm" />
+          </div>
 
-        <header className="mb-6">
-          <h1 className="text-3xl font-semibold text-foreground">Resources for Innovator Founder Visa Applicants</h1>
-          <p className="text-muted-foreground mt-2">
-            Below is a curated list of essential resources for applicants seeking the UK Innovator Founder visa. Each entry includes a link
-            and a brief description of its relevance, focusing on official guidance, endorsing bodies, and specified legal and advisory
-            services. All information is accurate as of the latest available data and presented in UK English.
-          </p>
-        </header>
+          <header className="mb-6">
+            <h1 className="text-3xl font-semibold text-foreground">Resources for Innovator Founder Visa Applicants</h1>
+            <p className="text-muted-foreground mt-2">
+              Below is a curated list of essential resources for applicants seeking the UK Innovator Founder visa. Each entry includes a link
+              and a brief description of its relevance, focusing on official guidance, endorsing bodies, and specified legal and advisory
+              services. All information is accurate as of the latest available data and presented in UK English.
+            </p>
+          </header>
 
         <section aria-labelledby="official-guidance" className="mb-10">
           <h2 id="official-guidance" className="text-2xl font-semibold text-foreground mb-4">Official UKVI Guidance</h2>
@@ -204,6 +173,7 @@ const Resources: React.FC = () => {
         </section>
       </main>
     </div>
+    </>
   );
 };
 
