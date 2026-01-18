@@ -1,36 +1,30 @@
-import { useEffect } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
+import SEOHead from "@/components/SEOHead";
+
 const Terms = () => {
-  useEffect(() => {
-    document.title = "Terms and Conditions | UK Innovator Founder Visa Assessment";
-    const desc = "Terms and Conditions for using UKInnovator.online assessment tool by LEGAL ARTIFICIAL INTELLIGENCE DEVELOPMENT (LEGALAID) LIMITED.";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name', 'description');
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute('content', desc);
-
-    let link = document.querySelector('link[rel="canonical"]');
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', window.location.origin + '/terms');
-  }, []);
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader />
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
-        <div className="mb-6"><BackHomeButton variant="outline" size="sm" /></div>
-        <header className="mb-6">
-          <h1 className="text-3xl font-semibold text-foreground">Terms and Conditions for UKInnovator.online</h1>
-          <p className="text-muted-foreground mt-2">Effective Date: 7 August 2025</p>
-        </header>
+    <>
+      <SEOHead
+        title="Terms and Conditions | UK Innovator Founder Visa Assessment"
+        description="Terms and Conditions for ukinnovator.online – the free AI-powered UK Innovator Founder Visa assessment tool by Legal AI Development Ltd."
+        canonicalPath="/terms"
+      />
+      <div className="min-h-screen flex flex-col">
+        <SiteHeader />
+        <main className="flex-1 container mx-auto px-4 py-8 max-w-5xl">
+          <nav aria-label="Breadcrumb" className="mb-4">
+            <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+              <li><a href="/" className="hover:underline">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-foreground">Terms</li>
+            </ol>
+          </nav>
+          <div className="mb-6"><BackHomeButton variant="outline" size="sm" /></div>
+          <header className="mb-6">
+            <h1 className="text-3xl font-semibold text-foreground">Terms and Conditions for UKInnovator.online</h1>
+            <p className="text-muted-foreground mt-2">Effective Date: 7 August 2025</p>
+          </header>
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">
           <p>These Terms and Conditions ("Terms") govern your access to and use of the website ukinnovator.online (the "Website" or "Service"), owned and operated by LEGAL ARTIFICIAL INTELLIGENCE DEVELOPMENT (LEGALAID) LIMITED, a company registered in England and Wales with company number 16633371, whose registered office is at 14 Lillymonte Drive, Rochester, Kent, United Kingdom, ME1 3EX ("we", "us", or "our"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, you must not use the Service.</p>
@@ -124,6 +118,7 @@ const Terms = () => {
         <div className="mt-6"><BackHomeButton /></div>
       </main>
     </div>
+    </>
   );
 };
 

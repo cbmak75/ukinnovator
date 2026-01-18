@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { IdeaEvaluator } from "@/components/IdeaEvaluator";
 import SiteHeader from "@/components/SiteHeader";
+import SEOHead from "@/components/SEOHead";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-
 
 const Index = () => {
   const [showApp, setShowApp] = useState(false);
@@ -15,42 +15,29 @@ const Index = () => {
   const [isOver18, setIsOver18] = useState(false);
   const [agreeToTerms, setAgreeToTerms] = useState(false);
 
-  useEffect(() => {
-    document.title = "UK Innovator Founder Visa Assessment | Free Quick & Detailed";
-
-    const desc = "Evaluate your business idea's eligibility for the UK Innovator Founder Visa with our free assessment tool offering quick and detailed options. Developed by Legal Artificial Intelligence Development (Legalaid) Ltd.";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name', 'description');
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute('content', desc);
-
-    let link = document.querySelector('link[rel="canonical"]');
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', window.location.origin + '/');
-  }, []);
-
   if (showApp) {
     return <IdeaEvaluator onBack={() => setShowApp(false)} />;
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader />
-      <div className="w-full">
-        <img
-          src="/lovable-uploads/hero-banner-new.png"
-          alt="UK Innovator Founder Visa Assessment - Legal AI Development"
-          className="w-full h-auto"
-          loading="eager"
-        />
-      </div>
+    <>
+      <SEOHead
+        title="UK Innovator Founder Visa Assessment | Free AI Tool"
+        description="Free AI-powered pre-assessment tool for UK Innovator Founder Visa. Test your business idea's innovation, scalability and viability. No signup required."
+        canonicalPath="/"
+      />
+      <div className="min-h-screen flex flex-col">
+        <SiteHeader />
+        <div className="w-full" role="img" aria-label="UK Innovator Founder Visa Assessment hero banner">
+          <img
+            src="/lovable-uploads/hero-banner-new.png"
+            alt="UK Innovator Founder Visa Assessment – Free AI-powered tool to test your business idea"
+            className="w-full h-auto"
+            loading="eager"
+            width="1920"
+            height="600"
+          />
+        </div>
       <main className="flex-1 p-4">
         <div className="max-w-2xl mx-auto">
           <Card className="w-full text-center">
@@ -219,6 +206,7 @@ const Index = () => {
         </section>
       </main>
     </div>
+    </>
   );
 };
 
