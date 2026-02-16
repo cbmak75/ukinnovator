@@ -262,7 +262,7 @@ Only return the JSON object, no other text.`;
           { role: 'system', content: systemPrompt },
           { role: 'user', content: `Evaluate this idea: ${idea}` }
         ],
-        model: 'grok-2-1212',
+        model: 'grok-3-mini',
         max_tokens: 2000,
         temperature: 0.3,
       }),
