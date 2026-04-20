@@ -1,73 +1,39 @@
-# Welcome to your Lovable project
+# ukinnovator.online
 
-## Project info
+A free pre-assessment tool for prospective applicants to the UK Innovator Founder visa. It scores a business idea against the three Home Office criteria every endorsing body cares about: innovation, scalability, and viability.
 
-**URL**: https://lovable.dev/projects/51e759c5-1df7-494b-95bf-659df702eb76
+Live site: https://www.ukinnovator.online
 
-## How can I edit this code?
+## What it does
 
-There are several ways of editing your application.
+Two assessment modes, both free and with no sign-up:
 
-**Use Lovable**
+- **Quick assessment** — a short form giving an immediate read on whether the idea is in the right shape for the route.
+- **Detailed assessment** — a longer structured review covering novelty, addressable market, growth levers, revenue realism, funding readiness, and common red flags. Outputs actionable next steps, validation checklists and KPIs to track.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/51e759c5-1df7-494b-95bf-659df702eb76) and start prompting.
+The feedback is framed around the wording endorsing bodies actually use, so a prospective founder can see where the idea is strong, where it is thin, and what to work on before paying a lawyer or approaching an endorsing body (UK Endorsing Services, Innovator International, Envestors, Global Entrepreneurs Programme).
 
-Changes made via Lovable will be committed automatically to this repo.
+## Who it is for
 
-**Use your preferred IDE**
+Prospective Innovator Founder applicants who want an honest first-pass before committing time and money to a full application. It is not legal advice and it is not an endorsement.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Vite + React + TypeScript
+- Tailwind + shadcn/ui
+- Supabase
+- Hosted via Lovable
 
-Follow these steps:
+## Maintainer
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Built and maintained by Legal Artificial Intelligence Development Ltd (Legalaid), a sister company of Lawyery Ltd. Content by Chris Dias, Specialist Immigration Solicitor at Lawyery.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Related free tools from Legalaid:
 
-# Step 3: Install the necessary dependencies.
-npm i
+- sponsorlicence.online — sponsor licence compliance action plans
+- uksettlement.com — UK settlement rule-change impact check
+- ukvisit.online — UK visitor visa preparation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## Disclaimer
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/51e759c5-1df7-494b-95bf-659df702eb76) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This tool is for orientation only. It is not a substitute for regulated legal advice, and outputs do not constitute endorsement by any approved body.
