@@ -8,8 +8,8 @@ Live site: https://www.ukinnovator.online
 
 Two assessment modes, both free and with no sign-up:
 
-- **Quick assessment** — a short form giving an immediate read on whether the idea is in the right shape for the route.
-- **Detailed assessment** — a longer structured review covering novelty, addressable market, growth levers, revenue realism, funding readiness, and common red flags. Outputs actionable next steps, validation checklists and KPIs to track.
+- **Quick assessment:** a short form giving an immediate read on whether the idea is in the right shape for the route.
+- **Detailed assessment:** a longer structured review covering novelty, addressable market, growth levers, revenue realism, funding readiness, and common red flags. Outputs actionable next steps, validation checklists and KPIs to track.
 
 The feedback is framed around the wording endorsing bodies actually use, so a prospective founder can see where the idea is strong, where it is thin, and what to work on before paying a lawyer or approaching an endorsing body (UK Endorsing Services, Innovator International, Envestors, Global Entrepreneurs Programme).
 
@@ -19,8 +19,8 @@ Prospective Innovator Founder applicants who want an honest first-pass before co
 
 ## Stack
 
-- Vite + React + TypeScript
-- Tailwind + shadcn/ui
+- Vite, React, TypeScript
+- Tailwind, shadcn/ui
 - Supabase
 - Hosted via Lovable
 
@@ -30,9 +30,9 @@ Built and maintained by Legal Artificial Intelligence Development Ltd (Legalaid)
 
 Related free tools from Legalaid:
 
-- sponsorlicence.online — sponsor licence compliance action plans
-- uksettlement.com — UK settlement rule-change impact check
-- ukvisit.online — UK visitor visa preparation
+- sponsorlicence.online: sponsor licence compliance action plans
+- uksettlement.com: UK settlement rule-change impact check
+- ukvisit.online: UK visitor visa preparation
 
 ## Disclaimer
 
