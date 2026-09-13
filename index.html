@@ -52,241 +52,273 @@
 
     <!-- Organisation Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Legal Artificial Intelligence Development (Legalaid) Ltd",
-      "alternateName": "Legalaid Ltd",
-      "url": "https://www.ukinnovator.online",
-      "logo": "https://www.ukinnovator.online/lovable-uploads/legalaid-logo-new.png",
-      "foundingDate": "2024",
-      "founder": {
-        "@type": "Person",
-        "name": "Chris Dias",
-        "jobTitle": "Specialist Immigration Solicitor",
-        "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk), qualified since 2001, specialising in the UK Innovator Founder Visa",
-        "worksFor": [
-          {
-            "@type": "Organization",
-            "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
-          },
-          {
-            "@type": "Organization",
-            "name": "Lawyery",
-            "url": "https://lawyery.co.uk"
-          }
-        ]
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "London",
-        "addressCountry": "GB"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "info@lawyery.co",
-        "contactType": "customer service",
-        "availableLanguage": "English"
-      }
-    }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://legalaid.dev/#company",
+  "name": "Legalaid",
+  "legalName": "Legal Artificial Intelligence Development (Legalaid) Ltd",
+  "url": "https://legalaid.dev/",
+  "description": "A UK technology company building legal AI tools. Not a law firm and not regulated by the Solicitors Regulation Authority.",
+  "founder": {
+    "@id": "https://www.lawyery.co/chris-dias#person"
+  }
+}
+</script>
 
     <!-- WebSite Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "ukinnovator.online",
-      "alternateName": "UK Innovator Founder Visa Assessment Tool",
-      "url": "https://www.ukinnovator.online",
-      "description": "Free AI-powered pre-assessment tool for UK Innovator Founder Visa applications",
-      "inLanguage": "en-GB",
-      "datePublished": "2024-01-01",
-      "dateModified": "2026-01-18",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Chris Dias",
-        "jobTitle": "Specialist Immigration Solicitor",
-        "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk)"
-      }
-    }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ukinnovator.online",
+  "alternateName": "UK Innovator Founder Visa Assessment Tool",
+  "url": "https://www.ukinnovator.online/",
+  "description": "Free AI-powered pre-assessment tool for UK Innovator Founder Visa applications",
+  "inLanguage": "en-GB",
+  "datePublished": "2024-01-01",
+  "dateModified": "2026-01-18",
+  "publisher": {
+    "@id": "https://legalaid.dev/#company"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Chris Dias",
+    "jobTitle": "Specialist Immigration Solicitor",
+    "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk)"
+  },
+  "@id": "https://www.ukinnovator.online/#website"
+}
+</script>
 
     <!-- WebApplication Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "UK Innovator Founder Visa Assessment Tool",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web Browser",
-      "browserRequirements": "Requires JavaScript",
-      "url": "https://www.ukinnovator.online",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock"
-      },
-      "description": "AI-powered tool to assess business ideas against UK Innovator Founder Visa criteria including innovation, scalability, and viability.",
-      "featureList": [
-        "Innovation analysis",
-        "Scalability assessment",
-        "Viability check",
-        "Competitor research",
-        "Actionable suggestions",
-        "PDF report generation"
-      ],
-      "screenshot": "https://www.ukinnovator.online/lovable-uploads/60dd26fd-47df-4009-8a35-8d12e52c9bed.png",
-      "datePublished": "2024-01-01",
-      "dateModified": "2026-01-18",
-      "author": {
-        "@type": "Organization",
-        "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
-      },
-      "creator": {
-        "@type": "Person",
-        "name": "Chris Dias"
-      }
-    }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "UK Innovator Founder Visa Assessment Tool",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web Browser",
+  "browserRequirements": "Requires JavaScript",
+  "url": "https://www.ukinnovator.online/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
+  },
+  "description": "AI-powered tool to assess business ideas against UK Innovator Founder Visa criteria including innovation, scalability, and viability.",
+  "featureList": [
+    "Innovation analysis",
+    "Scalability assessment",
+    "Viability check",
+    "Competitor research",
+    "Actionable suggestions",
+    "PDF report generation"
+  ],
+  "screenshot": "https://www.ukinnovator.online/lovable-uploads/60dd26fd-47df-4009-8a35-8d12e52c9bed.png",
+  "datePublished": "2024-01-01",
+  "dateModified": "2026-01-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Chris Dias"
+  },
+  "@id": "https://www.ukinnovator.online/#app",
+  "publisher": {
+    "@id": "https://legalaid.dev/#company"
+  }
+}
+</script>
 
     <!-- Speakable Schema for Voice Assistants -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "UK Innovator Founder Visa Assessment Tool",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".quick-answers", ".hero-description", ".faq-answer", "#quick-answers article"]
-      },
-      "url": "https://www.ukinnovator.online"
-    }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "UK Innovator Founder Visa Assessment Tool",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".quick-answers",
+      ".hero-description",
+      ".faq-answer",
+      "#quick-answers article"
+    ]
+  },
+  "url": "https://www.ukinnovator.online",
+  "@id": "https://www.ukinnovator.online/#page",
+  "isPartOf": {
+    "@id": "https://www.ukinnovator.online/#website"
+  },
+  "about": {
+    "@id": "https://www.ukinnovator.online/#app"
+  }
+}
+</script>
 
     <!-- FAQPage Schema with Enhanced Data -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "datePublished": "2024-01-01",
+  "dateModified": "2026-01-18",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Dias",
+    "jobTitle": "Specialist Immigration Solicitor",
+    "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
+  },
+  "mainEntity": [
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "datePublished": "2024-01-01",
-      "dateModified": "2026-01-18",
-      "author": {
-        "@type": "Person",
-        "name": "Chris Dias",
-        "jobTitle": "Specialist Immigration Solicitor",
-        "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk)"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
-      },
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the UK Innovator Founder Visa?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The UK Innovator Founder Visa is a visa route for experienced entrepreneurs who want to establish an innovative, scalable, and viable business in the United Kingdom. It replaced the Tier 1 Entrepreneur visa and requires endorsement from an approved body."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does the UK Innovator Founder Visa cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The UK Innovator Founder Visa application fee is £1,486 (from outside UK) or £1,292 (switching from within UK). The healthcare surcharge is £1,035 per year. There is no minimum investment requirement as of April 2023."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is an endorsing body for Innovator Founder Visa?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "An endorsing body is an organisation approved by the UK Home Office to assess and endorse business ideas for the Innovator Founder Visa. They evaluate whether your business meets the innovation, scalability, and viability criteria. Current active endorsing bodies include UK Endorsing Services, Innovator International, Envestors Limited, and the Global Entrepreneurs Programme."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does the Innovator Founder Visa last?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The initial Innovator Founder Visa is granted for 3 years. After 3 years, you can apply for settlement (Indefinite Leave to Remain) if your business continues to meet the endorsement criteria."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the three criteria for Innovator Founder Visa?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The three criteria are: 1) Innovation - your business must offer something new or significantly different from existing UK market options; 2) Scalability - your business must have potential for growth, job creation, and market expansion; 3) Viability - your business must have a realistic business model with evidence of market demand."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is the ukinnovator.online assessment free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, the assessment tool at ukinnovator.online is completely free. We offer both quick and detailed assessments at no cost. No signup is required."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does ukinnovator.online provide legal advice?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No, our assessment tool does not provide legal advice. It is a preliminary evaluation to gauge your business idea's alignment with visa criteria. For professional legal guidance, consult a qualified immigration solicitor."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who created ukinnovator.online?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "ukinnovator.online was created by Legal Artificial Intelligence Development (Legalaid) Ltd under the guidance of Chris Dias, founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk). Qualified since 2001, Chris specialises in the UK Innovator Founder Visa."
-          }
-        }
-      ]
+      "@type": "Question",
+      "name": "What is the UK Innovator Founder Visa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The UK Innovator Founder Visa is a visa route for experienced entrepreneurs who want to establish an innovative, scalable, and viable business in the United Kingdom. It replaced the Tier 1 Entrepreneur visa and requires endorsement from an approved body."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does the UK Innovator Founder Visa cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The UK Innovator Founder Visa application fee is £1,486 (from outside UK) or £1,292 (switching from within UK). The healthcare surcharge is £1,035 per year. There is no minimum investment requirement as of April 2023."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an endorsing body for Innovator Founder Visa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An endorsing body is an organisation approved by the UK Home Office to assess and endorse business ideas for the Innovator Founder Visa. They evaluate whether your business meets the innovation, scalability, and viability criteria. Current active endorsing bodies include UK Endorsing Services, Innovator International, Envestors Limited, and the Global Entrepreneurs Programme."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the Innovator Founder Visa last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The initial Innovator Founder Visa is granted for 3 years. After 3 years, you can apply for settlement (Indefinite Leave to Remain) if your business continues to meet the endorsement criteria."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the three criteria for Innovator Founder Visa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The three criteria are: 1) Innovation - your business must offer something new or significantly different from existing UK market options; 2) Scalability - your business must have potential for growth, job creation, and market expansion; 3) Viability - your business must have a realistic business model with evidence of market demand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the ukinnovator.online assessment free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the assessment tool at ukinnovator.online is completely free. We offer both quick and detailed assessments at no cost. No signup is required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does ukinnovator.online provide legal advice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, our assessment tool does not provide legal advice. It is a preliminary evaluation to gauge your business idea's alignment with visa criteria. For professional legal guidance, consult a qualified immigration solicitor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who created ukinnovator.online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ukinnovator.online was created by Legal Artificial Intelligence Development (Legalaid) Ltd under the guidance of Chris Dias, founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk). Qualified since 2001, Chris specialises in the UK Innovator Founder Visa."
+      }
     }
-    </script>
+  ],
+  "@id": "https://www.ukinnovator.online/#faq",
+  "isPartOf": {
+    "@id": "https://www.ukinnovator.online/#website"
+  }
+}
+</script>
 
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.ukinnovator.online/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Detailed Assessment",
-          "item": "https://www.ukinnovator.online/detailed"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Resources",
-          "item": "https://www.ukinnovator.online/resources"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Terms",
-          "item": "https://www.ukinnovator.online/terms"
-        }
-      ]
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.ukinnovator.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Detailed Assessment",
+      "item": "https://www.ukinnovator.online/detailed"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Resources",
+      "item": "https://www.ukinnovator.online/resources"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Terms",
+      "item": "https://www.ukinnovator.online/terms"
     }
+  ],
+  "@id": "https://www.ukinnovator.online/#breadcrumb"
+}
+</script>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.lawyery.co/chris-dias#person",
+      "name": "Christopher Glen Dias",
+      "url": "https://www.lawyery.co/chris-dias",
+      "jobTitle": "Solicitor",
+      "worksFor": {
+        "@id": "https://www.lawyery.co/#firm"
+      }
+    },
+    {
+      "@type": [
+        "LegalService",
+        "Organization"
+      ],
+      "@id": "https://www.lawyery.co/#firm",
+      "name": "Lawyery Limited",
+      "url": "https://www.lawyery.co/",
+      "description": "A law firm in England and Wales, regulated by the Solicitors Regulation Authority, SRA number 8001894. A separate company from Legalaid Ltd."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.innovator.lawyer/#website",
+      "url": "https://www.innovator.lawyer/",
+      "name": "innovator.lawyer",
+      "publisher": {
+        "@id": "https://www.lawyery.co/#firm"
+      }
+    }
+  ]
+}
     </script>
   </head>
 
