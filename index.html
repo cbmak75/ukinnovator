@@ -55,14 +55,34 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://legalaid.dev/#company",
-  "name": "Legalaid",
-  "legalName": "Legal Artificial Intelligence Development (Legalaid) Ltd",
+  "name": "Legal Artificial Intelligence Development (Legalaid) Ltd",
+  "alternateName": "Legalaid Ltd",
   "url": "https://legalaid.dev/",
-  "description": "A UK technology company building legal AI tools. Not a law firm and not regulated by the Solicitors Regulation Authority.",
+  "logo": "https://www.ukinnovator.online/lovable-uploads/legalaid-logo-new.png",
+  "foundingDate": "2024",
   "founder": {
-    "@id": "https://www.lawyery.co/chris-dias#person"
-  }
+    "@type": "Person",
+    "name": "Chris Dias",
+    "jobTitle": "Specialist Immigration Solicitor",
+    "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co), qualified since 2001, specialising in the UK Innovator Founder Visa",
+    "worksFor": {
+      "@id": "https://www.lawyery.co/#firm"
+    },
+    "@id": "https://www.lawyery.co/chris-dias#person",
+    "url": "https://www.lawyery.co/chris-dias"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "GB"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "info@lawyery.co",
+    "contactType": "customer service",
+    "availableLanguage": "English"
+  },
+  "@id": "https://legalaid.dev/#company"
 }
 </script>
 
@@ -73,21 +93,28 @@
   "@type": "WebSite",
   "name": "ukinnovator.online",
   "alternateName": "UK Innovator Founder Visa Assessment Tool",
-  "url": "https://www.ukinnovator.online/",
+  "url": "https://www.ukinnovator.online",
   "description": "Free AI-powered pre-assessment tool for UK Innovator Founder Visa applications",
   "inLanguage": "en-GB",
   "datePublished": "2024-01-01",
   "dateModified": "2026-01-18",
   "publisher": {
-    "@id": "https://legalaid.dev/#company"
+    "@type": "Organization",
+    "name": "Legal Artificial Intelligence Development (Legalaid) Ltd",
+    "@id": "https://legalaid.dev/#company",
+    "url": "https://legalaid.dev/"
   },
   "author": {
     "@type": "Person",
     "name": "Chris Dias",
     "jobTitle": "Specialist Immigration Solicitor",
-    "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk)"
-  },
-  "@id": "https://www.ukinnovator.online/#website"
+    "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co)",
+    "@id": "https://www.lawyery.co/chris-dias#person",
+    "url": "https://www.lawyery.co/chris-dias",
+    "worksFor": {
+      "@id": "https://www.lawyery.co/#firm"
+    }
+  }
 }
 </script>
 
@@ -100,7 +127,7 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web Browser",
   "browserRequirements": "Requires JavaScript",
-  "url": "https://www.ukinnovator.online/",
+  "url": "https://www.ukinnovator.online",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -121,15 +148,18 @@
   "dateModified": "2026-01-18",
   "author": {
     "@type": "Organization",
-    "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
+    "name": "Legal Artificial Intelligence Development (Legalaid) Ltd",
+    "@id": "https://legalaid.dev/#company",
+    "url": "https://legalaid.dev/"
   },
   "creator": {
     "@type": "Person",
-    "name": "Chris Dias"
-  },
-  "@id": "https://www.ukinnovator.online/#app",
-  "publisher": {
-    "@id": "https://legalaid.dev/#company"
+    "name": "Chris Dias",
+    "@id": "https://www.lawyery.co/chris-dias#person",
+    "url": "https://www.lawyery.co/chris-dias",
+    "worksFor": {
+      "@id": "https://www.lawyery.co/#firm"
+    }
   }
 }
 </script>
@@ -149,14 +179,7 @@
       "#quick-answers article"
     ]
   },
-  "url": "https://www.ukinnovator.online",
-  "@id": "https://www.ukinnovator.online/#page",
-  "isPartOf": {
-    "@id": "https://www.ukinnovator.online/#website"
-  },
-  "about": {
-    "@id": "https://www.ukinnovator.online/#app"
-  }
+  "url": "https://www.ukinnovator.online"
 }
 </script>
 
@@ -171,11 +194,18 @@
     "@type": "Person",
     "name": "Chris Dias",
     "jobTitle": "Specialist Immigration Solicitor",
-    "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk)"
+    "description": "Founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co)",
+    "@id": "https://www.lawyery.co/chris-dias#person",
+    "url": "https://www.lawyery.co/chris-dias",
+    "worksFor": {
+      "@id": "https://www.lawyery.co/#firm"
+    }
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Legal Artificial Intelligence Development (Legalaid) Ltd"
+    "name": "Legal Artificial Intelligence Development (Legalaid) Ltd",
+    "@id": "https://legalaid.dev/#company",
+    "url": "https://legalaid.dev/"
   },
   "mainEntity": [
     {
@@ -239,14 +269,10 @@
       "name": "Who created ukinnovator.online?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ukinnovator.online was created by Legal Artificial Intelligence Development (Legalaid) Ltd under the guidance of Chris Dias, founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co.uk). Qualified since 2001, Chris specialises in the UK Innovator Founder Visa."
+        "text": "ukinnovator.online was created by Legal Artificial Intelligence Development (Legalaid) Ltd under the guidance of Chris Dias, founder of Legalaid Ltd and specialist immigration solicitor at Lawyery (lawyery.co). Qualified since 2001, Chris specialises in the UK Innovator Founder Visa."
       }
     }
-  ],
-  "@id": "https://www.ukinnovator.online/#faq",
-  "isPartOf": {
-    "@id": "https://www.ukinnovator.online/#website"
-  }
+  ]
 }
 </script>
 
@@ -280,46 +306,9 @@
       "name": "Terms",
       "item": "https://www.ukinnovator.online/terms"
     }
-  ],
-  "@id": "https://www.ukinnovator.online/#breadcrumb"
-}
-</script>
-      <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://www.lawyery.co/chris-dias#person",
-      "name": "Christopher Glen Dias",
-      "url": "https://www.lawyery.co/chris-dias",
-      "jobTitle": "Solicitor",
-      "worksFor": {
-        "@id": "https://www.lawyery.co/#firm"
-      }
-    },
-    {
-      "@type": [
-        "LegalService",
-        "Organization"
-      ],
-      "@id": "https://www.lawyery.co/#firm",
-      "name": "Lawyery Limited",
-      "url": "https://www.lawyery.co/",
-      "description": "A law firm in England and Wales, regulated by the Solicitors Regulation Authority, SRA number 8001894. A separate company from Legalaid Ltd."
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.innovator.lawyer/#website",
-      "url": "https://www.innovator.lawyer/",
-      "name": "innovator.lawyer",
-      "publisher": {
-        "@id": "https://www.lawyery.co/#firm"
-      }
-    }
   ]
 }
-    </script>
+</script>
   </head>
 
   <body>
