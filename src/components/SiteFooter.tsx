@@ -55,8 +55,12 @@ const SiteFooter = () => {
             <p>
               ukinnovator.online is a free AI-powered UK Innovator Founder Visa assessment tool developed by 
               <strong> Chris Dias</strong>, founder of Legalaid Ltd and specialist immigration solicitor at{" "}
-              <a href="https://lawyery.co.uk" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">Lawyery</a>.
+              <a href="https://www.lawyery.co" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">Lawyery</a>.
               Evaluate your business idea's innovation, scalability, and viability before applying for endorsement.
+            </p>
+                      <p className="mt-3">
+              If the application needs to be run by a regulated law firm, Lawyery acts on Innovator Founder endorsement and visa applications at{" "}
+              <a href="https://www.innovator.lawyer" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">innovator.lawyer</a>.
             </p>
           </aside>
           
