@@ -13,6 +13,7 @@ import { SlotMachine } from "@/components/SlotMachine";
 import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
 import ImportantNotice from "@/components/ImportantNotice";
+import NextStepBlock from "@/components/NextStepBlock";
 import { Link } from "react-router-dom";
 
 interface EvaluationResult {
