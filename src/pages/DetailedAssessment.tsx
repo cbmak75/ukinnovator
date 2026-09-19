@@ -419,6 +419,14 @@ const DetailedAssessment = () => {
                 <p className="text-2xl font-semibold">{result.overallScore} / 30</p>
               </CardContent>
             </Card>
+
+            <NextStepBlock
+              overallScore={result.overallScore}
+              innovationScore={result.innovation?.score}
+              scalabilityScore={result.scalability?.score}
+              viabilityScore={result.viability?.score}
+            />
+
             <ImportantNotice />
             <div className="flex justify-center gap-3 mt-4 flex-wrap">
               <Button asChild variant="secondary" size="lg">
