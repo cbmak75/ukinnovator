@@ -12,10 +12,10 @@ export const SlotMachine = ({ finalValue, duration = 2500, className = "" }: Slo
   const [animationPhase, setAnimationPhase] = useState<'fast' | 'slow' | 'final' | 'complete'>('fast');
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    let timeout1: NodeJS.Timeout;
-    let timeout2: NodeJS.Timeout;
-    let timeout3: NodeJS.Timeout;
+    let interval: ReturnType<typeof setInterval>;
+    let timeout1: ReturnType<typeof setTimeout>;
+    let timeout2: ReturnType<typeof setTimeout>;
+    let timeout3: ReturnType<typeof setTimeout>;
 
     // Fast spinning phase - rapid random numbers
     const fastSpin = () => {
