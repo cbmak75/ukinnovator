@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 interface SEOHeadProps {
   title: string;
@@ -10,9 +10,10 @@ interface SEOHeadProps {
   structuredData?: object;
 }
 
+const BASE_URL = "https://www.ukinnovator.online";
+
 /**
- * SEO component for managing meta tags dynamically.
- * Updates document head with page-specific meta information.
+ * Per-route head tags: title, description, canonical, Open Graph, Twitter and JSON-LD.
  */
 export const SEOHead: React.FC<SEOHeadProps> = ({
   title,
@@ -23,75 +24,32 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   noindex = false,
   structuredData,
 }) => {
-  useEffect(() => {
-    const baseUrl = "https://www.ukinnovator.online";
-    const fullTitle = title.length < 60 ? title : title.substring(0, 57) + "...";
-    const fullDescription = description.length < 160 ? description : description.substring(0, 157) + "...";
-    const canonicalUrl = `${baseUrl}${canonicalPath}`;
-    const imageUrl = ogImage.startsWith("http") ? ogImage : `${baseUrl}${ogImage}`;
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const imageUrl = ogImage.startsWith("http") ? ogImage : `${BASE_URL}${ogImage}`;
 
-    // Title
-    document.title = fullTitle;
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+      <link rel="canonical" href={canonicalUrl} />
 
-    // Helper to set/create meta tags
-    const setMeta = (selector: string, attribute: string, value: string) => {
-      let el = document.querySelector(selector);
-      if (!el) {
-        el = document.createElement("meta");
-        const [attr, attrVal] = selector.match(/\[([^=]+)="([^"]+)"\]/)?.slice(1) || [];
-        if (attr && attrVal) el.setAttribute(attr, attrVal);
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attribute, value);
-    };
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:image" content={imageUrl} />
 
-    // Description
-    setMeta('meta[name="description"]', "content", fullDescription);
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={imageUrl} />
 
-    // Robots
-    setMeta('meta[name="robots"]', "content", noindex ? "noindex, nofollow" : "index, follow");
-
-    // Canonical
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute("href", canonicalUrl);
-
-    // Open Graph
-    setMeta('meta[property="og:title"]', "content", fullTitle);
-    setMeta('meta[property="og:description"]', "content", fullDescription);
-    setMeta('meta[property="og:url"]', "content", canonicalUrl);
-    setMeta('meta[property="og:type"]', "content", ogType);
-    setMeta('meta[property="og:image"]', "content", imageUrl);
-
-    // Twitter
-    setMeta('meta[name="twitter:title"]', "content", fullTitle);
-    setMeta('meta[name="twitter:description"]', "content", fullDescription);
-    setMeta('meta[name="twitter:image"]', "content", imageUrl);
-
-    // Structured Data
-    if (structuredData) {
-      const existingScript = document.getElementById("page-structured-data");
-      if (existingScript) existingScript.remove();
-      
-      const script = document.createElement("script");
-      script.id = "page-structured-data";
-      script.type = "application/ld+json";
-      script.textContent = JSON.stringify(structuredData);
-      document.head.appendChild(script);
-    }
-
-    return () => {
-      // Cleanup structured data on unmount
-      const script = document.getElementById("page-structured-data");
-      if (script) script.remove();
-    };
-  }, [title, description, canonicalPath, ogImage, ogType, noindex, structuredData]);
-
-  return null;
+      {structuredData && (
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      )}
+    </Helmet>
+  );
 };
 
 export default SEOHead;

@@ -3,6 +3,7 @@ import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
 import ImportantNotice from "@/components/ImportantNotice";
 import SEOHead from "@/components/SEOHead";
+import NextStepBlock from "@/components/NextStepBlock";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -419,6 +420,14 @@ const DetailedAssessment = () => {
                 <p className="text-2xl font-semibold">{result.overallScore} / 30</p>
               </CardContent>
             </Card>
+
+            <NextStepBlock
+              overallScore={result.overallScore}
+              innovationScore={result.innovation?.score}
+              scalabilityScore={result.scalability?.score}
+              viabilityScore={result.viability?.score}
+            />
+
             <ImportantNotice />
             <div className="flex justify-center gap-3 mt-4 flex-wrap">
               <Button asChild variant="secondary" size="lg">

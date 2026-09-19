@@ -13,6 +13,7 @@ import { SlotMachine } from "@/components/SlotMachine";
 import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
 import ImportantNotice from "@/components/ImportantNotice";
+import NextStepBlock from "@/components/NextStepBlock";
 import { Link } from "react-router-dom";
 
 interface EvaluationResult {
@@ -242,6 +243,14 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
               <p className="text-muted-foreground mt-2 text-lg">Overall Score ⭐</p>
             </CardContent>
           </Card>
+
+          <NextStepBlock
+            overallScore={evaluation.overallScore}
+            innovationScore={evaluation.innovation.score}
+            scalabilityScore={evaluation.scalability.score}
+            viabilityScore={evaluation.viability.score}
+          />
+
 
           {/* Detailed Scores */}
           <div className="grid md:grid-cols-3 gap-6">
