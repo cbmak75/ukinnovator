@@ -244,6 +244,14 @@ export const IdeaEvaluator = ({ onBack }: { onBack?: () => void }) => {
             </CardContent>
           </Card>
 
+          <NextStepBlock
+            overallScore={evaluation.overallScore}
+            innovationScore={evaluation.innovation.score}
+            scalabilityScore={evaluation.scalability.score}
+            viabilityScore={evaluation.viability.score}
+          />
+
+
           {/* Detailed Scores */}
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="border-innovation/30 transition-all duration-300">
