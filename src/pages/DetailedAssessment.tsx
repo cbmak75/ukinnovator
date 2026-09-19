@@ -3,6 +3,7 @@ import SiteHeader from "@/components/SiteHeader";
 import BackHomeButton from "@/components/BackHomeButton";
 import ImportantNotice from "@/components/ImportantNotice";
 import SEOHead from "@/components/SEOHead";
+import NextStepBlock from "@/components/NextStepBlock";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
