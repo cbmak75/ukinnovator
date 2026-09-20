@@ -32,7 +32,7 @@ const ResearchArticle = ({ articleSlug }: { articleSlug?: string }) => {
 
   return (
     <>
-      <SEOHead title={article.slug === "endorsement-assessment-process" ? article.title : `${article.title} | ukinnovator.online`} description={article.description} canonicalPath={`/research/${article.slug}`} ogType="article" structuredData={articleSchema} />
+      <SEOHead title={article.seoTitle} description={article.description} canonicalPath={`/research/${article.slug}`} ogType="article" structuredData={articleSchema} />
       <div className="min-h-screen">
         <SiteHeader />
         <main className="mx-auto max-w-5xl px-4 py-10">

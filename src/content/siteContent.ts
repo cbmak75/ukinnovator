@@ -68,7 +68,8 @@ export type CriterionSlug = (typeof criteria)[number]["slug"];
 export const researchArticles = [
   {
     slug: "endorsement-assessment-process",
-    title: "How the Innovator Founder Endorsement Assessment Works",
+    title: "How the Innovator Founder endorsement assessment process works",
+    seoTitle: "How the Innovator Founder Endorsement Assessment Works",
     description: "Who the endorsing bodies are, what each publishes about its process, what endorsement and contact point meetings cost, and how to choose between them.",
     published: "20 September 2026",
     sections: [
@@ -82,6 +83,7 @@ export const researchArticles = [
   {
     slug: "immigration-rules-and-guidance",
     title: "Immigration Rules and guidance for Innovator Founder applications",
+    seoTitle: "Immigration Rules and guidance for Innovator Founder applications | ukinnovator.online",
     description: "How Appendix Innovator Founder, caseworker guidance and guidance for endorsing bodies combine in Innovator Founder applications.",
     published: "20 September 2026",
     sections: [
@@ -95,6 +97,7 @@ export const researchArticles = [
   {
     slug: "why-applications-are-refused",
     title: "Why Innovator Founder applications are refused",
+    seoTitle: "Why Innovator Founder applications are refused | ukinnovator.online",
     description: "An evidence-based analysis of the substantive and procedural reasons Innovator Founder applications and endorsements may be refused.",
     published: "20 September 2026",
     sections: [
