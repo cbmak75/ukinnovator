@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && react-snap",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -62,6 +62,29 @@
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.3",
     "zod": "^3.23.8"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "inlineCss": false,
+    "minifyHtml": {
+      "collapseWhitespace": false,
+      "removeComments": false
+    },
+    "include": [
+      "/",
+      "/detailed",
+      "/criteria",
+      "/innovation",
+      "/viability",
+      "/scalability",
+      "/research",
+      "/research/endorsement-assessment-process",
+      "/research/immigration-rules-and-guidance",
+      "/research/why-applications-are-refused",
+      "/resources",
+      "/terms"
+    ],
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
