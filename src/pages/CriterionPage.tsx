@@ -16,11 +16,10 @@ const CriterionPage = ({ criterionSlug }: { criterionSlug?: CriterionSlug }) => 
 
   const otherCriteria = criteria.filter((item) => item.slug !== criterion.slug);
   const pageContent = legalPageContent[`/${criterion.slug}`];
-  const description = `${criterion.question} Explore a structured guide to the Innovator Founder ${criterion.label.toLowerCase()} criterion, common weaknesses and practical illustrations.`;
 
   return (
     <>
-      <SEOHead title={`${criterion.question} | ukinnovator.online`} description={description} canonicalPath={`/${criterion.slug}`} />
+      <SEOHead title={criterion.seoTitle} description={criterion.seoDescription} canonicalPath={`/${criterion.slug}`} />
       <div className="min-h-screen">
         <SiteHeader />
         <main className="mx-auto max-w-5xl px-4 py-10">

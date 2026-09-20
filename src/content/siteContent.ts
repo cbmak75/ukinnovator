@@ -11,6 +11,8 @@ export const criteria = [
     slug: "innovation",
     label: "Innovation",
     question: "What counts as an innovative business idea for the Innovator Founder visa?",
+    seoTitle: "What Counts as an Innovative Business Idea? | Innovator Founder Visa",
+    seoDescription: "What INNF 8.3(a) requires, what endorsing bodies are told to look for, and the Home Office's own examples of ideas that pass and fail the innovation criterion.",
     searchPhrase: "innovative business idea UK visa",
     explanation: "what innovation means in practice and how to distinguish a genuinely innovative proposition from a familiar business presented differently",
     assessorFocus: "the evidence and features an assessor considers when reviewing innovation",
@@ -27,6 +29,8 @@ export const criteria = [
     slug: "viability",
     label: "Viability",
     question: "What makes a business idea viable for the Innovator Founder visa?",
+    seoTitle: "What Makes a Business Idea Viable? | Innovator Founder Visa",
+    seoDescription: "What INNF 8.3(b) and (c) require, why viability is assessed on the resources you already have, and the most common reasons the criterion fails.",
     searchPhrase: "what makes a business viable",
     explanation: "what viability means in practice and how the business proposition, founder, resources and evidence fit together",
     assessorFocus: "the evidence and practical factors an assessor considers when reviewing viability",
@@ -43,6 +47,8 @@ export const criteria = [
     slug: "scalability",
     label: "Scalability",
     question: "What makes a business idea scalable for the Innovator Founder visa?",
+    seoTitle: "What Makes a Business Idea Scalable? | Innovator Founder Visa",
+    seoDescription: "What INNF 8.3(d) requires, why structured planning matters as much as growth potential, and what endorsing bodies mean by high quality and skilled job creation.",
     searchPhrase: "what makes a business scalable",
     explanation: "what scalability means in practice and how a plan can show credible growth beyond its starting point",
     assessorFocus: "the evidence and growth factors an assessor considers when reviewing scalability",
@@ -62,8 +68,8 @@ export type CriterionSlug = (typeof criteria)[number]["slug"];
 export const researchArticles = [
   {
     slug: "endorsement-assessment-process",
-    title: "How the Innovator Founder endorsement assessment process works",
-    description: "How endorsing bodies assess Innovator Founder business plans, including the published standards, documents, stages and preparation process.",
+    title: "How the Innovator Founder Endorsement Assessment Works",
+    description: "Who the endorsing bodies are, what each publishes about its process, what endorsement and contact point meetings cost, and how to choose between them.",
     published: "20 September 2026",
     sections: [
       "Purpose and scope of endorsement",

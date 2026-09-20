@@ -16,7 +16,7 @@ const ResearchArticle = ({ articleSlug }: { articleSlug?: string }) => {
   if (!article) return <Navigate to="/research" replace />;
   const content = legalPageContent[`/research/${article.slug}`];
   const sectionHeadings = content.match(/^#{2,3} .+$/gm)?.map((heading) => heading.replace(/^#{2,3} /, "")) ?? [];
-  const showsSources = article.slug === "endorsement-assessment-process" || article.slug === "immigration-rules-and-guidance";
+  const showsSources = article.slug === "endorsement-assessment-process" || article.slug === "immigration-rules-and-guidance" || article.slug === "why-applications-are-refused";
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -32,7 +32,7 @@ const ResearchArticle = ({ articleSlug }: { articleSlug?: string }) => {
 
   return (
     <>
-      <SEOHead title={`${article.title} | ukinnovator.online`} description={article.description} canonicalPath={`/research/${article.slug}`} ogType="article" structuredData={articleSchema} />
+      <SEOHead title={article.slug === "endorsement-assessment-process" ? article.title : `${article.title} | ukinnovator.online`} description={article.description} canonicalPath={`/research/${article.slug}`} ogType="article" structuredData={articleSchema} />
       <div className="min-h-screen">
         <SiteHeader />
         <main className="mx-auto max-w-5xl px-4 py-10">
