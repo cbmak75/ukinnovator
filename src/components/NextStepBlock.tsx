@@ -1,10 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Scale } from "lucide-react";
-
-const BOOKING_URL = "https://app.acuityscheduling.com/schedule/0aea335c";
-const ROUTE_URL = "https://www.lawyery.co/innovator-founder";
+import AuthorBlock from "@/components/AuthorBlock";
+import ConsultationLinks from "@/components/ConsultationLinks";
 
 interface NextStepBlockProps {
   /** Overall score out of 30, as already calculated by the assessment. */
@@ -19,15 +18,15 @@ const weakestArea = (
   innovation?: number,
   scalability?: number,
   viability?: number,
-): string | null => {
-  const areas: Array<{ name: string; score: number }> = [
-    { name: "innovation", score: innovation ?? Infinity },
-    { name: "scalability", score: scalability ?? Infinity },
-    { name: "viability", score: viability ?? Infinity },
+): { name: string; slug: string } | null => {
+  const areas: Array<{ name: string; slug: string; score: number }> = [
+    { name: "innovation", slug: "/innovation", score: innovation ?? Infinity },
+    { name: "scalability", slug: "/scalability", score: scalability ?? Infinity },
+    { name: "viability", slug: "/viability", score: viability ?? Infinity },
   ].filter((a) => Number.isFinite(a.score));
 
   if (areas.length === 0) return null;
-  return areas.reduce((lowest, a) => (a.score < lowest.score ? a : lowest)).name;
+  return areas.reduce((lowest, a) => (a.score < lowest.score ? a : lowest));
 };
 
 /**
@@ -64,50 +63,14 @@ const NextStepBlock: React.FC<NextStepBlockProps> = ({
         ) : (
           <p className="text-foreground leading-relaxed">
             {weakest
-              ? `The weakest part of this result was ${weakest}. That is often fixable — many ideas score low on one criterion simply because of how they are framed and evidenced, rather than because the business itself cannot meet the requirement.`
+              ? `The weakest part of this result was ${weakest.name}. That is often fixable — many ideas score low on one criterion simply because of how they are framed and evidenced, rather than because the business itself cannot meet the requirement.`
               : "A lower score is often fixable — many ideas score low simply because of how they are framed and evidenced, rather than because the business itself cannot meet the requirement."}
           </p>
         )}
 
-        <div className="rounded-lg border border-border bg-background p-4 space-y-2">
-          <p className="font-semibold text-foreground">
-            Chris Dias, immigration solicitor, Lawyery Limited (SRA 8001894)
-          </p>
-          {isPromising && (
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>Endorsement stage: £2,500 fixed</li>
-              <li>Visa stage: £2,500 fixed</li>
-              <li>Both stages instructed together: £4,500</li>
-              <li>Endorsing body fee: £1,000, payable to the endorsing body</li>
-              <li>
-                Home Office visa fee and Immigration Health Surcharge payable separately on the UKVI
-                application
-              </li>
-              <li className="font-medium text-foreground">All legal fees plus VAT.</li>
-            </ul>
-          )}
-        </div>
-
-        <div className="flex flex-col items-center gap-3 pt-1">
-          <Button
-            asChild
-            size="lg"
-            className="w-full sm:w-auto text-lg px-10 py-7 shadow-lg font-semibold"
-          >
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-              {isPromising ? "Book a consultation" : "Discuss your options"}
-              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-            </a>
-          </Button>
-          <a
-            href={ROUTE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-muted-foreground underline underline-offset-4 hover:no-underline"
-          >
-            Read more about the Innovator Founder route
-          </a>
-        </div>
+        {weakest && <Link to={weakest.slug} className="inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4">Understand your {weakest.name} result<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>}
+        <AuthorBlock compact />
+        <ConsultationLinks />
       </CardContent>
     </Card>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AUTHOR_TEXT } from "@/content/siteContent";
 
 const SiteFooter = () => {
   const currentYear = new Date().getFullYear();
@@ -38,6 +39,8 @@ const SiteFooter = () => {
               <li>
                 <Link to="/detailed" className="underline-offset-4 hover:underline">Detailed Assessment</Link>
               </li>
+              <li><Link to="/criteria" className="underline-offset-4 hover:underline">The Three Criteria</Link></li>
+              <li><Link to="/research" className="underline-offset-4 hover:underline">Research</Link></li>
               <li>
                 <Link to="/resources" className="underline-offset-4 hover:underline">Resources</Link>
               </li>
@@ -50,18 +53,8 @@ const SiteFooter = () => {
             </ul>
           </nav>
           
-          {/* Additional SEO-friendly content */}
-          <aside className="mt-6 text-xs text-primary-foreground/70 max-w-2xl">
-            <p>
-              ukinnovator.online is a free AI-powered UK Innovator Founder Visa assessment tool developed by 
-              <strong> Chris Dias</strong>, founder of Legalaid Ltd and specialist immigration solicitor at{" "}
-              <a href="https://www.lawyery.co" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">Lawyery</a>.
-              Evaluate your business idea's innovation, scalability, and viability before applying for endorsement.
-            </p>
-                      <p className="mt-3">
-              If the application needs to be run by a regulated law firm, Lawyery acts on Innovator Founder endorsement and visa applications at{" "}
-              <a href="https://www.innovator.lawyer" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">innovator.lawyer</a>.
-            </p>
+          <aside className="mt-6 max-w-3xl text-xs leading-relaxed text-primary-foreground/80" aria-label="About the creator">
+            <p>{AUTHOR_TEXT}</p>
           </aside>
           
           <p className="mt-4 text-xs text-primary-foreground/60">

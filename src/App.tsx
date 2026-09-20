@@ -10,6 +10,10 @@ import NotFound from "./pages/NotFound";
 import DetailedAssessment from "./pages/DetailedAssessment";
 import Terms from "./pages/Terms";
 import Resources from "./pages/Resources";
+import Criteria from "./pages/Criteria";
+import CriterionPage from "./pages/CriterionPage";
+import Research from "./pages/Research";
+import ResearchArticle from "./pages/ResearchArticle";
 import SiteFooter from "./components/SiteFooter";
 import ScrollToTop from "./components/ScrollToTop";
 import { ErrorBoundary } from "./components/ErrorBoundary";
@@ -32,6 +36,12 @@ const App = () => (
                 <Route path="/detailed" element={<DetailedAssessment />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/resources" element={<Resources />} />
+                <Route path="/criteria" element={<Criteria />} />
+                <Route path="/innovation" element={<CriterionPage criterionSlug="innovation" />} />
+                <Route path="/viability" element={<CriterionPage criterionSlug="viability" />} />
+                <Route path="/scalability" element={<CriterionPage criterionSlug="scalability" />} />
+                <Route path="/research" element={<Research />} />
+                <Route path="/research/:slug" element={<ResearchArticle />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
