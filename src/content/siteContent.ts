@@ -63,7 +63,7 @@ export const researchArticles = [
   {
     slug: "endorsement-assessment-process",
     title: "How the Innovator Founder endorsement assessment process works",
-    description: "A structured research page on how an Innovator Founder business idea is assessed, with legal analysis to be supplied by Chris Dias.",
+    description: "How endorsing bodies assess Innovator Founder business plans, including the published standards, documents, stages and preparation process.",
     published: "20 September 2026",
     sections: [
       "Purpose and scope of endorsement",
@@ -75,8 +75,8 @@ export const researchArticles = [
   },
   {
     slug: "immigration-rules-and-guidance",
-    title: "Immigration Rules and guidance for Innovator Founder applicants",
-    description: "A structured research page for analysis of the Immigration Rules and guidance relevant to Innovator Founder applicants.",
+    title: "Immigration Rules and guidance for Innovator Founder applications",
+    description: "How Appendix Innovator Founder, caseworker guidance and guidance for endorsing bodies combine in Innovator Founder applications.",
     published: "20 September 2026",
     sections: [
       "Legal framework",
@@ -89,7 +89,7 @@ export const researchArticles = [
   {
     slug: "why-applications-are-refused",
     title: "Why Innovator Founder applications are refused",
-    description: "A structured research page for evidence-based analysis of why Innovator Founder applications may be refused.",
+    description: "An evidence-based analysis of the substantive and procedural reasons Innovator Founder applications and endorsements may be refused.",
     published: "20 September 2026",
     sections: [
       "Different decision points",
