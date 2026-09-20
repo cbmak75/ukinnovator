@@ -85,7 +85,7 @@ const Terms = () => {
           <ul>
             <li><strong>As-Is Basis:</strong> The Service is provided "as is" and "as available," without warranties of any kind, express or implied (e.g., accuracy, reliability, fitness for purpose). Assessments are AI-generated and may contain errors; they do not guarantee visa success.</li>
             <li><strong>No Professional Advice:</strong> Outputs are not substitutes for professional legal or immigration advice. Consult qualified experts for visa applications.</li>
-            <li><strong>Limitations:</strong> To the fullest extent permitted by law, we shall not be liable for any indirect, consequential, special, or punitive damages, including loss of profits, data, or opportunities arising from use of the Service. Our total liability shall not exceed £100 (or the amount you paid, if any).</li>
+            <li><strong>Limitations:</strong> To the fullest extent permitted by law, we shall not be liable for any indirect, consequential, special, or punitive damages, including loss of profits, data, or opportunities arising from use of the Service.</li>
             <li><strong>Exceptions:</strong> Nothing excludes our liability for death/personal injury caused by negligence, fraud, or matters that cannot be limited under UK law.</li>
             <li><strong>Force Majeure:</strong> We are not liable for failures due to events beyond our control (e.g., API outages, cyber-attacks).</li>
           </ul>

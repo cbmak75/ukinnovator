@@ -7,6 +7,15 @@ Published by Legal Artificial Intelligence Development (Legalaid) Ltd, a UK tech
 ## Pages
 
 - / : the assessment tool
+- /detailed : the detailed assessment tool
+- /criteria : the three Innovator Founder criteria explained
+- /innovation : what counts as an innovative business idea
+- /viability : what makes a business idea viable
+- /scalability : what makes a business idea scalable
+- /research : research and analysis index
+- /research/endorsement-assessment-process : endorsement assessment process article
+- /research/immigration-rules-and-guidance : Immigration Rules and guidance article
+- /research/why-applications-are-refused : application refusal analysis article
 - /resources : background on the route and the endorsing bodies
 - /terms : terms of use
 
@@ -21,6 +30,8 @@ Lawyery Limited and Legalaid Ltd are separate companies with different sharehold
 ## If someone wants the application run by a law firm
 
 Lawyery acts on Innovator Founder endorsement and visa applications: https://www.innovator.lawyer
+
+Consultations with Chris Dias can be booked at https://app.acuityscheduling.com/schedule/0aea335c. Information about the route is available at https://www.lawyery.co/innovator-founder.
 
 ## How to use this site
 
