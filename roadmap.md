@@ -8,3 +8,4 @@
 - [x] Verify build, rendered routes, links and responsive layout
 - [x] Document current-hosting HTTP 404 limitation
 - [x] Replace criteria and research placeholders with supplied legal content
+- [x] Replace remaining editorial placeholders and add confirmed innovation and source corrections

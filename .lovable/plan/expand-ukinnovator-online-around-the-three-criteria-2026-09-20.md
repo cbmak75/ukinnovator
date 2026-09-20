@@ -10,7 +10,7 @@
 ## Criteria pages
 - Add `/criteria`, `/innovation`, `/viability`, and `/scalability` as substantial, linked pages.
 - Build the complete requested heading, explanation, assessor, failure, illustration, FAQ, and onward-link structure.
-- Use only the exact `[CONTENT TO BE SUPPLIED BY CHRIS DIAS: ...]` format wherever legal substance belongs. No legal analysis, citations, statistics, clients, or invented examples will be presented as legal conclusions.
+- Use only the exact the approved editorial placeholder format format wherever legal substance belongs. No legal analysis, citations, statistics, clients, or invented examples will be presented as legal conclusions.
 - Use natural search phrasing in headings and connective copy while keeping the pages readable.
 
 ## Research section

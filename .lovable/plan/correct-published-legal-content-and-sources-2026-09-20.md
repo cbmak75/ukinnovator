@@ -8,6 +8,6 @@
 - Preserve the assessment questions, scoring, thresholds, and all other page content.
 
 ## Verification
-- Confirm `CONTENT TO BE SUPPLIED` no longer appears anywhere in the codebase.
+- Confirm the editorial placeholder phrase no longer appears anywhere in the codebase.
 - Confirm the six Sources blocks and new innovation/research passages render on their intended pages.
 - Check that no assessment logic changed and that the preview builds without errors.
