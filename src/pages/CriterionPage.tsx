@@ -4,6 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SEOHead from "@/components/SEOHead";
 import AssessmentPrompt from "@/components/AssessmentPrompt";
 import MarkdownContent from "@/components/MarkdownContent";
+import SourcesBlock from "@/components/SourcesBlock";
 import { criteria, type CriterionSlug } from "@/content/siteContent";
 import legalPageContent from "@/content/legalPageContent.json";
 
@@ -36,7 +37,10 @@ const CriterionPage = ({ criterionSlug }: { criterionSlug?: CriterionSlug }) => 
               <p className="mt-5 text-xl leading-relaxed text-muted-foreground">A structured guide for founders asking “{criterion.searchPhrase}?” and looking for Innovator Founder requirements explained clearly.</p>
             </header>
 
-            <section aria-label={`${criterion.label} guidance`}><MarkdownContent content={pageContent} /></section>
+            <section aria-label={`${criterion.label} guidance`}>
+              <MarkdownContent content={pageContent} />
+              <SourcesBlock />
+            </section>
 
             <AssessmentPrompt text={`Test your idea’s ${criterion.label.toLowerCase()}`} />
 
