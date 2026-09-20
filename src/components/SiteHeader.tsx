@@ -14,9 +14,12 @@ export const SiteHeader: React.FC = () => {
           height="200"
         />
       </Link>
-      <nav aria-label="Main navigation" className="flex justify-center gap-4 text-sm">
+      <nav aria-label="Main navigation" className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-4 text-sm">
         <Link to="/" className="text-primary-foreground hover:underline underline-offset-4">Home</Link>
+        <Link to="/#assessment-tool" className="text-primary-foreground hover:underline underline-offset-4">Quick Assessment</Link>
         <Link to="/detailed" className="text-primary-foreground hover:underline underline-offset-4">Detailed Assessment</Link>
+        <Link to="/criteria" className="text-primary-foreground hover:underline underline-offset-4">The Three Criteria</Link>
+        <Link to="/research" className="text-primary-foreground hover:underline underline-offset-4">Research</Link>
         <Link to="/resources" className="text-primary-foreground hover:underline underline-offset-4">Resources</Link>
       </nav>
     </header>

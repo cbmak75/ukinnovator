@@ -50,9 +50,9 @@ const Index = () => {
                 <h3 className="font-semibold text-foreground mb-2">What is the UK Innovator Founder Visa?</h3>
                 <p className="text-sm text-muted-foreground faq-answer">The UK Innovator Founder Visa is for experienced entrepreneurs who want to establish an innovative, scalable, and viable business in the UK. It requires endorsement from an approved body and offers a path to settlement after 3 years.</p>
               </article>
-              <article className="bg-card border rounded-lg p-4" id="qa-visa-cost">
-                <h3 className="font-semibold text-foreground mb-2">How much does the visa cost?</h3>
-                <p className="text-sm text-muted-foreground faq-answer">Application fee: £1,486 (outside UK) or £1,292 (switching within UK). Healthcare surcharge: £1,035/year. No minimum investment requirement since April 2023.</p>
+              <article className="bg-card border rounded-lg p-4" id="qa-criteria-guide">
+                <h3 className="font-semibold text-foreground mb-2">Where can I learn about the three criteria?</h3>
+                <p className="text-sm text-muted-foreground faq-answer">Start with our <Link to="/criteria" className="text-primary hover:underline">three criteria guide</Link>, then explore the separate pages about innovation, viability and scalability.</p>
               </article>
               <article className="bg-card border rounded-lg p-4" id="qa-endorsing-body">
                 <h3 className="font-semibold text-foreground mb-2">What is an endorsing body?</h3>
