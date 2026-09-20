@@ -1,57 +1,37 @@
-# ukinnovator.online: links, conversion path, and search visibility
+# Expand ukinnovator.online around the three criteria
 
-## 1. Outbound links to the law firm
+## Results, author and Lawyery links
+- Remove legal-service, endorsement, Home Office and visa pricing from results, homepage copy, structured data, and the current no-JavaScript fallback. Keep the voluntary donation tiers as requested.
+- Replace the results and footer author wording with the supplied Chris Dias text, including Lawyery Limited and SRA number 8001894.
+- Rebuild the results block around three ordered choices: the Acuity consultation link as the primary action, followed by Lawyery and innovator.lawyer with one-line descriptions. Keep email as a quiet tertiary contact.
+- Preserve the existing indication-only and no-legal-advice disclaimers.
+- Link each result to the page for its lowest-scoring criterion without changing scoring, questions, thresholds, or existing result wording.
 
-Checked every file: there are no `lawyery.co.uk` links left anywhere — the footer, home page "About the Creator" text, expertise paragraph and Chris Dias biography all already point to `https://www.lawyery.co`. The Terms page mentions Lawyery Limited as a postal address only, with no link. Nothing to change here; `legalaid.dev` and `gov.uk` links stay as they are.
+## Criteria pages
+- Add `/criteria`, `/innovation`, `/viability`, and `/scalability` as substantial, linked pages.
+- Build the complete requested heading, explanation, assessor, failure, illustration, FAQ, and onward-link structure.
+- Use only the exact `[CONTENT TO BE SUPPLIED BY CHRIS DIAS: ...]` format wherever legal substance belongs. No legal analysis, citations, statistics, clients, or invented examples will be presented as legal conclusions.
+- Use natural search phrasing in headings and connective copy while keeping the pages readable.
 
-## 2. Next-step block on the results screen
+## Research section
+- Add `/research` plus the three requested article routes, each with unique metadata and a visible publication/updated date.
+- Give every article a byline, table of contents, structured placeholder body, and closing links to the assessment and all three Lawyery destinations.
+- Add the required anonymisation note to the research index.
 
-A new block appears directly under the score on both the quick assessment and the detailed assessment results.
+## Navigation and discovery
+- Expand the main navigation to Home, Quick Assessment, Detailed Assessment, The Three Criteria, Research, and Resources. “Quick Assessment” will point to the assessment section on the homepage.
+- Cross-link the criteria pages, research pages, assessment, and weakest-result guidance.
+- Update `llms.txt` and the existing static sitemap with every public route on the `www` host. Omit generated `<lastmod>` values because the project has no authoritative per-page content timestamps.
 
-Positive or borderline result (overall score 15 or above on the quick tool, the equivalent band on the detailed tool):
+## Metadata and rendered HTML
+- Give every public route a unique title, description, self-referencing canonical, Open Graph title/description/URL, and Twitter card through the existing head component.
+- Add build-time prerendering and verify the output contains route-specific visible body copy and head tags for each public route, including `/innovation` rather than the homepage fallback.
+- Keep the existing static homepage tags as the non-JavaScript social fallback where needed.
 
-- Heading: "Your next step"
-- Short paragraph explaining the assessment is an indication only, and that endorsement depends on how the business is presented to the endorsing body, so a solicitor-led review is what turns a promising idea into an endorsement-ready application
-- Named solicitor: Chris Dias, immigration solicitor, Lawyery Limited (SRA 8001894)
-- Fees stated plainly: endorsement stage £2,500 fixed; visa stage £2,500 fixed; £4,500 if both stages are instructed together. Endorsing body fee £1,000, payable to the endorsing body. Home Office visa fee and Immigration Health Surcharge payable separately on the UKVI application. All legal fees plus VAT.
-- Prominent primary button "Book a consultation" (the strongest visual element on the results screen)
-- Quieter link "Read more about the Innovator Founder route" to `https://www.lawyery.co/innovator-founder`
+## Hosting limitation: genuine HTTP 404
+- Keep the proper in-app 404 page and `noindex` metadata, but do not claim a genuine HTTP 404 response is achievable on this current Lovable Vite hosting. Lovable’s infrastructure automatically serves `index.html` for unknown browser paths and provides no project-level switch to remove that fallback or set the response status.
+- Do not add ineffective Netlify/Vercel redirect files. A real unmatched-path 404 requires migration to a server-rendered/static-route template with status control.
 
-Negative result (below 15): a shorter version naming the weakest of the three areas from the result itself, noting that it is often fixable, with the same prominent button labelled "Discuss your options".
-
-No change to questions, scoring, thresholds or the existing result wording, and no claim that the tool predicts or guarantees an endorsement. The existing disclaimers stay.
-
-## 3. Crawlable HTML — this one cannot be done on the current setup
-
-The site is a browser-assembled app on Lovable's static hosting. The build produces a single empty HTML shell and there is no server step, so a prerender plugin has nowhere to run and nothing would be served differently. Adding one would be busywork that changes nothing at the live URL. Stating that plainly, as asked.
-
-Interim measure being added instead: a `noscript` block in `index.html` carrying the main headings and a plain-text summary of what the tool does, who provides it, and the paid legal route — so a crawler that runs no JavaScript sees real text.
-
-Real fix available separately: the app can be moved to Lovable's server-rendered template, which serves complete HTML per page. That is a migration, not a plugin, and I would do it as its own piece of work once the items here are live.
-
-## 4. Per-route head tags
-
-Add `react-helmet-async` with the provider at the app root, and give each of the five routes its own unique title, meta description, absolute canonical on `https://www.ukinnovator.online`, `og:title`, `og:description`, `og:url`, `og:image` and `twitter:card`. The home page title stays close to "UK Innovator Founder Visa Assessment Tool | Free Eligibility Check". No two routes share a title or description. The existing hand-rolled head component is replaced. Note: these per-page tags are read by search crawlers but not by social-preview crawlers on this hosting — that is the same limit described in item 3.
-
-## 5. Structured data on the home page
-
-JSON-LD covering:
-
-- `WebApplication` for the tool, with name, description and price 0
-- `Organization` for Legal Artificial Intelligence Development (Legalaid) Ltd as publisher
-- `LegalService` for Lawyery Limited, url `https://www.lawyery.co`, as provider of the paid legal work
-- `FAQPage` for the existing home page FAQ
-
-Duplicate and stale blocks in `index.html` get consolidated so there is one clean set.
-
-## 6. Sitemap and robots
-
-The sitemap lists `/`, `/detailed`, `/resources`, `/terms` — all real, all on the www host, none redirecting or missing. `/auth` is correctly absent and blocked in robots.txt. I will refresh the dates and otherwise leave both files alone.
-
-The non-www to www redirect is a hosting/DNS setting, not something in the code. Both `ukinnovator.online` and `www.ukinnovator.online` are attached to this project; `www` currently shows as not live. That needs finishing in the project's domain settings, and I will flag exactly what to check.
-
-## Technical notes
-
-- `src/components/NextStepBlock.tsx`: new presentational component, outcome variant driven by the score already computed; no scoring logic inside it.
-- Rendered in `IdeaEvaluator.tsx` and `DetailedAssessment.tsx` results sections.
-- `react-helmet-async` added; `HelmetProvider` in `src/main.tsx`; `SEOHead.tsx` rewritten to wrap `Helmet`; sitewide canonical removed from `index.html` so routes own theirs, while sitewide `og:*` stays as fallback.
+## Verification
+- Check all prohibited pricing is gone except the explicitly retained donation amounts.
+- Validate route rendering, unique metadata/canonicals, internal links, weakest-criterion links, sitemap coverage, desktop/mobile layout, and the production build/prerender output.
