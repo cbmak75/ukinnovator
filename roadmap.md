@@ -7,3 +7,4 @@
 - [x] Add and verify route-specific build-time prerendering
 - [x] Verify build, rendered routes, links and responsive layout
 - [x] Document current-hosting HTTP 404 limitation
+- [x] Replace criteria and research placeholders with supplied legal content
