@@ -97,6 +97,22 @@ const Index = () => {
                   ) : null}
                 </section>
 
+                <div className="flex flex-col gap-3" role="group" aria-label="Assessment options">
+                  <Button onClick={() => setShowApp(true)} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms} aria-label="Start quick UK Innovator Founder Visa assessment">
+                    Quick assessment
+                  </Button>
+                  <Button variant="outline" onClick={() => navigate('/detailed')} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms} aria-label="Start detailed UK Innovator Founder Visa assessment">
+                    Detailed assessment
+                  </Button>
+                </div>
+                
+                <p className="text-sm text-muted-foreground mt-4">
+                  Powered by advanced AI • No sign-up required
+                </p>
+              </CardContent>
+            </Card>
+          </section>
+          
           {/* Quick Answers Section for AI/Voice Search */}
           <section id="quick-answers" className="quick-answers max-w-4xl mx-auto py-8 mb-8" aria-labelledby="quick-answers-heading">
             <h2 id="quick-answers-heading" className="text-2xl font-bold text-foreground mb-6 text-center">Quick Answers: UK Innovator Founder Visa</h2>
@@ -128,22 +144,6 @@ const Index = () => {
             </div>
           </section>
 
-                <div className="flex flex-col gap-3" role="group" aria-label="Assessment options">
-                  <Button onClick={() => setShowApp(true)} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms} aria-label="Start quick UK Innovator Founder Visa assessment">
-                    Quick assessment
-                  </Button>
-                  <Button variant="outline" onClick={() => navigate('/detailed')} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms} aria-label="Start detailed UK Innovator Founder Visa assessment">
-                    Detailed assessment
-                  </Button>
-                </div>
-                
-                <p className="text-sm text-muted-foreground mt-4">
-                  Powered by advanced AI • No sign-up required
-                </p>
-              </CardContent>
-            </Card>
-          </section>
-          
           {/* FAQ Section */}
           <section id="faq" className="w-full max-w-4xl mx-auto px-4 py-16" aria-labelledby="faq-heading">
             <h2 id="faq-heading" className="text-3xl font-bold text-foreground mb-8 text-center">Test Your Business Idea with the UK Innovator Founder Visa Assessment Tool</h2>
