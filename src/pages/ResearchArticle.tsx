@@ -3,7 +3,9 @@ import SiteHeader from "@/components/SiteHeader";
 import SEOHead from "@/components/SEOHead";
 import ConsultationLinks from "@/components/ConsultationLinks";
 import AssessmentPrompt from "@/components/AssessmentPrompt";
+import MarkdownContent from "@/components/MarkdownContent";
 import { researchArticles } from "@/content/siteContent";
+import legalPageContent from "@/content/legalPageContent.json";
 
 const makeId = (heading: string) => heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
@@ -11,6 +13,8 @@ const ResearchArticle = ({ articleSlug }: { articleSlug?: string }) => {
   const params = useParams();
   const article = researchArticles.find((item) => item.slug === (articleSlug ?? params.slug));
   if (!article) return <Navigate to="/research" replace />;
+  const content = legalPageContent[`/research/${article.slug}`];
+  const sectionHeadings = content.match(/^### .+$/gm)?.map((heading) => heading.replace(/^### /, "")) ?? [];
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -40,17 +44,10 @@ const ResearchArticle = ({ articleSlug }: { articleSlug?: string }) => {
             <nav aria-label="Table of contents" className="my-10 border-y border-border py-6">
               <h2 className="text-xl font-semibold text-foreground">On this page</h2>
               <ol className="mt-3 grid gap-2 sm:grid-cols-2">
-                {article.sections.map((section, index) => <li key={section}><a href={`#${makeId(section)}`} className="text-primary hover:underline">{index + 1}. {section}</a></li>)}
+                {sectionHeadings.map((section, index) => <li key={section}><a href={`#${makeId(section)}`} className="text-primary hover:underline">{index + 1}. {section}</a></li>)}
               </ol>
             </nav>
-            <div className="space-y-12">
-              {article.sections.map((section) => (
-                <section key={section} id={makeId(section)} className="scroll-mt-8">
-                  <h2 className="text-3xl font-semibold text-foreground">{section}</h2>
-                  <p className="mt-4 rounded-md border-l-4 border-primary bg-card p-5 leading-relaxed">{`[CONTENT TO BE SUPPLIED BY CHRIS DIAS: researched legal analysis for the section “${section}”, including verified citations where appropriate]`}</p>
-                </section>
-              ))}
-            </div>
+            <MarkdownContent content={content} />
             <div className="mt-14"><AssessmentPrompt text="Try the assessment tool" /></div>
             <section className="mt-12" aria-labelledby="professional-help-heading"><h2 id="professional-help-heading" className="mb-5 text-3xl font-semibold text-foreground">Further information and professional help</h2><ConsultationLinks /></section>
           </article>
