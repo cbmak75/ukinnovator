@@ -147,7 +147,7 @@ const Index = () => {
           {/* FAQ Section */}
           <section id="faq" className="w-full max-w-4xl mx-auto px-4 py-16" aria-labelledby="faq-heading">
             <h2 id="faq-heading" className="text-3xl font-bold text-foreground mb-8 text-center">Test Your Business Idea with the UK Innovator Founder Visa Assessment Tool</h2>
-            <p className="text-center text-muted-foreground mb-8">Last updated: January 2026 • Content by Chris Dias, Founder of Legalaid Ltd & Specialist Immigration Solicitor at <a href="https://www.lawyery.co" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">Lawyery</a></p>
+            <p className="text-center text-muted-foreground mb-8">Last updated: 20 September 2026 • Content by Chris Dias, Founder of Legalaid Ltd & Specialist Immigration Solicitor at <a href="https://www.lawyery.co" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">Lawyery</a></p>
 
             <Accordion type="single" collapsible className="w-full space-y-4">
               <AccordionItem value="item-1" className="border rounded-lg px-6">

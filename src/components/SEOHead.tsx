@@ -26,6 +26,15 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 }) => {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const imageUrl = ogImage.startsWith("http") ? ogImage : `${BASE_URL}${ogImage}`;
+  const pageData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description,
+    url: canonicalUrl,
+    datePublished: "2026-09-20",
+    dateModified: "2026-09-20",
+  };
 
   return (
     <Helmet>
@@ -44,6 +53,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+
+      <script type="application/ld+json">{JSON.stringify(pageData)}</script>
 
       {structuredData && (
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>

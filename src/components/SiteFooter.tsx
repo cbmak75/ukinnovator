@@ -59,7 +59,7 @@ const SiteFooter = () => {
           
           <p className="mt-4 text-xs text-primary-foreground/60">
             Contact: <a href="mailto:info@lawyery.co" className="underline hover:no-underline">info@lawyery.co</a> • 
-            Last updated: January 2026
+            Last updated: 20 September 2026
           </p>
         </div>
       </div>

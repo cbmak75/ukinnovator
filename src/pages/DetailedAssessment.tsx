@@ -208,7 +208,7 @@ const DetailedAssessment = () => {
           <header className="mb-6" id="detailed-assessment-intro">
             <h1 className="text-3xl font-semibold text-foreground">Detailed UK Innovator Founder Visa Assessment</h1>
             <p className="text-muted-foreground mt-2">Provide a richer brief for a deeper evaluation, tailored to the Innovator Founder UK visa scheme. This in-depth assessment includes competitor research and personalised suggestions.</p>
-            <p className="text-sm text-muted-foreground mt-2">Last updated: January 2026 • Developed by Legalaid Ltd</p>
+            <p className="text-sm text-muted-foreground mt-2">Last updated: 20 September 2026 • Developed by Legalaid Ltd</p>
           </header>
         <div className="grid gap-6 md:grid-cols-2">
           <Card className="md:col-span-2">

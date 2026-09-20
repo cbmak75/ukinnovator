@@ -10,8 +10,8 @@ const Resources: React.FC = () => {
     "name": "UK Innovator Founder Visa Resources",
     "description": "Essential resources for UK Innovator Founder Visa applicants. Official requirements, endorsement body information, business plan guidance and application tips.",
     "url": "https://www.ukinnovator.online/resources",
-    "datePublished": "2024-01-01",
-    "dateModified": "2026-01-18",
+    "datePublished": "2026-09-20",
+    "dateModified": "2026-09-20",
     "author": {
       "@type": "Person",
       "name": "Chris Dias"
@@ -70,7 +70,7 @@ const Resources: React.FC = () => {
               and a brief description of its relevance, focusing on official guidance, endorsing bodies, and specified legal and advisory
               services. All information is accurate as of the latest available data and presented in UK English.
             </p>
-            <p className="text-sm text-muted-foreground mt-2">Last updated: January 2026 • Curated by Chris Dias, Legalaid Ltd</p>
+            <p className="text-sm text-muted-foreground mt-2">Last updated: 20 September 2026 • Curated by Chris Dias, Legalaid Ltd</p>
           </header>
 
         <section aria-labelledby="official-guidance" className="mb-10">
