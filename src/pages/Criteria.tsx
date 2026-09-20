@@ -3,7 +3,9 @@ import { ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SEOHead from "@/components/SEOHead";
 import AssessmentPrompt from "@/components/AssessmentPrompt";
+import MarkdownContent from "@/components/MarkdownContent";
 import { criteria } from "@/content/siteContent";
+import legalPageContent from "@/content/legalPageContent.json";
 
 const Criteria = () => (
   <>
@@ -17,6 +19,9 @@ const Criteria = () => (
           <h1 className="text-4xl font-bold text-foreground sm:text-5xl">The three Innovator Founder criteria explained</h1>
           <p className="mt-5 text-xl leading-relaxed text-muted-foreground">Use this hub to examine innovation, viability and scalability separately before testing how your business idea performs across all three.</p>
         </header>
+        <section className="mt-10 max-w-4xl" aria-label="How the criteria are assessed">
+          <MarkdownContent content={legalPageContent["/criteria"]} />
+        </section>
         <section className="mt-12 grid gap-5" aria-label="The three criteria">
           {criteria.map((criterion, index) => (
             <Link key={criterion.slug} to={`/${criterion.slug}`} className="group grid gap-4 border-t border-border py-7 sm:grid-cols-[4rem_1fr_auto] sm:items-center">
@@ -26,11 +31,7 @@ const Criteria = () => (
             </Link>
           ))}
         </section>
-        <section className="my-12">
-          <h2 className="text-3xl font-semibold text-foreground">How the criteria work together</h2>
-          <p className="mt-4 rounded-md border-l-4 border-primary bg-card p-5 leading-relaxed">{`[CONTENT TO BE SUPPLIED BY CHRIS DIAS: an explanation of how innovation, viability and scalability are considered together in the endorsement process]`}</p>
-        </section>
-        <AssessmentPrompt />
+        <div className="my-12"><AssessmentPrompt /></div>
       </main>
     </div>
   </>

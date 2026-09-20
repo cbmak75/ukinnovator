@@ -1,12 +1,11 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowRight, CheckCircle2, CircleAlert, Search } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SEOHead from "@/components/SEOHead";
 import AssessmentPrompt from "@/components/AssessmentPrompt";
-import { Card, CardContent } from "@/components/ui/card";
+import MarkdownContent from "@/components/MarkdownContent";
 import { criteria, type CriterionSlug } from "@/content/siteContent";
-
-const placeholder = (description: string) => `[CONTENT TO BE SUPPLIED BY CHRIS DIAS: ${description}]`;
+import legalPageContent from "@/content/legalPageContent.json";
 
 const CriterionPage = ({ criterionSlug }: { criterionSlug?: CriterionSlug }) => {
   const params = useParams();
@@ -15,6 +14,7 @@ const CriterionPage = ({ criterionSlug }: { criterionSlug?: CriterionSlug }) => 
   if (!criterion) return <Navigate to="/criteria" replace />;
 
   const otherCriteria = criteria.filter((item) => item.slug !== criterion.slug);
+  const pageContent = legalPageContent[`/${criterion.slug}`];
   const description = `${criterion.question} Explore a structured guide to the Innovator Founder ${criterion.label.toLowerCase()} criterion, common weaknesses and practical illustrations.`;
 
   return (
@@ -36,47 +36,7 @@ const CriterionPage = ({ criterionSlug }: { criterionSlug?: CriterionSlug }) => 
               <p className="mt-5 text-xl leading-relaxed text-muted-foreground">A structured guide for founders asking “{criterion.searchPhrase}?” and looking for Innovator Founder requirements explained clearly.</p>
             </header>
 
-            <section aria-labelledby="meaning-heading">
-              <h2 id="meaning-heading" className="text-3xl font-semibold text-foreground">What {criterion.label.toLowerCase()} means in practice</h2>
-              <p className="mt-4 rounded-md border-l-4 border-primary bg-card p-5 leading-relaxed text-foreground">{placeholder(criterion.explanation)}</p>
-            </section>
-
-            <section aria-labelledby="assessors-heading">
-              <div className="flex items-center gap-3"><Search className="h-6 w-6 text-primary" aria-hidden="true" /><h2 id="assessors-heading" className="text-3xl font-semibold text-foreground">What assessors are actually looking for</h2></div>
-              <p className="mt-4 rounded-md border-l-4 border-primary bg-card p-5 leading-relaxed text-foreground">{placeholder(criterion.assessorFocus)}</p>
-            </section>
-
-            <section aria-labelledby="failures-heading">
-              <div className="flex items-center gap-3"><CircleAlert className="h-6 w-6 text-destructive" aria-hidden="true" /><h2 id="failures-heading" className="text-3xl font-semibold text-foreground">Common reasons this criterion fails</h2></div>
-              <p className="mt-4 rounded-md border-l-4 border-destructive bg-card p-5 leading-relaxed text-foreground">{placeholder(criterion.failureReasons)}</p>
-            </section>
-
-            <section aria-labelledby="illustrations-heading">
-              <h2 id="illustrations-heading" className="text-3xl font-semibold text-foreground">Worked illustrations</h2>
-              <p className="mt-3 text-muted-foreground">These slots are reserved for generic, anonymised illustrations. They will not identify any person, company, applicant or client.</p>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                {[1, 2, 3, 4].map((number) => (
-                  <Card key={number}>
-                    <CardContent className="p-5">
-                      <h3 className="flex items-center gap-2 text-lg font-semibold"><CheckCircle2 className="h-5 w-5 text-primary" aria-hidden="true" />Illustration {number}: comparison</h3>
-                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{placeholder(`a generic worked illustration comparing an idea that demonstrates ${criterion.label.toLowerCase()} with one that does not`)}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
-
-            <section aria-labelledby="faq-heading">
-              <h2 id="faq-heading" className="text-3xl font-semibold text-foreground">Questions founders ask about {criterion.label.toLowerCase()}</h2>
-              <div className="mt-6 divide-y divide-border border-y border-border">
-                {criterion.relatedQuestions.map((question) => (
-                  <div key={question} className="py-5">
-                    <h3 className="text-xl font-semibold text-foreground">{question}</h3>
-                    <p className="mt-2 text-muted-foreground">{placeholder(`a concise answer to “${question}”`)}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <section aria-label={`${criterion.label} guidance`}><MarkdownContent content={pageContent} /></section>
 
             <AssessmentPrompt text={`Test your idea’s ${criterion.label.toLowerCase()}`} />
 
