@@ -42,37 +42,6 @@ const Index = () => {
         </div>
         
         <main className="flex-1 p-4" role="main">
-          {/* Quick Answers Section for AI/Voice Search */}
-          <section id="quick-answers" className="quick-answers max-w-4xl mx-auto py-8 mb-8" aria-labelledby="quick-answers-heading">
-            <h2 id="quick-answers-heading" className="text-2xl font-bold text-foreground mb-6 text-center">Quick Answers: UK Innovator Founder Visa</h2>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <article className="bg-card border rounded-lg p-4" id="qa-what-is-visa">
-                <h3 className="font-semibold text-foreground mb-2">What is the UK Innovator Founder Visa?</h3>
-                <p className="text-sm text-muted-foreground faq-answer">The UK Innovator Founder Visa is for experienced entrepreneurs who want to establish an innovative, scalable, and viable business in the UK. It requires endorsement from an approved body and offers a path to settlement after 3 years.</p>
-              </article>
-              <article className="bg-card border rounded-lg p-4" id="qa-criteria-guide">
-                <h3 className="font-semibold text-foreground mb-2">Where can I learn about the three criteria?</h3>
-                <p className="text-sm text-muted-foreground faq-answer">Start with our <Link to="/criteria" className="text-primary hover:underline">three criteria guide</Link>, then explore the separate pages about innovation, viability and scalability.</p>
-              </article>
-              <article className="bg-card border rounded-lg p-4" id="qa-endorsing-body">
-                <h3 className="font-semibold text-foreground mb-2">What is an endorsing body?</h3>
-                <p className="text-sm text-muted-foreground faq-answer">An endorsing body is a Home Office-approved organisation that assesses and endorses business ideas. They evaluate innovation, scalability, and viability. Active bodies include UK Endorsing Services, Innovator International, Envestors, and the Global Entrepreneurs Programme.</p>
-              </article>
-              <article className="bg-card border rounded-lg p-4" id="qa-visa-duration">
-                <h3 className="font-semibold text-foreground mb-2">How long does the visa last?</h3>
-                <p className="text-sm text-muted-foreground faq-answer">The initial visa is granted for 3 years. You can apply for Indefinite Leave to Remain (settlement) after 3 years if your business continues to meet endorsement criteria.</p>
-              </article>
-              <article className="bg-card border rounded-lg p-4" id="qa-three-criteria">
-                <h3 className="font-semibold text-foreground mb-2">What are the 3 visa criteria?</h3>
-                <p className="text-sm text-muted-foreground faq-answer"><strong>Innovation:</strong> New/different market offering. <strong>Scalability:</strong> Growth and job creation potential. <strong>Viability:</strong> Realistic business model with market demand.</p>
-              </article>
-              <article className="bg-card border rounded-lg p-4" id="qa-tool-free">
-                <h3 className="font-semibold text-foreground mb-2">Is this assessment tool free?</h3>
-                <p className="text-sm text-muted-foreground faq-answer">Yes, completely free. We offer both quick and detailed assessments at no cost. No signup required. Developed by Legalaid Ltd.</p>
-              </article>
-            </div>
-          </section>
-
           {/* Main Assessment Card */}
           <section id="assessment-tool" className="max-w-2xl mx-auto" aria-labelledby="main-heading">
             <Card className="w-full text-center">
@@ -127,6 +96,37 @@ const Index = () => {
                     <p className="text-sm text-warning-foreground/80" role="alert">Please confirm you are over 18 and agree to the Terms to continue.</p>
                   ) : null}
                 </section>
+
+          {/* Quick Answers Section for AI/Voice Search */}
+          <section id="quick-answers" className="quick-answers max-w-4xl mx-auto py-8 mb-8" aria-labelledby="quick-answers-heading">
+            <h2 id="quick-answers-heading" className="text-2xl font-bold text-foreground mb-6 text-center">Quick Answers: UK Innovator Founder Visa</h2>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <article className="bg-card border rounded-lg p-4" id="qa-what-is-visa">
+                <h3 className="font-semibold text-foreground mb-2">What is the UK Innovator Founder Visa?</h3>
+                <p className="text-sm text-muted-foreground faq-answer">The UK Innovator Founder Visa is for experienced entrepreneurs who want to establish an innovative, scalable, and viable business in the UK. It requires endorsement from an approved body and offers a path to settlement after 3 years.</p>
+              </article>
+              <article className="bg-card border rounded-lg p-4" id="qa-criteria-guide">
+                <h3 className="font-semibold text-foreground mb-2">Where can I learn about the three criteria?</h3>
+                <p className="text-sm text-muted-foreground faq-answer">Start with our <Link to="/criteria" className="text-primary hover:underline">three criteria guide</Link>, then explore the separate pages about innovation, viability and scalability.</p>
+              </article>
+              <article className="bg-card border rounded-lg p-4" id="qa-endorsing-body">
+                <h3 className="font-semibold text-foreground mb-2">What is an endorsing body?</h3>
+                <p className="text-sm text-muted-foreground faq-answer">An endorsing body is a Home Office-approved organisation that assesses and endorses business ideas. They evaluate innovation, scalability, and viability. Active bodies include UK Endorsing Services, Innovator International, Envestors, and the Global Entrepreneurs Programme.</p>
+              </article>
+              <article className="bg-card border rounded-lg p-4" id="qa-visa-duration">
+                <h3 className="font-semibold text-foreground mb-2">How long does the visa last?</h3>
+                <p className="text-sm text-muted-foreground faq-answer">The initial visa is granted for 3 years. You can apply for Indefinite Leave to Remain (settlement) after 3 years if your business continues to meet endorsement criteria.</p>
+              </article>
+              <article className="bg-card border rounded-lg p-4" id="qa-three-criteria">
+                <h3 className="font-semibold text-foreground mb-2">What are the 3 visa criteria?</h3>
+                <p className="text-sm text-muted-foreground faq-answer"><strong>Innovation:</strong> New/different market offering. <strong>Scalability:</strong> Growth and job creation potential. <strong>Viability:</strong> Realistic business model with market demand.</p>
+              </article>
+              <article className="bg-card border rounded-lg p-4" id="qa-tool-free">
+                <h3 className="font-semibold text-foreground mb-2">Is this assessment tool free?</h3>
+                <p className="text-sm text-muted-foreground faq-answer">Yes, completely free. We offer both quick and detailed assessments at no cost. No signup required. Developed by Legalaid Ltd.</p>
+              </article>
+            </div>
+          </section>
 
                 <div className="flex flex-col gap-3" role="group" aria-label="Assessment options">
                   <Button onClick={() => setShowApp(true)} size="lg" className="w-full" disabled={!isOver18 || !agreeToTerms} aria-label="Start quick UK Innovator Founder Visa assessment">
