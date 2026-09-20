@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import ConsultationLinks from "@/components/ConsultationLinks";
 import AssessmentPrompt from "@/components/AssessmentPrompt";
 import MarkdownContent from "@/components/MarkdownContent";
+import SourcesBlock from "@/components/SourcesBlock";
 import { researchArticles } from "@/content/siteContent";
 import legalPageContent from "@/content/legalPageContent.json";
 
@@ -14,7 +15,8 @@ const ResearchArticle = ({ articleSlug }: { articleSlug?: string }) => {
   const article = researchArticles.find((item) => item.slug === (articleSlug ?? params.slug));
   if (!article) return <Navigate to="/research" replace />;
   const content = legalPageContent[`/research/${article.slug}`];
-  const sectionHeadings = content.match(/^### .+$/gm)?.map((heading) => heading.replace(/^### /, "")) ?? [];
+  const sectionHeadings = content.match(/^#{2,3} .+$/gm)?.map((heading) => heading.replace(/^#{2,3} /, "")) ?? [];
+  const showsSources = article.slug === "endorsement-assessment-process" || article.slug === "immigration-rules-and-guidance";
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -48,6 +50,7 @@ const ResearchArticle = ({ articleSlug }: { articleSlug?: string }) => {
               </ol>
             </nav>
             <MarkdownContent content={content} />
+            {showsSources && <SourcesBlock />}
             <div className="mt-14"><AssessmentPrompt text="Try the assessment tool" /></div>
             <section className="mt-12" aria-labelledby="professional-help-heading"><h2 id="professional-help-heading" className="mb-5 text-3xl font-semibold text-foreground">Further information and professional help</h2><ConsultationLinks /></section>
           </article>

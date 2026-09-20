@@ -4,6 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SEOHead from "@/components/SEOHead";
 import AssessmentPrompt from "@/components/AssessmentPrompt";
 import MarkdownContent from "@/components/MarkdownContent";
+import SourcesBlock from "@/components/SourcesBlock";
 import { criteria } from "@/content/siteContent";
 import legalPageContent from "@/content/legalPageContent.json";
 
@@ -21,6 +22,7 @@ const Criteria = () => (
         </header>
         <section className="mt-10 max-w-4xl" aria-label="How the criteria are assessed">
           <MarkdownContent content={legalPageContent["/criteria"]} />
+          <SourcesBlock />
         </section>
         <section className="mt-12 grid gap-5" aria-label="The three criteria">
           {criteria.map((criterion, index) => (
